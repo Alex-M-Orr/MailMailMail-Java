@@ -1,9 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
-Built-By: Robert
-=======
 Built-By: enocho
->>>>>>> c91587bfc6c42352776fb2a8bd8a9cf859396cd7
 Build-Jdk: 14.0.2
 Created-By: Maven Integration for Eclipse
 

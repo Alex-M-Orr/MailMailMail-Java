@@ -7,7 +7,11 @@
 	<session-factory>
 		<property name="hibernate.connection.username">mailmailmail</property>
 		<property name="hibernate.connection.password">mailMeSenpai!</property>
+<<<<<<< HEAD
 		<property name="hibernate.connection.url">jdbc:postgresql://orr-revature.ce4gqsgkvzew.us-east-2.rds.amazonaws.com:5432/m3db</property>
+=======
+		<property name="hibernate.connection.url">jdbc:postgresql://orr-revature.ce4gqsgkvzew.us-east-2.rds.amazonaws.com:5432/m3db?currentSchema=public</property>
+>>>>>>> c91587bfc6c42352776fb2a8bd8a9cf859396cd7
 		<property name="hibernate.connection.driver.class">org.postgresql.Driver</property>
 		<property name="hibernate.default_schema">public</property> <!-- optional, can use instead of appending to url; is public by default -->
 		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property> <!--  hibernate should detect this automatically, but good to add -->
