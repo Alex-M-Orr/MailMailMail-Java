@@ -5,9 +5,9 @@
 <hibernate-configuration>
 
 	<session-factory>
-		<property name="hibernate.connection.username"></property>
-		<property name="hibernate.connection.password"></property>
-		<property name="hibernate.connection.url">		</property>
+		<property name="hibernate.connection.username">mailmailmail</property>
+		<property name="hibernate.connection.password">mailMeSenpai!</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://orr-revature.ce4gqsgkvzew.us-east-2.rds.amazonaws.com:5432/m3db?currentSchema=public</property>
 		<property name="hibernate.connection.driver.class">org.postgresql.Driver</property>
 		<property name="hibernate.default_schema"></property> <!-- optional, can use instead of appending to url; is public by default -->
 		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property> <!--  hibernate should detect this automatically, but good to add -->
