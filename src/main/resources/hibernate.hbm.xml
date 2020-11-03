@@ -2,11 +2,12 @@
 	"-//Hibernate/Hibernate Mapping DTD 3.0/EN"
 	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
 	
-<hibernate-mapping package="com.example.model">
+<hibernate-mapping package="com.m3.model">
 	<class name="User">
 		<id name="id" type="int" column="user_id">
 			<generator class="native"></generator> <!-- tells postgres to use native self incrementing id -->
 		</id>
+	
 		<property name="username" type="string">
 			<column name="username" not-null="true" unique="true" />
 		</property>
@@ -19,11 +20,11 @@
 		<property name="lastName" type="string">
 			<column name="lastName" not-null="true"/>
 		</property>
-		<property name="dateJoined" type="string">
-			<column name="dateJoined" not-null="true"  />
+		<property name="dateJoined" type="string" insert="false" update="false">
+			<column name="dateJoined"  />
 		</property>
 		<property name="photo" type="string">
-			<column name="dateJoined" not-null="true"  />
+			<column name="photo" not-null="true"  />
 		</property>
 		
 	</class>

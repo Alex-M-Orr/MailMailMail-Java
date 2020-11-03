@@ -23,6 +23,22 @@ public class User {
 		this.photo = photo;
 	}
 
+	public User(String username, String password, String firstName, String lastName, LocalDateTime dateJoined,
+			String photo) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dateJoined = dateJoined;
+		this.photo = photo;
+	}
+
+	public User() {
+		super();
+
+	}
+
 	public int getId() {
 		return id;
 	}
