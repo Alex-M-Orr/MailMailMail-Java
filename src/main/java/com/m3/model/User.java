@@ -3,7 +3,7 @@ package com.m3.model;
 import java.time.LocalDateTime;
 
 public class User {
-	private int userId;
+	private int id;
 	private String username;
 	private String password;
 	private String firstName;
@@ -11,10 +11,10 @@ public class User {
 	private LocalDateTime dateJoined;
 	private String photo;
 
-	public User(int userId, String username, String password, String firstName, String lastName,
-			LocalDateTime dateJoined, String photo) {
+	public User(int id, String username, String password, String firstName, String lastName, LocalDateTime dateJoined,
+			String photo) {
 		super();
-		this.userId = userId;
+		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
@@ -23,12 +23,12 @@ public class User {
 		this.photo = photo;
 	}
 
-	public int getUserId() {
-		return userId;
+	public int getId() {
+		return id;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getUsername() {
