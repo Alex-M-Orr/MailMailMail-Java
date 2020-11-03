@@ -2,19 +2,33 @@
 	"-//Hibernate/Hibernate Mapping DTD 3.0/EN"
 	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
 	
-<hibernate-mapping package="com.example.model">
-	<class name="Turkey">
-	<!-- primary key -->
-		<id name="id" type="int" column="t_id">
+<hibernate-mapping package="com.m3.model">
+	<class name="User">
+		<id name="id" type="int" column="user_id">
 			<generator class="native"></generator> <!-- tells postgres to use native self incrementing id -->
 		</id>
-		
-		<!-- properties -->
-		<property name="name" type="string">
-			<column name="t_name" not-null="true" unique="true" />
+	
+		<property name="username" type="string">
+			<column name="username" not-null="true" unique="true" />
 		</property>
-		<property name="beardLength" type="double" column="t_beard" />
-		<property name="cooked" type="boolean" />
+		<property name="password" type="string">
+			<column name="password" not-null="true" />
+		</property>
+		<property name="firstName" type="string">
+			<column name="firstName" not-null="true"/>
+		</property>
+		<property name="lastName" type="string">
+			<column name="lastName" not-null="true"/>
+		</property>
+		<property name="dateJoined" type="string" insert="false" update="false">
+			<column name="dateJoined"  />
+		</property>
+		<property name="photo" type="string">
+			<column name="photo" not-null="true"  />
+		</property>
 		
 	</class>
+	
+	
+
 </hibernate-mapping>
