@@ -3,7 +3,6 @@ package com.m3.model;
 import java.time.LocalDateTime;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -43,9 +42,12 @@ public class User {
 	@OneToMany(mappedBy = "like")
 	private Set<Like> likes;
 
-	@ManyToMany(cascade = { CascadeType.ALL })
-	@JoinTable(name = "friendship", joinColumns = { @JoinColumn(name = "sender_id") }, inverseJoinColumn = {
-			@JoinColumn(name = "reciever_id") })
+	@ManyToMany
+	Set<User> friends;
+
+	@ManyToMany
+	@JoinTable(name = "friendship", joinColumns = @JoinColumn(name = "sender_id"), inverseJoinColumns = @JoinColumn(name = "reciever_id"))
+	Set<User> friendship;
 
 	public User(int id, String username, String password, String firstName, String lastName, LocalDateTime dateJoined,
 			String photo) {

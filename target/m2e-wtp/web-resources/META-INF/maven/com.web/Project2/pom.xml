@@ -24,11 +24,6 @@
     <version>5.4.22.Final</version>
 </dependency>
   
-<<<<<<< HEAD
-  
-  
-  </dependencies>
-=======
   <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
   	<!-- Provides the IOC Container -->
 	<dependency>
@@ -133,5 +128,4 @@
 		</plugins>
 	</build>
 
->>>>>>> 0ffae7f127480d4df336f493aa8b96419c91a7fa
 </project>
