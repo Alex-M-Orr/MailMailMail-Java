@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.m3.model.Post;
 import com.m3.util.HibernateUtil;
+
 @Repository
 public class PostDao implements DaoContract<Post, Integer>{
 
