@@ -2,24 +2,47 @@ package com.m3.model;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Comment {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String content;;
-	private int postId;
-	private int author;
+	
+	@Column
+	private String content;
+	
+	@ManyToOne
+	@JoinColumn(name="postId", referencedColumnName="id")
+	private Post post;
+	
+	@ManyToOne
+	@JoinColumn(name="authorId", referencedColumnName = "id")
+	private User author;
+	
+	@Column
 	private LocalDateTime dateCreated;
-	public Comment(int id, String content, int postId, int author, LocalDateTime dateCreated) {
+	
+	public Comment(int id, String content, Post post, User author, LocalDateTime dateCreated) {
 		super();
 		this.id = id;
 		this.content = content;
-		this.postId = postId;
+		this.post = post;
 		this.author = author;
 		this.dateCreated = dateCreated;
 	}
-	public Comment(String content, int postId, int author, LocalDateTime dateCreated) {
+	public Comment(String content, Post post, User author, LocalDateTime dateCreated) {
 		super();
 		this.content = content;
-		this.postId = postId;
+		this.post = post;
 		this.author = author;
 		this.dateCreated = dateCreated;
 	}
@@ -38,16 +61,16 @@ public class Comment {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public int getPostId() {
-		return postId;
+	public Post getPost() {
+		return post;
 	}
-	public void setPostId(int postId) {
-		this.postId = postId;
+	public void setPost(Post post) {
+		this.post = post;
 	}
-	public int getAuthor() {
+	public User getAuthor() {
 		return author;
 	}
-	public void setAuthor(int author) {
+	public void setAuthor(User author) {
 		this.author = author;
 	}
 	public LocalDateTime getDateCreated() {
@@ -58,7 +81,7 @@ public class Comment {
 	}
 	@Override
 	public String toString() {
-		return "Comment [id=" + id + ", content=" + content + ", postId=" + postId + ", author=" + author
+		return "Comment [id=" + id + ", content=" + content + ", post=" + post + ", author=" + author
 				+ ", dateCreated=" + dateCreated + "]";
 	}
 	
