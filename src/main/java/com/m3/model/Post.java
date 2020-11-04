@@ -2,26 +2,44 @@ package com.m3.model;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Post {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	@Column(nullable = false)
 	private String content;
-	private int author;
+	@ManyToOne
+	@JoinColumn(name = "user_id", referencedColumnName = "id")
+	private User author;
+	@Column(nullable = false)
 	private LocalDateTime dateCreated;
-	public Post(int id, String content, int author, LocalDateTime dateCreated) {
+	public Post() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Post(int id, String content, User author, LocalDateTime dateCreated) {
 		super();
 		this.id = id;
 		this.content = content;
 		this.author = author;
 		this.dateCreated = dateCreated;
 	}
-	public Post(String content, int author, LocalDateTime dateCreated) {
+	public Post(String content, User author, LocalDateTime dateCreated) {
 		super();
 		this.content = content;
 		this.author = author;
 		this.dateCreated = dateCreated;
-	}
-	public Post() {
-		super();
 	}
 	public int getId() {
 		return id;
@@ -35,10 +53,10 @@ public class Post {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public int getAuthor() {
+	public User getAuthor() {
 		return author;
 	}
-	public void setAuthor(int author) {
+	public void setAuthor(User author) {
 		this.author = author;
 	}
 	public LocalDateTime getDateCreated() {
@@ -51,6 +69,7 @@ public class Post {
 	public String toString() {
 		return "Post [id=" + id + ", content=" + content + ", author=" + author + ", dateCreated=" + dateCreated + "]";
 	}
+	
 	
 	
 }
