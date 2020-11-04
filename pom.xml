@@ -3,7 +3,11 @@
   <groupId>com.web</groupId>
   <artifactId>Project2</artifactId>
   <version>1.0.0</version>
+<<<<<<< HEAD
   
+=======
+  <packaging>war</packaging>
+>>>>>>> fa3ba1c9cd08708e9ef2a8e5c43a9a054917c6b8
   <properties>
   	<maven.compiler.target>1.8</maven.compiler.target>
   	<maven.compiler.source>1.8</maven.compiler.source>
