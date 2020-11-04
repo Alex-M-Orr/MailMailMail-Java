@@ -13,12 +13,12 @@ public class Friendship {
 
 	@ManyToOne
 	@MapsId("senderId")
-	@JoinColumn(name = "sender_id")
+	@JoinColumn(name = "senderId")
 	User sender;
 
 	@ManyToOne
-	@MapsId("senderId")
-	@JoinColumn(name = "sender_id")
+	@MapsId("receiverId")
+	@JoinColumn(name = "receiverId")
 	User receiver;
 
 	private boolean accepted;
