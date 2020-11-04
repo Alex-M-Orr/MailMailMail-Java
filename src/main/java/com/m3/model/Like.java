@@ -41,6 +41,18 @@ public class Like {
 		this.dateCreated = dateCreated;
 	}
 
+	public Like(Post post, Comment comment, User author, LocalDateTime dateCreated) {
+		super();
+		this.post = post;
+		this.comment = comment;
+		this.author = author;
+		this.dateCreated = dateCreated;
+	}
+	
+	public Like() {
+		super();
+	}
+
 	public int getId() {
 		return id;
 	}
