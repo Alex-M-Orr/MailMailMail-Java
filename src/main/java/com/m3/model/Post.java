@@ -16,29 +16,34 @@ public class Post {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(nullable = false)
+	@Column
 	private String content;
+	@Column
+	private String photo;
 	@ManyToOne
 	@JoinColumn(name = "user_id", referencedColumnName = "id")
 	private User author;
 	@Column(nullable = false)
 	private LocalDateTime dateCreated;
-	public Post() {
+
+	public Post(String content, String photo, User author, LocalDateTime dateCreated) {
 		super();
-		// TODO Auto-generated constructor stub
+		this.content = content;
+		this.photo = photo;
+		this.author = author;
+		this.dateCreated = dateCreated;
 	}
-	public Post(int id, String content, User author, LocalDateTime dateCreated) {
+	public Post(int id, String content, String photo, User author, LocalDateTime dateCreated) {
 		super();
 		this.id = id;
 		this.content = content;
+		this.photo = photo;
 		this.author = author;
 		this.dateCreated = dateCreated;
 	}
-	public Post(String content, User author, LocalDateTime dateCreated) {
+	public Post() {
 		super();
-		this.content = content;
-		this.author = author;
-		this.dateCreated = dateCreated;
+		// TODO Auto-generated constructor stub
 	}
 	public int getId() {
 		return id;
@@ -63,6 +68,13 @@ public class Post {
 	}
 	public void setDateCreated(LocalDateTime dateCreated) {
 		this.dateCreated = dateCreated;
+	}
+	
+	public String getPhoto() {
+		return photo;
+	}
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 	@Override
 	public String toString() {
