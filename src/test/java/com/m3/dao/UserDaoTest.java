@@ -15,6 +15,5 @@ public class UserDaoTest {
 	@Test
 	public void successTest() {
 		assertFalse(false);
-	}
-	
+	}	
 }
