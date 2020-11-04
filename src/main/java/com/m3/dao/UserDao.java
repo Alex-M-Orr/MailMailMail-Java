@@ -20,8 +20,9 @@ public class UserDao implements DaoContract<User, Integer> {
 
 	@Override
 	public User findById(Integer i) {
-		// TODO Auto-generated method stub
-		return null;
+		Session sess = HibernateUtil.getSessionFactory().openSession();
+		User u = sess.get(User.class, i);
+		return u;
 	}
 
 	@Override

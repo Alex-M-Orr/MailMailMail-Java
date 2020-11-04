@@ -39,14 +39,6 @@ public class User {
 	@OneToMany(mappedBy = "like")
 	private Set<Like> likes;
 
-//	private int id;
-//	private String username;
-//	private String password;
-//	private String firstName;
-//	private String lastName;
-//	private LocalDateTime dateJoined;
-//	private String photo;
-//
 	public User(int id, String username, String password, String firstName, String lastName, LocalDateTime dateJoined,
 			String photo) {
 		super();
