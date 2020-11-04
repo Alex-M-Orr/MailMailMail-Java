@@ -5,10 +5,12 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.stereotype.Repository;
 
 import com.m3.model.User;
 import com.m3.util.HibernateUtil;
 
+@Repository
 public class UserDao implements DaoContract<User, Integer> {
 
 	@Override
