@@ -48,14 +48,6 @@ public class UserDaoTest {
 		System.out.println(u.toString());
 		assertTrue(u != null);
 	}
-//	@Test
-//	@Transactional(rollbackOn=Exception.class)
-//	public void saveTest() throws runTimeException {
-//		User u = new User("tester1@email.com", "test", "Alex", "Orr", LocalDateTime.now(), "newphoto");
-//		ud.save(u);
-//		assertNotNull(u);
-//		throw runTimeException;
-//	}
 	
 	
 }

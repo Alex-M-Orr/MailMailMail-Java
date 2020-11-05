@@ -2,7 +2,6 @@ package com.m3.example;
 
 import java.time.LocalDateTime;
 
-<<<<<<< HEAD
 import com.m3.dao.CommentDao;
 import com.m3.dao.LikeDao;
 import com.m3.dao.PostDao;
@@ -10,11 +9,8 @@ import com.m3.dao.UserDao;
 import com.m3.model.Comment;
 import com.m3.model.Like;
 import com.m3.model.Post;
-=======
 import com.m3.dao.FriendshipDao;
-import com.m3.dao.UserDao;
 import com.m3.model.Friendship;
->>>>>>> 94bd07dea791de20bd49f497f14e88d2bcb06f53
 import com.m3.model.User;
 
 public class Driver {
@@ -30,9 +26,7 @@ public class Driver {
 
 		ud.save(u1);
 		ud.save(u2);
-		ud.save(u3);
-<<<<<<< HEAD
-		
+		ud.save(u3);		
 		
 		System.out.println(ud.findAll());
 		/******************Post Setup********************/
@@ -60,21 +54,5 @@ public class Driver {
 		cd.save(c2);
 		
 		System.out.println(cd.findAll());
-	}
-=======
-
-		User u4 = new User(0, "jordan.d.hunnicutt@gmail.com", "dummyJordan2", "Jordan", "Hunnicutt", lt, "photo path",
-				null, null, null);
-		Friendship f1 = new Friendship();
-		f1.setSender(u4);
-		f1.setreceiver(ud.findById(3));
-		f1.setAccepted(true);
->>>>>>> 94bd07dea791de20bd49f497f14e88d2bcb06f53
-
-		ud.save(u4);
-		fd.save(f1);
-
-		System.out.println(ud.findAll());
-		System.out.println(fd.findAll());
 	}
 }
