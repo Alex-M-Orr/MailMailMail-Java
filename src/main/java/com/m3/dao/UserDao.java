@@ -48,9 +48,9 @@ public class UserDao implements DaoContract<User, Integer> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	public User findByEmail(String email) {
+	public User findByEmail(String email) {		
 		Session sess = HibernateUtil.getSessionFactory().openSession();
-		User u = sess.get(User.class, email);
+		User u = sess.createNativeQuery("select * from \"user\" where email = '" +email+"'", User.class).list().get(0);
 		return u;
 	}
 

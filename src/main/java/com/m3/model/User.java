@@ -65,6 +65,17 @@ public class User {
 	}
 
 	public User(String email, String password, String firstName, String lastName, LocalDateTime dateJoined,
+			String photo) {
+		super();
+		this.email = email;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dateJoined = dateJoined;
+		this.photo = photo;
+	}
+
+	public User(String email, String password, String firstName, String lastName, LocalDateTime dateJoined,
 			String photo, Set<Post> posts, Set<Comment> comments, Set<Like> likes) {
 		super();
 		this.email = email;
