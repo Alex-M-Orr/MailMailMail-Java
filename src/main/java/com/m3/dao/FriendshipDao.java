@@ -2,6 +2,8 @@ package com.m3.dao;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -11,6 +13,7 @@ import com.m3.model.Friendship;
 import com.m3.util.HibernateUtil;
 
 @Repository
+@Transactional
 public class FriendshipDao implements DaoContract<Friendship, Integer>{
 
 	@Override
