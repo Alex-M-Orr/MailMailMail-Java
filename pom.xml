@@ -1,0 +1,132 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.web</groupId>
+  <artifactId>Project2</artifactId>
+  <version>1.0.0</version>  
+  <packaging>war</packaging>
+
+  <properties>
+  	<maven.compiler.target>1.8</maven.compiler.target>
+  	<maven.compiler.source>1.8</maven.compiler.source>
+  </properties>
+    <dependencies>
+  
+  <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+<dependency>
+    <groupId>org.postgresql</groupId>
+    <artifactId>postgresql</artifactId>
+    <version>42.2.18</version>
+</dependency>
+  
+  <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-core</artifactId>
+    <version>5.4.22.Final</version>
+</dependency>
+  
+  <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+  	<!-- Provides the IOC Container -->
+	<dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-core</artifactId>
+    	<version>5.3.0</version>
+	</dependency>
+  	
+  	<!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
+  	<!-- Provides the BeanFactory, dependency injection features -->
+	<dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-beans</artifactId>
+    	<version>5.3.0</version>
+	</dependency>
+  	
+  	<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+  	<!-- Provides package scanning and annotations -->
+	<dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-context</artifactId>
+    	<version>5.3.0</version>
+	</dependency>
+  	
+  	<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+	<dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-webmvc</artifactId>
+    	<version>5.3.0</version>
+	</dependency>
+  	
+  	<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+	<dependency>
+    	<groupId>com.fasterxml.jackson.core</groupId>
+    	<artifactId>jackson-databind</artifactId>
+    	<version>2.11.2</version>
+	</dependency>
+  
+  <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+	<dependency>
+    	<groupId>org.apache.logging.log4j</groupId>
+    	<artifactId>log4j-core</artifactId>
+    	<version>2.13.3</version>
+	</dependency>
+	
+	<dependency>
+    	<groupId>org.apache.logging.log4j</groupId>
+    	<artifactId>log4j-api</artifactId>
+    	<version>2.13.3</version>
+  </dependency>
+  
+    <!-- https://mvnrepository.com/artifact/junit/junit -->
+	<dependency>
+    	<groupId>junit</groupId>
+   		<artifactId>junit</artifactId>
+   		<version>4.13</version>
+    	<scope>test</scope><!-- this tells maven what the dependency will be used for. We can only use junit jars in a test directory -->
+	</dependency>
+  
+  </dependencies>
+
+<build>
+		<plugins>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.1</version>
+				<configuration>
+				<excludes>
+					<exclude>**/com/m3/model/*</exclude>
+				</excludes>				
+				</configuration>
+				<executions>
+					<execution>
+						<id>prepare-agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>post-unit-test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+						<configuration>
+							<!-- Sets the path to the file which contains the execution data. -->
+							<dataFile>target/jacoco.exec</dataFile>
+							<!-- Sets the output directory for the code coverage report. -->
+							<outputDirectory>target/my-reports</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
