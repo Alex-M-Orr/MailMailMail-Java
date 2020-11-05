@@ -83,7 +83,26 @@
    		<version>4.13</version>
     	<scope>test</scope><!-- this tells maven what the dependency will be used for. We can only use junit jars in a test directory -->
 	</dependency>
-  
+  <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.iherasymenko</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>2.3.4.2.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.200</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>6.0.0.Alpha6</version>
+        </dependency>
   </dependencies>
 
 <build>
