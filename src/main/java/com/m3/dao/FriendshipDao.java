@@ -11,24 +11,46 @@ import com.m3.model.Friendship;
 import com.m3.util.HibernateUtil;
 
 @Repository
-public class FriendshipDao implements DaoContract<Friendship, Integer> {
+public class FriendshipDao implements DaoContract<Friendship, Integer>{
 
 	@Override
 	public List<Friendship> findAll() {
-		List<Friendship> list = HibernateUtil.getSessionFactory().openSession()
-				.createQuery("from Friendship", Friendship.class).list();
+		List<Friendship>list = HibernateUtil.getSessionFactory().openSession().createQuery("from Friendship", Friendship.class).list();
 		return list;
 	}
 
 	@Override
 	public Friendship findById(Integer i) {
-		// TODO Auto-generated method stub
+		Friendship f = HibernateUtil.getSessionFactory()
+				.openSession()
+				.createQuery("from Friendship where senderId ="+i, Friendship.class)
+				.list().get(0);
+		Friendship f2 = HibernateUtil.getSessionFactory()
+				.openSession()
+				.createQuery("from Friendship where receiverId ="+i, Friendship.class)
+				.list().get(0);
+		try {
+			boolean b = f.equals(null);
+			return f;
+		} catch(NullPointerException e) {
+			try {
+				boolean b2 = f2.equals(null);
+				return f2;
+			} catch(NullPointerException e2) {
+				
+			}
+		}
 		return null;
 	}
-
+	
+	
 	@Override
 	public Friendship update(Friendship t) {
-		// TODO Auto-generated method stub
+		SessionFactory sesfact = HibernateUtil.getSessionFactory();
+		Session sess = sesfact.openSession();
+		Transaction tx = sess.beginTransaction();
+		sess.update(t);
+		tx.commit();
 		return null;
 	}
 
