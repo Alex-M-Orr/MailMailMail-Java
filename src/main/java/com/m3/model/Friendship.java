@@ -3,13 +3,16 @@ package com.m3.model;
 import java.time.LocalDateTime;
 
 import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 
+@Entity
 public class Friendship {
 	@EmbeddedId
-	FriendshipKey id;
+	public FriendshipKey id;
 
 	@ManyToOne
 	@MapsId("senderId")
@@ -64,4 +67,6 @@ public class Friendship {
 		this.date = date;
 	}
 
+	
+	
 }
