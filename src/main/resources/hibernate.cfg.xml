@@ -18,8 +18,17 @@
 		<property name="hibernate.connection.show_sql">true</property> <!-- if hibernate should print sql queries to console/log file (good for development) -->
 		<property name="hibernate.connection.format_sql">true</property> <!-- this is an option for if you want hibernate to prettify the sql -->
 		<property name="hibernate.connection.pool_size">10</property> <!-- connection pool size for hibernate -->
-		<property name="hibernate.hbm2ddl.auto">create</property>
-		<mapping resource="hibernate.hbm.xml" /> <!-- might go here if not specified. Again, good to put in no matter what -->		
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		
+		<mapping class="com.m3.model.User"/>
+		<mapping class="com.m3.model.Comment"/>
+		<mapping class="com.m3.model.Friendship"/>
+		<mapping class="com.m3.model.FriendshipKey"/>
+		<mapping class="com.m3.model.Like"/>
+		<mapping class="com.m3.model.Post"/>
+		
+		
 	</session-factory>
 
 </hibernate-configuration>
+
