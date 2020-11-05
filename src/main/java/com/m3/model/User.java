@@ -1,13 +1,18 @@
 package com.m3.model;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -39,6 +44,7 @@ public class User {
 	@OneToMany(mappedBy = "id")
 	private Set<Like> likes;
 
+<<<<<<< HEAD
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -169,5 +175,16 @@ public class User {
 //	private String photo;
 	
 	
+=======
+	@ManyToMany(mappedBy = "friends", cascade = CascadeType.ALL)
+	@JoinTable(name = "Friendship", joinColumns = { @JoinColumn(name = "senderId") }, inverseJoinColumns = {
+			@JoinColumn(name = "receiverID") })
+	private Set<User> friends = new HashSet<User>();
+
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "Friendship", joinColumns = { @JoinColumn(name = "receiverId") }, inverseJoinColumns = {
+			@JoinColumn(name = "senderId") })
+	private Set<User> friendsOf = new HashSet<User>();
+>>>>>>> 219fb52db723eb8cc6e66ff6c7983d97c3324e84
 
 }
