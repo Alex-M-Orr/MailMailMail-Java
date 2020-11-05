@@ -35,8 +35,6 @@ public class Driver {
 		System.out.println(ud.findAll());
 		System.out.println(fd.findAll());
 	}
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> 4b587d104b64987ca1a27f9762b88f3198736ebc
+
