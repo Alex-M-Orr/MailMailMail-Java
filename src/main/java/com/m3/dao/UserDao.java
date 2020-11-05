@@ -16,7 +16,7 @@ public class UserDao implements DaoContract<User, Integer> {
 	@Override
 	public List<User> findAll() {
 		List<User> list = HibernateUtil.getSessionFactory().openSession()
-				.createNativeQuery("select * from \"user\"", User.class).list();
+				.createQuery("from User", User.class).list();
 		return list;
 	}
 
