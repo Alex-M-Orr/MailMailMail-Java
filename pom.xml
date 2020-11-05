@@ -97,7 +97,6 @@
    		<version>4.13</version>
     	<scope>test</scope><!-- this tells maven what the dependency will be used for. We can only use junit jars in a test directory -->
 	</dependency>
-<<<<<<< HEAD
   
 		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
 		<dependency>
@@ -115,8 +114,6 @@
 	</dependency>
   
   <!-- testing dependencies -->
-=======
->>>>>>> 85f3f1ef78c6143cd5e6022d06cd8cb2585fbe9f
   <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
@@ -137,11 +134,7 @@
             <artifactId>hibernate-entitymanager</artifactId>
             <version>6.0.0.Alpha6</version>
         </dependency>
-<<<<<<< HEAD
-  
-  
-=======
->>>>>>> 85f3f1ef78c6143cd5e6022d06cd8cb2585fbe9f
+
   </dependencies>
 
 <build>
