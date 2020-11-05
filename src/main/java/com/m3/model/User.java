@@ -183,4 +183,18 @@ public class User {
 			@JoinColumn(name = "senderId") })
 	private Set<User> friendsOf = new HashSet<User>();
 
+//	@Override
+//	public boolean equals(Object o) {
+//		if (this == o)
+//			return true;
+//		if (o == null || getClass() != o.getClass())
+//			return false;
+//		User u = (User) o;
+//		return Objects.equals(u.getEmail(), email);
+//	}
+//
+//	@Override
+//	public int hashCode() {
+//		return Objects.hash(email);
+//	}
 }
