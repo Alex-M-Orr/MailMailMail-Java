@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CommentDao.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Project2</a> &gt; <a href="index.source.html" class="el_package">com.m3.dao</a> &gt; <span class="el_source">CommentDao.java</span></div><h1>CommentDao.java</h1><pre class="source lang-java linenums">package com.m3.dao;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import com.m3.model.Comment;
+import com.m3.model.User;
+import com.m3.util.HibernateUtil;
+
+<span class="nc" id="L13">public class CommentDao implements DaoContract&lt;Comment, Integer&gt; {</span>
+
+	@Override
+	public List&lt;Comment&gt; findAll() {
+<span class="nc" id="L17">		List&lt;Comment&gt; list = HibernateUtil.getSessionFactory().openSession()</span>
+<span class="nc" id="L18">				.createNativeQuery(&quot;select * from \&quot;comment\&quot;&quot;, Comment.class).list();</span>
+<span class="nc" id="L19">		return list;</span>
+	}
+
+	@Override
+	public Comment findById(Integer i) {
+<span class="nc" id="L24">		Session sess = HibernateUtil.getSessionFactory().openSession();</span>
+<span class="nc" id="L25">		Comment c = sess.get(Comment.class, i);</span>
+<span class="nc" id="L26">		return c;</span>
+	}
+
+	@Override
+	public Comment update(Comment t) {
+		// TODO Auto-generated method stub
+<span class="nc" id="L32">		return null;</span>
+	}
+
+	@Override
+	public Comment save(Comment t) {
+<span class="nc" id="L37">		SessionFactory sesfact = HibernateUtil.getSessionFactory();</span>
+<span class="nc" id="L38">		Session sess = sesfact.openSession();</span>
+<span class="nc" id="L39">		Transaction tx = sess.beginTransaction();</span>
+<span class="nc" id="L40">		sess.save(t);</span>
+<span class="nc" id="L41">		tx.commit();</span>
+<span class="nc" id="L42">		return t;</span>
+	}
+
+	@Override
+	public Comment delete(Integer i) {
+		// TODO Auto-generated method stub
+<span class="nc" id="L48">		return null;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

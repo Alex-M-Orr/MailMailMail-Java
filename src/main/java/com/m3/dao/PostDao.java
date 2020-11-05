@@ -14,7 +14,7 @@ public class PostDao implements DaoContract<Post, Integer>{
 
 	@Override
 	public List<Post> findAll() {
-		List<Post> posts = HibernateUtil.getSessionFactory().openSession().createNativeQuery("select * from post", Post.class).list();
+		List<Post> posts = HibernateUtil.getSessionFactory().openSession().createNativeQuery("select * from \"post\"", Post.class).list();
 		return posts;
 	}
 
