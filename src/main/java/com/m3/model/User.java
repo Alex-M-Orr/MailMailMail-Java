@@ -172,8 +172,8 @@ public class User {
 //	private String lastName;
 //	private LocalDateTime dateJoined;
 //	private String photo;
-	
-	@ManyToMany(mappedBy = "friends", cascade = CascadeType.ALL)
+
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "Friendship", joinColumns = { @JoinColumn(name = "senderId") }, inverseJoinColumns = {
 			@JoinColumn(name = "receiverID") })
 	private Set<User> friends = new HashSet<User>();
@@ -183,4 +183,18 @@ public class User {
 			@JoinColumn(name = "senderId") })
 	private Set<User> friendsOf = new HashSet<User>();
 
+//	@Override
+//	public boolean equals(Object o) {
+//		if (this == o)
+//			return true;
+//		if (o == null || getClass() != o.getClass())
+//			return false;
+//		User u = (User) o;
+//		return Objects.equals(u.getEmail(), email);
+//	}
+//
+//	@Override
+//	public int hashCode() {
+//		return Objects.hash(email);
+//	}
 }
