@@ -45,6 +45,9 @@ public class User {
 	private Set<Like> likes;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ff5a7e4b80b2af55a68afe23ffdabcc018d6651a
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -175,6 +178,7 @@ public class User {
 //	private String photo;
 	
 	
+<<<<<<< HEAD
 =======
 	@ManyToMany(mappedBy = "friends", cascade = CascadeType.ALL)
 	@JoinTable(name = "Friendship", joinColumns = { @JoinColumn(name = "senderId") }, inverseJoinColumns = {
@@ -186,5 +190,7 @@ public class User {
 			@JoinColumn(name = "senderId") })
 	private Set<User> friendsOf = new HashSet<User>();
 >>>>>>> 219fb52db723eb8cc6e66ff6c7983d97c3324e84
+=======
+>>>>>>> ff5a7e4b80b2af55a68afe23ffdabcc018d6651a
 
 }
