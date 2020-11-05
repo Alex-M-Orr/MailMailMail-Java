@@ -2,7 +2,13 @@ package com.m3.example;
 
 import java.time.LocalDateTime;
 
+import com.m3.dao.CommentDao;
+import com.m3.dao.LikeDao;
+import com.m3.dao.PostDao;
 import com.m3.dao.UserDao;
+import com.m3.model.Comment;
+import com.m3.model.Like;
+import com.m3.model.Post;
 import com.m3.model.User;
 
 public class Driver {
@@ -17,10 +23,33 @@ public class Driver {
 		ud.save(u2);
 		ud.save(u3);
 		
+		
 		System.out.println(ud.findAll());
+		/******************Post Setup********************/
+		PostDao pd = new PostDao();
+		Post p1 = new Post(0, "I love M3! The best up and comming Revature social media platform.", null, u1, lt);
 		
+		pd.save(p1);
+		System.out.println(pd.findAll());
 		
-
+		/******************Like Setup********************/
+		LikeDao ld = new LikeDao();
+		Like l1 =  new Like(p1, null, u2, lt);
+		Like l2 =  new Like(p1, null, u3, lt);
+		
+		ld.save(l1);
+		ld.save(l2);
+		
+		System.out.println(ld.findAll());
+		/******************Comment Setup*************************/
+		CommentDao cd = new CommentDao();
+		Comment c1 = new Comment("Well put! I could not agree more!", p1, u3, lt);
+		Comment c2 = new Comment("I can't believe it only took 5 associates built this!", p1, u2, lt);
+		
+		cd.save(c1);
+		cd.save(c2);
+		
+		System.out.println(cd.findAll());
 	}
 
 }

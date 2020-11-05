@@ -173,7 +173,7 @@ public class User {
 //	private LocalDateTime dateJoined;
 //	private String photo;
 	
-	@ManyToMany(mappedBy = "friends", cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "Friendship", joinColumns = { @JoinColumn(name = "senderId") }, inverseJoinColumns = {
 			@JoinColumn(name = "receiverID") })
 	private Set<User> friends = new HashSet<User>();
