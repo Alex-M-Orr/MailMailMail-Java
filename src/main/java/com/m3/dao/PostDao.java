@@ -10,27 +10,29 @@ import com.m3.model.Post;
 import com.m3.util.HibernateUtil;
 
 @Repository
-public class PostDao implements DaoContract<Post, Integer>{
+public class PostDao implements DaoContract<Post, Integer> {
 
 	@Override
 	public List<Post> findAll() {
-		List<Post> posts = HibernateUtil.getSessionFactory().openSession().createNativeQuery("select * from post", Post.class).list();
+		List<Post> posts = HibernateUtil.getSessionFactory().openSession()
+				.createNativeQuery("select * from post", Post.class).list();
 		return posts;
 	}
 
 	@Override
 	public Post findById(Integer i) {
-		Session sess = HibernateUtil.getSessionFactory().openSession();		
-		return sess.createQuery("from post where id = "+i, Post.class).list().get(0);
+		Session sess = HibernateUtil.getSessionFactory().openSession();
+		Post p = sess.get(Post.class, i);
+		return p;
 	}
 
 	@Override
 	public Post update(Post t) {
-		Session sess = HibernateUtil.getSessionFactory().openSession();		
+		Session sess = HibernateUtil.getSessionFactory().openSession();
 		Transaction tx = sess.beginTransaction();
 		sess.update(t);
 		tx.commit();
-		
+
 		return t;
 	}
 
