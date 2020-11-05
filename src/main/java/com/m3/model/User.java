@@ -172,7 +172,11 @@ public class User {
 //	private String lastName;
 //	private LocalDateTime dateJoined;
 //	private String photo;
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 4b587d104b64987ca1a27f9762b88f3198736ebc
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "Friendship", joinColumns = { @JoinColumn(name = "senderId") }, inverseJoinColumns = {
 			@JoinColumn(name = "receiverID") })
