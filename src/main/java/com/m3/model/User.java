@@ -35,13 +35,13 @@ public class User {
 	@Column
 	private String photo;
 
-	@OneToMany(mappedBy = "id")
+	@OneToMany(mappedBy = "author")
 	private Set<Post> posts;
 
-	@OneToMany(mappedBy = "id")
+	@OneToMany(mappedBy = "author")
 	private Set<Comment> comments;
 
-	@OneToMany(mappedBy = "id")
+	@OneToMany(mappedBy = "author")
 	private Set<Like> likes;
 
 	public User() {

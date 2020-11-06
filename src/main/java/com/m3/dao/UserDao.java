@@ -57,10 +57,10 @@ private SessionFactory sessfact;
 		return null;
 	}
 	public User findByEmail(String email) {
-//		User u = HibernateUtil.getSessionFactory().openSession()
-//				.createQuery("from User where email='"+ email +"'", User.class).list().get(0);
-		User ue = sessfact.openSession().get(User.class, email);
-		return ue;
+		User u = HibernateUtil.getSessionFactory().openSession()
+				.createQuery("from User where email='"+ email +"'", User.class).list().get(0);
+//		User ue = sessfact.openSession().get(User.class, email);
+		return u;
 	}
 
 }

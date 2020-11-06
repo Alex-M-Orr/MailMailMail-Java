@@ -29,7 +29,7 @@ public class UserDaoTest {
 	@Test
 	public void findAllTest() {
 		List<User> users = ud.findAll();
-		System.out.println(users.size());
+		System.out.println(users);
 		assertTrue(users.size() > 0);
 	}
 	

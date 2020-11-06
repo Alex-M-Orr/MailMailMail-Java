@@ -5,17 +5,20 @@ import java.time.LocalDateTime;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.m3.dao.FriendshipDao;
 import com.m3.dao.LikeDao;
+import com.m3.dao.PostDao;
 import com.m3.dao.UserDao;
-import com.m3.model.Friendship;
+import com.m3.model.Like;
+import com.m3.model.Post;
 import com.m3.model.User;
 
 public class Driver {
 	public static void main(String[] args) {
+		ApplicationContext ac = new ClassPathXmlApplicationContext("config.xml");
+		UserDao ud = ac.getBean(UserDao.class);
+		PostDao pd = ac.getBean(PostDao.class);
+		LikeDao ld = ac.getBean(LikeDao.class);
 		LocalDateTime lt = LocalDateTime.now();
-//		UserDao ud = new UserDao();
-//		FriendshipDao fd = new FriendshipDao();
 //		User u1 = new User(0, "aorr917@gmail.com", "password", "Alex", "Orr", lt, "sdkjfgnskjdfngf", null, null, null);
 //		User u2 = new User(0, "robert.porto@revature.net", "robert", "Robert", "Porto", lt, "jdhfxbggsdfgehtfyc", null,
 //				null, null);
@@ -26,6 +29,20 @@ public class Driver {
 //		ud.save(u2);
 //		ud.save(u3);
 //
+//		
+//		User u = ud.findById(1);
+//		User u2 = ud.findById(2);
+//		Post p1 = new Post(0, "I love M3! The best up and comming Revature social media platform.", null, u, lt);
+//		
+//		pd.save(p1);
+////		
+//		Like l1 = new Like(0, p1, null, u2, lt);
+//		
+//		ld.save(l1);
+//		
+		
+		
+		
 //		User u4 = new User(0, "jordan.d.hunnicutt@gmail.com", "dummyJordan2", "Jordan", "Hunnicutt", lt, "photo path",
 //				null, null, null);
 //		Friendship f1 = new Friendship();
@@ -39,11 +56,6 @@ public class Driver {
 //		System.out.println(ud.findAll());
 //		System.out.println(fd.findAll());
 		
-		ApplicationContext ac = new ClassPathXmlApplicationContext("config.xml");
-		UserDao ud = ac.getBean(UserDao.class);
-		User u1 = new User(0, "testingORM@gmail.com", "password", "Alex", "Orr", lt, "sdkjfgnskjdfngf", null, null, null);
-		ud.save(u1);
-		System.out.println(ud.findAll());
 		
 	}
 
