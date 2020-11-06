@@ -36,6 +36,13 @@ public class FriendshipKey implements Serializable {
 		this.receiverId = receiverId;
 	}
 
+	@Override
+	public String toString() {
+		return "FriendshipKey [senderId=" + senderId + ", receiverId=" + receiverId + "]";
+	}
+
+	
+	
 //
 //	@Column(name = "accepted")
 //	boolean accepted;

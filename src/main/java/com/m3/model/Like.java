@@ -95,7 +95,7 @@ public class Like {
 
 	@Override
 	public String toString() {
-		return "Like [id=" + id + ", post=" + post + ", comment=" + comment + ", author=" + author + ", dateCreated="
+		return "Like [id=" + id + ", dateCreated="
 				+ dateCreated + "]";
 	}
 
