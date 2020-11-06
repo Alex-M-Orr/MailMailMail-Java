@@ -2,53 +2,70 @@ package com.m3.dao;
 
 import java.util.List;
 
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import javax.transaction.Transactional;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.m3.model.Post;
+import com.m3.model.User;
 import com.m3.util.HibernateUtil;
 
 @Repository
-public class PostDao implements DaoContract<Post, Integer> {
+@Transactional
+public class PostDao {
+	private SessionFactory sessfact;
 
-	@Override
-	public List<Post> findAll() {
-		List<Post> posts = HibernateUtil.getSessionFactory().openSession()
-				.createNativeQuery("select * from post", Post.class).list();
-		return posts;
+	@Autowired
+	public PostDao(SessionFactory sessfact) {
+		this.sessfact = sessfact;
 	}
 
-	@Override
+	public PostDao() {
+	}
+
+	public List<Post> findAll() {
+		List<Post> list = HibernateUtil.getSessionFactory().openSession().createQuery("from Post", Post.class).list();
+		return list;
+	}
+
 	public Post findById(Integer i) {
-		Session sess = HibernateUtil.getSessionFactory().openSession();
-		Post p = sess.get(Post.class, i);
+		Post p = sessfact.openSession().get(Post.class, i);
 		return p;
 	}
 
-	@Override
 	public Post update(Post t) {
-		Session sess = HibernateUtil.getSessionFactory().openSession();
-		Transaction tx = sess.beginTransaction();
-		sess.update(t);
-		tx.commit();
-
+		sessfact.openSession().update(t);
 		return t;
 	}
 
-	@Override
+//	@Override
 	public Post save(Post t) {
-		Session sess = HibernateUtil.getSessionFactory().openSession();
-		Transaction tx = sess.beginTransaction();
-		sess.save(t);
-		tx.commit();
+		sessfact.openSession().save(t);
 		return t;
 	}
 
-	@Override
-	public Post delete(Integer i) {
+//	@Override
+	public User delete(Integer i) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+//	public User findByEmail(String email) {
+////		User u = HibernateUtil.getSessionFactory().openSession()
+////				.createQuery("from User where email='"+ email +"'", User.class).list().get(0);
+//		User ue = sessfact.openSession().get(User.class, email);
+//		return ue;
+//	}
+
+//	@Override
+//	public Post save(Post t) {
+//		Session sess = HibernateUtil.getSessionFactory().openSession();
+//		Transaction tx = sess.beginTransaction();
+//		sess.save(t);
+//		tx.commit();
+//		return t;
+//	}
 
 }
