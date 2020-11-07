@@ -8,17 +8,18 @@ import org.springframework.stereotype.Service;
 import com.m3.dao.PostDao;
 import com.m3.model.Post;
 
-@Service("postservice")
+//@Service("postservice")
+@Service
 public class PostService {
 
-	@Autowired
+//	@Autowired
 	private PostDao pd;
 
 	public PostService() {
 		super();
 	}
 
-	@Autowired
+//	@Autowired
 	public PostService(PostDao pd) {
 		super();
 		this.pd = pd;

@@ -14,7 +14,7 @@ import com.m3.service.PostService;
 
 @Controller
 @CrossOrigin
-@RequestMapping("/post")
+@RequestMapping("/post.app")
 public class PostController {
 //	@Autowired
 	private PostService ps;

@@ -14,6 +14,32 @@
 	<cnx:component-scan base-package="com.m3"/>
 	<mvc:annotation-driven />
 	
-	
-	
+	 <!-- jdbc configuration -->
+	 <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	 	<property name="driverClassName" value="org.postgresql.Driver"/>
+	 	<property name="url" value="jdbc:postgresql://orr-revature.ce4gqsgkvzew.us-east-2.rds.amazonaws.com:5432/m3db"/>
+	 	<property name="username" value="mailmailmail"/>
+	 	<property name="password" value="mailMeSenpai!"/>
+	 </bean>
+	 
+	 <!-- hibernate configuration -->
+	 <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+	 	<property name="dataSource" ref="datasource"/>
+	 	<property name="packagesToScan" value="com.m3.model"/>
+	 	<property name="hibernateProperties">
+	 		<props>
+	 			<prop key="hibernate.show_sql">false</prop>
+	 			<prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
+	 			<prop key="hibernate.format_sql">true</prop>
+	 			<prop key="hibernate.hbm2ddl.auto">update</prop>
+	 			<prop key="hibernate.default_schema">public</prop>
+	 		</props>	 		
+	 	</property>
+	 </bean>
+	 
+	 <!-- spring orm configuration for the transaction manager -->
+	 <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+	 	<property name="sessionFactory" ref="sessionFactory"/>
+	 </bean>
+	 
 </beans>
