@@ -35,6 +35,10 @@ public class LikeService {
 		return ld.findAll();
 	}
 	
+	public Like getLikeById(Integer i) {
+		return ld.findById(i);
+	}
+	
 	public List<Like> getAllUserLikes(Integer i){
 		return ld.findLikesForUser(i);
 	}
@@ -45,6 +49,14 @@ public class LikeService {
 	
 	public List<Like> getAllCommentLikes(Integer i){
 		return ld.findLikesForComment(i);
+	}
+	
+	public Like insertLikeService(Like l) {
+		return ld.save(l);
+	}
+	
+	public Like updateLikeService(Like l) {
+		return ld.update(l);
 	}
 	
 }

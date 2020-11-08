@@ -58,7 +58,12 @@ public class Like {
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		try {
+			this.id = id;
+		} catch (Exception e) {
+			
+		}
+		
 	}
 
 	public Post getPost() {
@@ -66,7 +71,11 @@ public class Like {
 	}
 
 	public void setPost(Post post) {
-		this.post = post;
+		try {
+			this.post = post;
+		} catch (Exception e) {
+			
+		}
 	}
 
 	public Comment getComment() {
@@ -74,7 +83,11 @@ public class Like {
 	}
 
 	public void setComment(Comment comment) {
-		this.comment = comment;
+		try {
+			this.comment = comment;
+		} catch (Exception e) {
+			
+		}
 	}
 
 	public User getAuthor() {
@@ -82,15 +95,23 @@ public class Like {
 	}
 
 	public void setAuthor(User author) {
-		this.author = author;
+		try {
+			this.author = author;
+		} catch (Exception e) {
+			
+		}
 	}
 
 	public LocalDateTime getDateCreated() {
 		return dateCreated;
 	}
 
-	public void setDateCreated(LocalDateTime dateCreated) {
-		this.dateCreated = dateCreated;
+	public void setDateCreated(LocalDateTime dateCreated) {	
+		try {
+			this.dateCreated = dateCreated;
+		} catch (Exception e) {
+			
+		}
 	}
 
 	@Override
