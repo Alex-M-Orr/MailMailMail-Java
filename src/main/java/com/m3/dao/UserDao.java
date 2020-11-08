@@ -13,25 +13,23 @@ import com.m3.util.HibernateUtil;
 
 @Repository
 @Transactional
-public class UserDao /*implements DaoContract<User, Integer>*/ {
+public class UserDao /* implements DaoContract<User, Integer> */ {
 
-private SessionFactory sessfact;
-	
+	private SessionFactory sessfact;
+
 	@Autowired
 	public UserDao(SessionFactory sessfact) {
 		this.sessfact = sessfact;
 	}
-	
-	public UserDao() {		
+
+	public UserDao() {
 	}
 //	@Override
-	
+
 	public List<User> findAll() {
-		List<User> list = HibernateUtil.getSessionFactory().openSession()
-				.createQuery("from User", User.class).list();
+		List<User> list = HibernateUtil.getSessionFactory().openSession().createQuery("from User", User.class).list();
 		return list;
 	}
-
 
 //	@Override
 	public User findById(Integer i) {
@@ -56,9 +54,10 @@ private SessionFactory sessfact;
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 	public User findByEmail(String email) {
 		User u = HibernateUtil.getSessionFactory().openSession()
-				.createQuery("from User where email='"+ email +"'", User.class).list().get(0);
+				.createQuery("from User where email='" + email + "'", User.class).list().get(0);
 //		User ue = sessfact.openSession().get(User.class, email);
 		return u;
 	}
