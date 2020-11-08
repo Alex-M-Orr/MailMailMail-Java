@@ -39,15 +39,19 @@ public class PostService {
 		return pd.findAll();
 	}
 
-	public List<String> getAllPostsString() {
-		List<String> posts = new ArrayList();
-		for (Post p : pd.findAll()) {
-			String postStr = p.toString();
-			posts.add(postStr);
-		}
-
-		return posts;
+	public List<Post> getAllPostsByUser(Integer i){
+		return pd.findPostsForUser(i);
 	}
+	
+//	public List<String> getAllPostsString() {
+//		List<String> posts = new ArrayList();
+//		for (Post p : pd.findAll()) {
+//			String postStr = p.toString();
+//			posts.add(postStr);
+//		}
+//
+//		return posts;
+//	}
 
 //	public List<Post> getAllPostsString() {
 //		List<Post> posts = new ArrayList();
