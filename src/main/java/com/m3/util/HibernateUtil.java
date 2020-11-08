@@ -8,6 +8,7 @@ public class HibernateUtil {
 
 	private static SessionFactory buildSessionFactory() {
 		Configuration config = new Configuration();
+//		config.configure("applicationContext.xml");
 		config.configure("hibernate.cfg.xml");
 		return config.buildSessionFactory();
 	}

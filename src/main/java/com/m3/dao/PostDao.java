@@ -17,7 +17,7 @@ import com.m3.util.HibernateUtil;
 public class PostDao {
 	private SessionFactory sessfact;
 
-	@Autowired
+	@Autowired()
 	public PostDao(SessionFactory sessfact) {
 		this.sessfact = sessfact;
 	}
@@ -28,6 +28,13 @@ public class PostDao {
 	public List<Post> findAll() {
 		List<Post> list = HibernateUtil.getSessionFactory().openSession().createQuery("from Post", Post.class).list();
 		return list;
+	}
+
+	public List<Post> findPostsForUser(Integer i) {
+		List<Post> list = HibernateUtil.getSessionFactory().openSession()
+				.createQuery("from Post where user_id =" + i, Post.class).list();
+		return list;
+
 	}
 
 	public Post findById(Integer i) {
@@ -51,21 +58,5 @@ public class PostDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-//	public User findByEmail(String email) {
-////		User u = HibernateUtil.getSessionFactory().openSession()
-////				.createQuery("from User where email='"+ email +"'", User.class).list().get(0);
-//		User ue = sessfact.openSession().get(User.class, email);
-//		return ue;
-//	}
-
-//	@Override
-//	public Post save(Post t) {
-//		Session sess = HibernateUtil.getSessionFactory().openSession();
-//		Transaction tx = sess.beginTransaction();
-//		sess.save(t);
-//		tx.commit();
-//		return t;
-//	}
 
 }

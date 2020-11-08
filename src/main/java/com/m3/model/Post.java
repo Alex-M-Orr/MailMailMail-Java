@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Post {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -33,6 +33,7 @@ public class Post {
 		this.author = author;
 		this.dateCreated = dateCreated;
 	}
+
 	public Post(int id, String content, String photo, User author, LocalDateTime dateCreated) {
 		super();
 		this.id = id;
@@ -41,46 +42,57 @@ public class Post {
 		this.author = author;
 		this.dateCreated = dateCreated;
 	}
+
 	public Post() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getContent() {
 		return content;
 	}
+
 	public void setContent(String content) {
 		this.content = content;
 	}
+
 	public User getAuthor() {
 		return author;
 	}
+
 	public void setAuthor(User author) {
 		this.author = author;
 	}
+
 	public LocalDateTime getDateCreated() {
 		return dateCreated;
 	}
+
 	public void setDateCreated(LocalDateTime dateCreated) {
 		this.dateCreated = dateCreated;
 	}
-	
+
 	public String getPhoto() {
 		return photo;
 	}
+
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
+
+//	Changed from author= author-object to authorId = author.getId()
 	@Override
 	public String toString() {
-		return "Post [id=" + id + ", content=" + content + ", author=" + author + ", dateCreated=" + dateCreated + "]";
+		return "Post [id=" + id + ", content=" + content + ", authorId=" + author.getId() + ", dateCreated="
+				+ dateCreated + "]";
 	}
-	
-	
-	
+
 }
