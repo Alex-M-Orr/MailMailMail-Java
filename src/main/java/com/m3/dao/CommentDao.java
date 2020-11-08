@@ -36,6 +36,16 @@ public class CommentDao /*implements DaoContract<Comment, Integer>*/{
 		return c;
 	}
 
+	public List<Comment> findCommentsForUser(Integer i){
+		List<Comment> list = sessfact.openSession().createQuery("from Comment where authorid = "+i, Comment.class).list();
+		return list;
+	}
+	
+	public List<Comment> findCommentsForPost(Integer i){
+		List<Comment> list = sessfact.openSession().createQuery("from Comment where postid = "+i, Comment.class).list();
+		return list;
+	}
+	
 	//@Override
 	public Comment update(Comment t) {
 		sessfact.openSession().update(t);
