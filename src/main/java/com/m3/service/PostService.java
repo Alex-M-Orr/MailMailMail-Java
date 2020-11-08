@@ -42,7 +42,15 @@ public class PostService {
 	public List<Post> getAllPostsByUser(Integer i){
 		return pd.findPostsForUser(i);
 	}
-	
+	public Post findById(Integer id) {
+		return pd.findById(id);
+	}
+	public Post updatePost(Post t) {
+		return pd.update(t);
+	}
+	public Post save(Post t) {
+		return pd.save(t);
+	}
 //	public List<String> getAllPostsString() {
 //		List<String> posts = new ArrayList();
 //		for (Post p : pd.findAll()) {
