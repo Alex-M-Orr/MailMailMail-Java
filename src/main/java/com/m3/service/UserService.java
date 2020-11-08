@@ -48,4 +48,8 @@ public class UserService {
 	public User getUser(Integer id) {
 		return ud.findById(id);
 	}
+
+	public User updateUser(User t) {
+		return ud.update(t);
+	}
 }

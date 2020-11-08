@@ -86,7 +86,11 @@ public class User {
 	}
 
 	public void setEmail(String email) {
-		this.email = email;
+		try {
+			this.email = email;
+		} catch (Exception e) {
+
+		}
 	}
 
 	public String getPassword() {
@@ -94,7 +98,11 @@ public class User {
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		try {
+			this.password = password;
+		} catch (Exception e) {
+
+		}
 	}
 
 	public String getFirstName() {
@@ -102,7 +110,11 @@ public class User {
 	}
 
 	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+		try {
+			this.firstName = firstName;
+		} catch (Exception e) {
+
+		}
 	}
 
 	public String getLastName() {
@@ -110,7 +122,11 @@ public class User {
 	}
 
 	public void setLastName(String lastName) {
-		this.lastName = lastName;
+		try {
+			this.lastName = lastName;
+		} catch (Exception e) {
+
+		}
 	}
 
 	public LocalDateTime getDateJoined() {
@@ -118,7 +134,11 @@ public class User {
 	}
 
 	public void setDateJoined(LocalDateTime dateJoined) {
-		this.dateJoined = dateJoined;
+		try {
+			this.dateJoined = dateJoined;
+		} catch (Exception e) {
+
+		}
 	}
 
 	public String getPhoto() {
@@ -126,7 +146,11 @@ public class User {
 	}
 
 	public void setPhoto(String photo) {
-		this.photo = photo;
+		try {
+			this.photo = photo;
+		} catch (Exception e) {
+
+		}
 	}
 
 	public Set<Post> getPosts() {

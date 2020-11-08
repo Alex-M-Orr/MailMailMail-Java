@@ -24,8 +24,8 @@ public class UserDao /* implements DaoContract<User, Integer> */ {
 
 	public UserDao() {
 	}
-//	@Override
 
+//	@Override
 	public List<User> findAll() {
 		List<User> list = HibernateUtil.getSessionFactory().openSession().createQuery("from User", User.class).list();
 		return list;
@@ -47,12 +47,6 @@ public class UserDao /* implements DaoContract<User, Integer> */ {
 	public User save(User t) {
 		sessfact.openSession().save(t);
 		return t;
-	}
-
-//	@Override
-	public User delete(Integer i) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	public User findByEmail(String email) {

@@ -55,10 +55,23 @@ public class UserController {
 		return builtUser;
 	}
 
-//	@GetMapping
-//	public @ResponseBody List<String> getAll() {
-//		return ps.getAllPostsString();
-//
-//	}
+	@GetMapping("/createUser.app")
+	public @ResponseBody User createUser(@RequestParam User user) {
+		us.save(user);
+		return user;
+	}
+
+	@GetMapping("/updateUser.app")
+	public @ResponseBody User updateUser(@RequestParam User user) {
+		User u = us.findById(user.getId());
+		u.setEmail(user.getEmail());
+		u.setPassword(user.getPassword());
+		u.setFirstName(user.getFirstName());
+		u.setLastName(user.getLastName());
+		u.setDateJoined(user.getDateJoined());
+		u.setPhoto(user.getPhoto());
+		us.update(u);
+		return user;
+	}
 
 }
