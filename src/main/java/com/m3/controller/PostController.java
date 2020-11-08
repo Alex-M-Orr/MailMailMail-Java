@@ -33,22 +33,10 @@ public class PostController {
 		return ps.getAllPosts();
 	}
 
-//	@GetMapping(value = "/all")
-//	public @ResponseBody List<Post> getAll() {
-//		return ps.getAllPosts();
-//	}
-
+//	@GetMapping
+//	public @ResponseBody List<String> getAll() {
+//		return ps.getAllPostsString();
 //
-//	@GetMapping(value = "/all")
-//	public @ResponseBody List<Post> getAll() {
-//		return ps.getAllPosts();
 //	}
-
-	@GetMapping(value = "/all")
-	@ResponseBody
-	public String p() {
-		return "this works!";
-
-	}
 
 }

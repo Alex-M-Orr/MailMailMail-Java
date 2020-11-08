@@ -1,5 +1,6 @@
 package com.m3.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +38,36 @@ public class PostService {
 	public List<Post> getAllPosts() {
 		return pd.findAll();
 	}
+
+	public List<String> getAllPostsString() {
+		List<String> posts = new ArrayList();
+		for (Post p : pd.findAll()) {
+			String postStr = p.toString();
+			posts.add(postStr);
+		}
+
+		return posts;
+	}
+
+//	public List<Post> getAllPostsString() {
+//		List<Post> posts = new ArrayList();
+//		for (Post p : pd.findAll()) {
+//			String postStr = p.toString();
+//			Post newP = null;
+//			try {
+//				newP = new ObjectMapper().readValue(postStr, Post.class);
+//			} catch (JsonMappingException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			} catch (JsonProcessingException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//
+//			posts.add(newP);
+//		}
+//
+//		return posts;
+//	}
 
 }
