@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.m3.model.Like;
+import com.m3.util.HibernateUtil;
 
 @Repository
 @Transactional
@@ -36,6 +37,21 @@ public class LikeDao /*implements DaoContract<Like, Integer>*/{
 		return l;
 	}
 
+	public List<Like> findLikesForUser(Integer i){
+		List<Like> list = sessfact.openSession().createQuery("from Like where authorid =" + i, Like.class).list();
+		return list;
+	}
+	
+	public List<Like> findLikesForPost(Integer i){
+		List<Like> list = sessfact.openSession().createQuery("from Like where postid =" + i, Like.class).list();
+		return list;
+	}
+	
+	public List<Like> findLikesForComment(Integer i){
+		List<Like> list = sessfact.openSession().createQuery("from Like where commentid =" + i, Like.class).list();
+		return list;
+	}
+	
 	//@Override
 	public Like update(Like t) {
 		sessfact.openSession().update(t);
