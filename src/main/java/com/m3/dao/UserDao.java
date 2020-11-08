@@ -56,4 +56,9 @@ public class UserDao /* implements DaoContract<User, Integer> */ {
 		return u;
 	}
 
+	public User findByEmailAndPassword(String email, String password) {
+		User u = sessfact.openSession().createQuery("from User where (email, password) = ('"+email+"', '"+password+"'", User.class).list().get(0);
+		return u;
+	}
+	
 }
