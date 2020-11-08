@@ -33,6 +33,10 @@ public class UserService {
 		return ud.findByEmail(email);
 	}
 
+	public User findByEmailAndPassword(String email, String password) {
+		return ud.findByEmailAndPassword(email, password);
+	}
+	
 	public User update(User t) {
 		return ud.update(t);
 	}
