@@ -33,14 +33,14 @@ public class UserDaoTest {
 		assertTrue(users.size() > 0);
 	}
 	
-//	@Test
-//	public void saveTest() {
-//		int rows = ud.findAll().size();
-//		User u = new User(0, "test@email.com", "test", "tesfname", "testlname", LocalDateTime.now(), null, null, null, null);
-//		ud.save(u);
-//		int newrows = ud.findAll().size();
-//		assertTrue(newrows == rows+1);
-//	}
+	@Test
+	public void saveTest() {
+		int rows = ud.findAll().size();
+		User u = new User(0, "test@email.com", "test", "tesfname", "testlname", LocalDateTime.now(), null, null, null, null);
+		ud.save(u);
+		int newrows = ud.findAll().size();
+		assertTrue(newrows == rows+1);
+	}
 	@Test
 	public void findByEmailTest() {
 		assertTrue(ud.findByEmail("test1@email.com") !=null);
@@ -48,5 +48,16 @@ public class UserDaoTest {
 	@Test
 	public void findByIdTest() {
 		assertTrue(ud.findById(1) != null);
+	}
+	@Test
+	public void updateTest() {
+		User u = ud.findById(1);
+		u.setEmail("updatedEmail@email.com");
+		ud.update(u);
+		assertTrue(ud.findByEmail("updatedEmail@email.com") != null);
+	}
+	@Test
+	public void findByEmailAndPasswordTest() {
+		assertTrue(ud.findByEmailAndPassword("test1@email.com", "test1")!=null);
 	}
 }
