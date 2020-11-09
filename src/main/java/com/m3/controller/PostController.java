@@ -54,6 +54,24 @@ public class PostController {
 		return builtPosts;
 	}
 	
+	@GetMapping("/postById.app")
+	public @ResponseBody PostBuilt getById(@RequestParam Integer id){
+		PostBuilt pb = new PostBuilt(ps.findById(id));
+		return pb;
+	}
+	@GetMapping("/postSave.app")
+	public @ResponseBody PostBuilt save(@RequestParam Post p ) {
+		return new PostBuilt(ps.save(p));
+	}
+//	@GetMapping("/postUpdate.app")
+//	public @ResponseBody PostBuilt update(@RequestParam Post p) {
+//		Post post = ps.findById(p.getId());
+//		post.setContent(p.getContent());
+//		post.setPhoto(p.getPhoto());
+//		PostBuilt pb = new PostBuilt(ps.updatePost(p));
+//		return pb;
+//	}
+
 //	@GetMapping
 //	public @ResponseBody List<String> getAll() {
 //		return ps.getAllPostsString();
