@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -56,13 +57,13 @@ public class UserController {
 		return builtUser;
 	}
 
-	@GetMapping("/createUser.app")
+	@PostMapping("/createUser.app")
 	public @ResponseBody User createUser(@RequestParam User user) {
 		us.save(user);
 		return user;
 	}
 
-	@GetMapping("/updateUser.app")
+	@PutMapping("/updateUser.app")
 	public @ResponseBody User updateUser(@RequestParam User user) {
 		User u = us.findById(user.getId());
 		u.setEmail(user.getEmail());
