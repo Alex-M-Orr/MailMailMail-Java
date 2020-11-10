@@ -12,10 +12,10 @@ public class Driver {
 		LocalDateTime lt = LocalDateTime.now();
 		UserDao ud = new UserDao();
 		FriendshipDao fd = new FriendshipDao();
-		User u1 = new User(0, "aorr917@gmail.com", "password", "Alex", "Orr", lt, "sdkjfgnskjdfngf", null, null, null);
-		User u2 = new User(0, "robert.porto@revature.net", "robert", "Robert", "Porto", lt, "jdhfxbggsdfgehtfyc", null,
+		User u1 = new User(0, "aorr917@gmail.com", "password", "Alex", "Orr", "sdkjfgnskjdfngf", null, null, null);
+		User u2 = new User(0, "robert.porto@revature.net", "robert", "Robert", "Porto","jdhfxbggsdfgehtfyc", null,
 				null, null);
-		User u3 = new User(0, "jordan.hunnicutt@revature.net", "dummyJordan", "Jordan", "Hunnicut", lt,
+		User u3 = new User(0, "jordan.hunnicutt@revature.net", "dummyJordan", "Jordan", "Hunnicut",
 				"sdkjfgnskjduydfbgfngf", null, null, null);
 
 		ud.save(u1);

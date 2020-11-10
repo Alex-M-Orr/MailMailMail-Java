@@ -21,7 +21,7 @@ public class UserDaoTest {
 	@BeforeClass
 	public static void setup() {		
 		ApplicationContext ac = new ClassPathXmlApplicationContext("configtest.xml");
-		User us = new User(0, "test1@email.com", "test1", "tesfname1", "testlname1", LocalDateTime.now(), null, null, null, null);
+		User us = new User(0, "test1@email.com", "test1", "tesfname1", "testlname1", null, null, null, null);
 		ud = ac.getBean(UserDao.class);
 		ud.save(us);		
 	}
@@ -36,7 +36,7 @@ public class UserDaoTest {
 	@Test
 	public void saveTest() {
 		int rows = ud.findAll().size();
-		User u = new User(0, "test@email.com", "test", "tesfname", "testlname", LocalDateTime.now(), null, null, null, null);
+		User u = new User(0, "test@email.com", "test", "tesfname", "testlname", null, null, null, null);
 		ud.save(u);
 		int newrows = ud.findAll().size();
 		assertTrue(newrows == rows+1);

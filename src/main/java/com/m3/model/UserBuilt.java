@@ -28,7 +28,6 @@ public class UserBuilt {
 		this.password = user.getPassword();
 		this.firstName = user.getFirstName();
 		this.lastName = user.getLastName();
-		this.dateJoined = user.getDateJoined();
 		this.photo = user.getPhoto();
 
 		if (user.getPosts().size() == 0) {
@@ -61,7 +60,7 @@ public class UserBuilt {
 
 	}
 
-	public UserBuilt(int id, String email, String password, String firstName, String lastName, LocalDateTime dateJoined,
+	public UserBuilt(int id, String email, String password, String firstName, String lastName,
 			String photo, Set<Integer> postIds, Set<Integer> commentIds, Set<Integer> likeIds) {
 		super();
 		this.id = id;
@@ -69,7 +68,6 @@ public class UserBuilt {
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.dateJoined = dateJoined;
 		this.photo = photo;
 		this.postIds = postIds;
 		this.commentIds = commentIds;
