@@ -29,8 +29,6 @@ public class LikeDao /*implements DaoContract<Like, Integer>*/{
 	//@Override
 	public List<Like> findAll() {
 		List<Like> likes = sessfact.openSession().createQuery("from Like", Like.class).list();
-//		List<Like> likes = HibernateUtil.getSessionFactory().openSession().createQuery("from Like", Like.class).list();
-
 		return likes;
 	}
 
