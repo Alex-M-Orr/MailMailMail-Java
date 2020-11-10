@@ -19,16 +19,15 @@ public class Driver {
 		PostDao pd = ac.getBean(PostDao.class);
 		LikeDao ld = ac.getBean(LikeDao.class);
 		LocalDateTime lt = LocalDateTime.now();
-//		User u1 = new User(0, "aorr917@gmail.com", "password", "Alex", "Orr", lt, "sdkjfgnskjdfngf", null, null, null);
-//		User u2 = new User(0, "robert.porto@revature.net", "robert", "Robert", "Porto", lt, "jdhfxbggsdfgehtfyc", null,
+//		User u1 = new User(0, "aorr917@gmail.com", "password", "Alex", "Orr", "sdkjfgnskjdfngf", null, null, null);
+//		User u2 = new User(0, "robert.porto@revature.net", "robert", "Robert", "Porto", "jdhfxbggsdfgehtfyc", null,
 //				null, null);
-//		User u3 = new User(0, "jordan.hunnicutt@revature.net", "dummyJordan", "Jordan", "Hunnicut", lt,
+//		User u3 = new User(0, "jordan.hunnicutt@revature.net", "dummyJordan", "Jordan", "Hunnicut",
 //				"sdkjfgnskjduydfbgfngf", null, null, null);
-
+//
 //		ud.save(u1);
 //		ud.save(u2);
 //		ud.save(u3);
-
 		
 		User u = ud.findById(1);
 		User u2 = ud.findById(2);

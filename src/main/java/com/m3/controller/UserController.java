@@ -70,7 +70,6 @@ public class UserController {
 		u.setPassword(user.getPassword());
 		u.setFirstName(user.getFirstName());
 		u.setLastName(user.getLastName());
-		u.setDateJoined(user.getDateJoined());
 		u.setPhoto(user.getPhoto());
 		us.update(u);
 		return user;
