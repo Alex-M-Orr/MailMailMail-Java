@@ -3,6 +3,8 @@ package com.m3;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.m3.dao.UserDao;
+import com.m3.model.User;
 import com.m3.service.MailService;
 
 public class P2DriverWithORM {
@@ -10,7 +12,7 @@ public class P2DriverWithORM {
 	public static void main(String[] args) {
 //		LocalDateTime date = LocalDateTime.now();
 //
-//		ApplicationContext ac = new ClassPathXmlApplicationContext("config.xml");
+		ApplicationContext ac = new ClassPathXmlApplicationContext("config.xml");
 //		LikeDao ld = ac.getBean(LikeDao.class);
 //		CommentDao cd = ac.getBean(CommentDao.class);
 //		UserDao ud = ac.getBean(UserDao.class);
@@ -43,6 +45,15 @@ public class P2DriverWithORM {
 //		MailService ms = ac.getBean(MailService.class);
 //		ms.sendMessage("aorr917@gmail.com");
 		
+		UserDao ud = ac.getBean(UserDao.class);
+		System.out.println(ud.findByEmailAndPassword("aorr917@gmail.com", "password"));
+//		System.out.println(ud.findByEmailAndPassword("pancake@gmail.com", "password"));
+//		User u1 = new User(0, "aorr917@gmail.com", "test", "shouldfail", "shouldfail", "", null, null, null);
+//		User u1 = new User(0, "newuser@gmail.com", "test", "shouldntfail", "shouldntfail", "", null, null, null);
+//		ud.save(u1);
+		
+		
+	
 	}
 
 }
