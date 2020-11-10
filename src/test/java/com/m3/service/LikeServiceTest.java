@@ -81,6 +81,13 @@ public class LikeServiceTest {
 	@Test
 	public void updateLikeServiceTest() {
 		Like l = ls.getLikeById(1);
-		assertNotNull(l);
+		assertNotNull(ls.updateLikeService(l));
+	}
+	
+	@Test
+	public void deleteLikeServiceTest() {
+		Like l = new Like(null, null, null, LocalDateTime.now());
+		Like l2 = ls.insertLikeService(l);
+		assertNotNull(ls.deleteLikeService(l2.getId()));
 	}
 }
