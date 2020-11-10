@@ -37,7 +37,7 @@ public class PostDaoTest {
 		pd = ac.getBean(PostDao.class);
 		pd.save(testPost);
 
-		User us2 = new User(0, "test2@email.com", "test2", "tesfname2", "testlname2", null, null,
+		User us2 = new User(0, "test2@email.com", "test2", "tesfname2", "testlname2",null, null,
 				null, null);
 
 	}

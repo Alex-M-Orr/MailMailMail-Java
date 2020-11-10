@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -70,7 +71,7 @@ public class CommentController {
 	}
 	
 	@PostMapping("/insertComment.app")
-	public void insertComment(@RequestParam Comment comment) {
+	public void insertComment(@RequestBody Comment comment) {
 		Comment c = new Comment();
 		
 		c.setId(comment.getId());
@@ -83,7 +84,7 @@ public class CommentController {
 	}
 	
 	@PostMapping("/updateComment.app")
-	public void updateComment(@RequestParam Comment comment) {
+	public void updateComment(@RequestBody Comment comment) {
 		Comment c = cs.getById(comment.getId());
 		
 		c.setId(comment.getId());
