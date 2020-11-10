@@ -1,6 +1,5 @@
 package com.m3.model;
 
-import java.time.LocalDateTime;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -25,8 +24,6 @@ public class User {
 	private String firstName;
 	@Column(nullable = false)
 	private String lastName;
-	@Column(nullable = false)
-	private LocalDateTime dateJoined;
 	@Column
 	private String photo;
 
@@ -44,7 +41,7 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(int id, String email, String password, String firstName, String lastName, LocalDateTime dateJoined,
+	public User(int id, String email, String password, String firstName, String lastName,
 			String photo, Set<Post> posts, Set<Comment> comments, Set<Like> likes) {
 		super();
 		this.id = id;
@@ -52,21 +49,19 @@ public class User {
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.dateJoined = dateJoined;
 		this.photo = photo;
 		this.posts = posts;
 		this.comments = comments;
 		this.likes = likes;
 	}
 
-	public User(String email, String password, String firstName, String lastName, LocalDateTime dateJoined,
+	public User(String email, String password, String firstName, String lastName,
 			String photo, Set<Post> posts, Set<Comment> comments, Set<Like> likes) {
 		super();
 		this.email = email;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.dateJoined = dateJoined;
 		this.photo = photo;
 		this.posts = posts;
 		this.comments = comments;
@@ -129,18 +124,6 @@ public class User {
 		}
 	}
 
-	public LocalDateTime getDateJoined() {
-		return dateJoined;
-	}
-
-	public void setDateJoined(LocalDateTime dateJoined) {
-		try {
-			this.dateJoined = dateJoined;
-		} catch (Exception e) {
-
-		}
-	}
-
 	public String getPhoto() {
 		return photo;
 	}
@@ -180,7 +163,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", email=" + email + ", password=" + password + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", dateJoined=" + dateJoined + ", photo=" + photo + "]";
+				+ ", lastName=" + lastName  + ", photo=" + photo + "]";
 	}
 
 //	private int id;

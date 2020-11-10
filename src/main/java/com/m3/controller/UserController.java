@@ -34,7 +34,7 @@ public class UserController {
 
 	@GetMapping("/userAll.app")
 	public @ResponseBody List<UserBuilt> getAll() {
-		List<User> users = us.getAllUsers();
+		List<User> users = us.findAll();
 		List<UserBuilt> builtUsers = new LinkedList<>();
 		for (User u : users) {
 			builtUsers.add(new UserBuilt(u));
@@ -45,7 +45,7 @@ public class UserController {
 
 	@GetMapping("/user.app")
 	public @ResponseBody UserBuilt getUser(@RequestParam Integer id) {
-		User user = us.getUser(id);
+		User user = us.findById(id);
 		UserBuilt builtUser = new UserBuilt(user);
 		return builtUser;
 	}
@@ -70,7 +70,6 @@ public class UserController {
 		u.setPassword(user.getPassword());
 		u.setFirstName(user.getFirstName());
 		u.setLastName(user.getLastName());
-		u.setDateJoined(user.getDateJoined());
 		u.setPhoto(user.getPhoto());
 		us.update(u);
 		return user;

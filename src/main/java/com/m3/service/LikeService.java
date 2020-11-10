@@ -54,9 +54,11 @@ public class LikeService {
 	public Like insertLikeService(Like l) {
 		return ld.save(l);
 	}
-	
-	public Like updateLikeService(Like l) {
-		return ld.update(l);
+	public Like deleteLike(Like l) {
+		return ld.delete(l.getId());
 	}
 	
+	public Like deleteLikeService(Integer i) {
+		return ld.delete(i);
+	}
 }
