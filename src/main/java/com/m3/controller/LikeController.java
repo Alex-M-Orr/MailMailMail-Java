@@ -96,7 +96,7 @@ public class LikeController {
 		ls.insertLikeService(l);
 	}
 	
-	@PostMapping("/updateLike.app")
+	@PostMapping("/deleteLike.app")
 	public void updateLike(@RequestParam Like like) {
 		Like l = ls.getLikeById(like.getId());
 		
@@ -106,7 +106,7 @@ public class LikeController {
 		l.setAuthor(like.getAuthor());
 		l.setDateCreated(like.getDateCreated());
 		
-		ls.updateLikeService(l);
+		ls.deleteLike(l);
 	}
 	
 }
