@@ -44,16 +44,4 @@ public class UserService {
 	public User save(User t) {
 		return ud.save(t);
 	}
-
-	public List<User> getAllUsers() {
-		return ud.findAll();
-	}
-
-	public User getUser(Integer id) {
-		return ud.findById(id);
-	}
-
-	public User updateUser(User t) {
-		return ud.update(t);
-	}
 }

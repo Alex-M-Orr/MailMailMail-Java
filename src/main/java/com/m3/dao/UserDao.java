@@ -39,7 +39,7 @@ public class UserDao /* implements DaoContract<User, Integer> */ {
 
 //	@Override
 	public User update(User t) {
-		sessfact.openSession().update(t);
+		sessfact.getCurrentSession().merge(t);
 		return t;
 	}
 
