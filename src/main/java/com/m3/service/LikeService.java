@@ -59,4 +59,7 @@ public class LikeService {
 		return ld.update(l);
 	}
 	
+	public Like deleteLikeService(Integer i) {
+		return ld.delete(i);
+	}
 }
