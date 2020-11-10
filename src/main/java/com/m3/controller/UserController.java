@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -58,13 +59,13 @@ public class UserController {
 	}
 
 	@PostMapping("/createUser.app")
-	public @ResponseBody User createUser(@RequestParam User user) {
+	public @ResponseBody User createUser(@RequestBody User user) {
 		us.save(user);
 		return user;
 	}
 
 	@PutMapping("/updateUser.app")
-	public @ResponseBody User updateUser(@RequestParam User user) {
+	public @ResponseBody User updateUser(@RequestBody User user) {
 		User u = us.findById(user.getId());
 		u.setEmail(user.getEmail());
 		u.setPassword(user.getPassword());
@@ -76,7 +77,7 @@ public class UserController {
 	}
 
 	@PostMapping("/login.app")
-	public @ResponseBody UserBuilt loginUser(@RequestParam String email, @RequestParam String password) {
+	public @ResponseBody UserBuilt loginUser(@RequestBody String email, @RequestBody String password) {
 		User user = us.findByEmailAndPassword(email, password);
 		UserBuilt builtUser = new UserBuilt(user);
 		return builtUser;
