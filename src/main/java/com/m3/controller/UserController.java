@@ -77,7 +77,7 @@ public class UserController {
 	}
 
 	@PostMapping("/login.app")
-	public @ResponseBody UserBuilt loginUser(@RequestBody String email, @RequestBody String password) {
+	public @ResponseBody UserBuilt loginUser(@RequestParam String email, @RequestParam String password) {
 		User user = us.findByEmailAndPassword(email, password);
 		UserBuilt builtUser = new UserBuilt(user);
 		return builtUser;
