@@ -79,6 +79,13 @@ public class LikeServiceTest {
 	}
 	
 	@Test
+	public void deleteLikeTest() {
+		Like l = new Like(null, null, null, LocalDateTime.now());
+		Like l2 = ls.insertLikeService(l);
+		assertNotNull(ls.deleteLike(l2));
+	}
+	
+	@Test
 	public void deleteLikeServiceTest() {
 		Like l = new Like(null, null, null, LocalDateTime.now());
 		Like l2 = ls.insertLikeService(l);
