@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.m3.model.Like;
+import com.m3.model.User;
 import com.m3.util.HibernateUtil;
 
 @Repository
@@ -28,6 +29,8 @@ public class LikeDao /*implements DaoContract<Like, Integer>*/{
 	//@Override
 	public List<Like> findAll() {
 		List<Like> likes = sessfact.openSession().createQuery("from Like", Like.class).list();
+//		List<Like> likes = HibernateUtil.getSessionFactory().openSession().createQuery("from Like", Like.class).list();
+
 		return likes;
 	}
 
@@ -51,12 +54,6 @@ public class LikeDao /*implements DaoContract<Like, Integer>*/{
 		List<Like> list = sessfact.openSession().createQuery("from Like where commentid =" + i, Like.class).list();
 		return list;
 	}
-	
-	//@Override
-	public Like update(Like t) {
-		sessfact.openSession().update(t);
-		return t;
-	}
 
 	//@Override
 	public Like save(Like t) {
@@ -67,7 +64,7 @@ public class LikeDao /*implements DaoContract<Like, Integer>*/{
 	//@Override
 	public Like delete(Integer i) {
 		Like l = findById(i);
-		sessfact.openSession().delete(l);
+		sessfact.getCurrentSession().delete(l);
 		return l;
 	}
 

@@ -57,23 +57,23 @@ public class PostDaoTest {
 	@Test
 	public void updateTest() {
 		Post post = pd.findById(1);
-//		post.setContent("I love M3! The best up and comming Revature social media platform.");
 		post.setContent("Sorry, change this back");
 		String cnt = post.getContent();
-
 		assertEquals(cnt, "Sorry, change this back");
-
 	}
 
 	@Test
 	public void saveTest() {
-
 		Post testPost2 = new Post(0, "otherTestContent", "otherTestPhoto", us, date);
-
 		Post test = pd.save(testPost2);
-
 		assertNotNull(test);
-
 	}
+	@Test
+	public void findPostsForUserTest() {
+		assertTrue(pd.findPostsForUser(1) != null);
+	}
+	
+	
+	
 
 }
