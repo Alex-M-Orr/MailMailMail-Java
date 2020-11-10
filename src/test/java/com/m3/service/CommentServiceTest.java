@@ -30,7 +30,7 @@ public class CommentServiceTest {
 		u.setPassword("testPass");
 		u.setFirstName("testF");
 		u.setLastName("testL");
-		u.setDateJoined(LocalDateTime.now());
+		//u.setDateJoined(LocalDateTime.now());
 		ud = ac.getBean(UserDao.class);
 		ud.save(u);
 		Post p = new Post(0, "This is a post", "This is a photo", u, LocalDateTime.now());

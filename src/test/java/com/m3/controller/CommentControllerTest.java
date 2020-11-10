@@ -43,7 +43,7 @@ public class CommentControllerTest {
 	public void setup() {
 		date = LocalDateTime.now();
 
-		testUser = new User(0, "test1@email.com", "test1", "tesfname1", "testlname1", date, null, null, null, null);
+		testUser = new User(0, "test1@email.com", "test1", "tesfname1", "testlname1", null, null, null, null);
 		testPost = new Post(0, "testContent", "testPhoto", null, date);
 		testComment = new Comment(1, "Testcontent", testPost, testUser, date);
 	}

@@ -33,7 +33,7 @@ public class LikeServiceTest {
 		u.setPassword("testPass");
 		u.setFirstName("testF");
 		u.setLastName("testL");
-		u.setDateJoined(LocalDateTime.now());
+		//u.setDateJoined(LocalDateTime.now());
 		ud = ac.getBean(UserDao.class);
 		ud.save(u);
 		Post p = new Post(0, "This is a post", "This is a photo", u, LocalDateTime.now());
@@ -76,6 +76,13 @@ public class LikeServiceTest {
 	public void insertLikeServiceTest() {
 		Like l = new Like(null, null, null, LocalDateTime.now());
 		assertNotNull(ls.insertLikeService(l));
+	}
+	
+	@Test
+	public void deleteLikeTest() {
+		Like l = new Like(null, null, null, LocalDateTime.now());
+		Like l2 = ls.insertLikeService(l);
+		assertNotNull(ls.deleteLike(l2));
 	}
 	
 	@Test
