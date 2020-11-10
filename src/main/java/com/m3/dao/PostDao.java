@@ -53,10 +53,10 @@ public class PostDao {
 		return t;
 	}
 
-//	@Override
-	public User delete(Integer i) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+////	@Override
+//	public User delete(Integer i) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 }

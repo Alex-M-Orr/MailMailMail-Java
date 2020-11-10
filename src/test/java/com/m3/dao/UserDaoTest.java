@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -16,10 +16,10 @@ import com.m3.model.User;
 @Transactional
 public class UserDaoTest {
 	
-	private UserDao ud;
+	private static UserDao ud;
 	
-	@Before
-	public void setup() {		
+	@BeforeClass
+	public static void setup() {		
 		ApplicationContext ac = new ClassPathXmlApplicationContext("configtest.xml");
 		User us = new User(0, "test1@email.com", "test1", "tesfname1", "testlname1", LocalDateTime.now(), null, null, null, null);
 		ud = ac.getBean(UserDao.class);

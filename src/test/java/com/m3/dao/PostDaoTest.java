@@ -67,7 +67,13 @@ public class PostDaoTest {
 		Post testPost2 = new Post(0, "otherTestContent", "otherTestPhoto", us, date);
 		Post test = pd.save(testPost2);
 		assertNotNull(test);
-
 	}
+	@Test
+	public void findPostsForUserTest() {
+		assertTrue(pd.findPostsForUser(1) != null);
+	}
+	
+	
+	
 
 }
