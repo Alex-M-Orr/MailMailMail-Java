@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.m3.model.User;
 import com.m3.model.UserBuilt;
+import com.m3.service.MailService;
 import com.m3.service.UserService;
 
 @Controller
@@ -23,6 +24,7 @@ import com.m3.service.UserService;
 @RequestMapping
 public class UserController {
 	private UserService us;
+	private MailService ms;
 
 	public UserService getUs() {
 		return us;
@@ -33,6 +35,15 @@ public class UserController {
 		this.us = us;
 	}
 
+	public MailService getMs() {
+		return ms;
+	}
+	
+	@Autowired
+	public void setMs(MailService ms) {
+		this.ms = ms;
+	}
+	
 	@GetMapping("/userAll.app")
 	public @ResponseBody List<UserBuilt> getAll() {
 		List<User> users = us.findAll();
@@ -81,6 +92,11 @@ public class UserController {
 		User user = us.findByEmailAndPassword(email, password);
 		UserBuilt builtUser = new UserBuilt(user);
 		return builtUser;
+	}
+	
+	@GetMapping("/forgotPass.app")
+	public void sendEmail(@RequestParam String email){
+		ms.sendMessage(email);
 	}
 	
 }

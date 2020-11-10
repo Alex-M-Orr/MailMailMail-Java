@@ -1,18 +1,9 @@
 package com.m3;
 
-import java.time.LocalDateTime;
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.m3.dao.CommentDao;
-import com.m3.dao.LikeDao;
-import com.m3.dao.PostDao;
-import com.m3.dao.UserDao;
-import com.m3.model.Comment;
-import com.m3.model.Like;
-import com.m3.model.Post;
-import com.m3.model.User;
+import com.m3.service.MailService;
 
 public class P2DriverWithORM {
 
@@ -49,6 +40,9 @@ public class P2DriverWithORM {
 ////		System.out.println(pd.findAll());
 ////		System.out.println(pd.findPostsForUser(1));
 
+//		MailService ms = ac.getBean(MailService.class);
+//		ms.sendMessage("aorr917@gmail.com");
+		
 	}
 
 }
