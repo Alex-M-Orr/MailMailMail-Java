@@ -24,7 +24,7 @@ public class UserServiceTest {
 		u.setPassword("testPass");
 		u.setFirstName("testF");
 		u.setLastName("testL");
-		u.setDateJoined(LocalDateTime.now());
+		//u.setDateJoined(LocalDateTime.now());
 		us = ac.getBean(UserService.class);
 		us.save(u);
 	}
@@ -64,7 +64,7 @@ public class UserServiceTest {
 		u.setPassword("test2Pass");
 		u.setFirstName("test2F");
 		u.setLastName("test2L");
-		u.setDateJoined(LocalDateTime.now());
+		//u.setDateJoined(LocalDateTime.now());
 		assertNotNull(us.save(u));
 	}
 }

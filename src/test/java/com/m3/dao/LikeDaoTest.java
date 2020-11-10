@@ -28,7 +28,7 @@ public class LikeDaoTest {
 	@Before
 	public void setup() {
 		ApplicationContext ac = new ClassPathXmlApplicationContext("configtest.xml");
-		User us = new User(0, "test1@email.com", "test1", "tesfname1", "testlname1", LocalDateTime.now(), null, null, null, null);
+		User us = new User(0, "test1@email.com", "test1", "tesfname1", "testlname1",  null, null, null, null);
 		Post p = new Post(0, "string", "string,", us, LocalDateTime.now());
 		Comment c = new Comment(0, "content", p, us, LocalDateTime.now());
 		Like l = new Like(0, p, null, us, LocalDateTime.now());

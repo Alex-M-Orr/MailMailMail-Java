@@ -1,6 +1,5 @@
 package com.m3.controller;
 
-import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -9,13 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.m3.dao.CommentDao;
-import com.m3.dao.PostDao;
-import com.m3.dao.UserDao;
 import com.m3.model.Like;
 import com.m3.model.LikeBuilt;
 import com.m3.service.LikeService;
@@ -84,7 +81,7 @@ public class LikeController {
 	}
 	
 	@PostMapping("/insertLike.app")
-	public void insertLike(@RequestParam Like like) {
+	public void insertLike(@RequestBody Like like) {
 		Like l = new Like();
 		
 		l.setId(like.getId());
@@ -97,7 +94,7 @@ public class LikeController {
 	}
 	
 	@PostMapping("/deleteLike.app")
-	public void updateLike(@RequestParam Like like) {
+	public void updateLike(@RequestBody Like like) {
 		Like l = ls.getLikeById(like.getId());
 		
 		l.setId(like.getId());
