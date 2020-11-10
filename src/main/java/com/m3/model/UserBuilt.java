@@ -30,7 +30,7 @@ public class UserBuilt {
 		this.lastName = user.getLastName();
 		this.photo = user.getPhoto();
 
-		if (user.getPosts().size() == 0) {
+		if (user.getPosts() == null) {
 
 			this.postIds = null;
 		} else {
@@ -40,7 +40,7 @@ public class UserBuilt {
 			}
 		}
 
-		if (user.getComments().size() == 0) {
+		if (user.getComments() == null) {
 			this.commentIds = null;
 		} else {
 			this.commentIds = new HashSet<>();
@@ -49,7 +49,7 @@ public class UserBuilt {
 			}
 		}
 
-		if (user.getLikes().size() == 0) {
+		if (user.getLikes() == null) {
 			this.likeIds = null;
 		} else {
 			this.likeIds = new HashSet<>();
@@ -60,8 +60,8 @@ public class UserBuilt {
 
 	}
 
-	public UserBuilt(int id, String email, String password, String firstName, String lastName,
-			String photo, Set<Integer> postIds, Set<Integer> commentIds, Set<Integer> likeIds) {
+	public UserBuilt(int id, String email, String password, String firstName, String lastName, String photo,
+			Set<Integer> postIds, Set<Integer> commentIds, Set<Integer> likeIds) {
 		super();
 		this.id = id;
 		this.email = email;
