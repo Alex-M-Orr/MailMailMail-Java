@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.m3.model.User;
 import com.m3.model.UserBuilt;
+import com.m3.service.MailService;
 import com.m3.service.UserService;
 
 /**
@@ -47,7 +48,7 @@ public class UserController {
 	/**
 	 * This field is a MailService, which is a component used to send email.
 	 */
-//	private MailService ms;
+	private MailService ms;
 
 	/**
 	 * <p>
@@ -82,25 +83,21 @@ public class UserController {
 	 * 
 	 * @return MailService ms
 	 */
-//	public MailService getMs() {
-//		return ms;
-//	}
+	public MailService getMs() {
+		return ms;
+	}
 
 	/**
 	 * 
-	 * <p>
-	 * The setMs method sets the MailService field based on a MailService parameter.
-	 * </p>
-	 * The autowired tag is used so Spring creates a bean wiring to the MailService
-	 * class.
+
+	 * <p>The setMs method sets the MailService field based on a MailService parameter.</p>
 	 * 
 	 * @param MailService ms
 	 */
-//	@Autowired
-//	public void setMs(MailService ms) {
-//		this.ms = ms;
-//	}
-
+	public void setMs(MailService ms) {
+		this.ms = ms;
+	}
+	
 	/**
 	 * <p>
 	 * The getAll method returns a list of UserBuilts.
@@ -218,9 +215,11 @@ public class UserController {
 	 * 
 	 * @param String email
 	 */
-//	@PostMapping("/forgotPass.app")
-//	public void sendEmail(@RequestBody String email) {
-//		ms.sendMessage(email);
-//	}
 
+	@PostMapping("/forgotPass.app")
+	public void sendEmail(@RequestParam String email){
+		ms = new MailService();
+		ms.sendMessage(email);
+	}
+	
 }

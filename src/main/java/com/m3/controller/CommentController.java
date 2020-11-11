@@ -35,7 +35,7 @@ public class CommentController {
 	private CommentService cs;
 	
 	/**
-	 * <p>The getLs method retrieves the CommentService field.</p>
+	 * <p>The getCs method retrieves the CommentService field.</p>
 	 * 
 	 * @return CommentService cs
 	 */
@@ -71,6 +71,13 @@ public class CommentController {
 		return builtComments;
 	}
 	
+	/**
+	 * <p>The getById method returns a CommentBuilt based on a comment's ID.</p>
+	 * It gets a Comment from the database and rebuilds it into a format that can be more easily returned.
+	 * 
+	 * @param Integer id
+	 * @return CommentBuilt builtComment
+	 */
 	@GetMapping("/commentById.app")
 	public @ResponseBody CommentBuilt getById(@RequestParam Integer id) {
 		Comment comment = cs.getById(id);
@@ -78,6 +85,13 @@ public class CommentController {
 		return builtComment;
 	}
 	
+	/**
+	 * <p>The getAllCommentsByUser method returns a list of CommentBuilts made by a user, using the user's ID.</p>
+	 * It gets a list of Comments from the database and rebuilds them into a format that can be more easily returned.
+	 * 
+	 * @param Integer id
+	 * @return List<CommentBuilt> builtComments
+	 */
 	@GetMapping("/commentAUser.app")
 	public @ResponseBody List<CommentBuilt> getAllCommentsByUser(@RequestParam Integer id){
 		List<Comment> comments = cs.getAllUserComments(id);
@@ -88,6 +102,13 @@ public class CommentController {
 		return builtComments;
 	}
 	
+	/**
+	 * <p>The getAllCommentsByPost method returns a list of CommentBuilts on a post, using the post's ID.</p>
+	 * It gets a list of Comments from the database and rebuilds them into a format that can be more easily returned.
+	 * 
+	 * @param Integer id
+	 * @return List<CommentBuilt> builtComments
+	 */
 	@GetMapping("/commentAPost.app")
 	public @ResponseBody List<CommentBuilt> getAllCommentsByPost(@RequestParam Integer id){
 		List<Comment> comments = cs.getAllPostComments(id);
@@ -98,6 +119,11 @@ public class CommentController {
 		return builtComments;
 	}
 	
+	/**
+	 * <p>The insertComment method inserts a new Comment into the database.</p>
+	 * 
+	 * @param Comment comment
+	 */
 	@PostMapping("/insertComment.app")
 	public void insertComment(@RequestBody Comment comment) {
 		Comment c = new Comment();
@@ -110,7 +136,11 @@ public class CommentController {
 		
 		cs.insertCommentService(c);
 	}
-	
+	/**
+	 * <p>The updateComment method updates an existing comment in the database.</p>
+	 * 
+	 * @param Comment comment
+	 */
 	@PostMapping("/updateComment.app")
 	public void updateComment(@RequestBody Comment comment) {
 		Comment c = cs.getById(comment.getId());
