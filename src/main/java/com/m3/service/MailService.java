@@ -14,7 +14,7 @@ import com.m3.model.User;
 
 public class MailService {
 	
-	private UserDao ud;
+	private UserDao ud = new UserDao();
 	private JavaMailSender mailSender;
 	
 	public void sendMessage(String email) {
