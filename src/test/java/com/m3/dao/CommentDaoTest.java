@@ -1,6 +1,8 @@
 package com.m3.dao;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -24,6 +26,8 @@ public class CommentDaoTest {
 	private static Post testPost;
 	private Post testPost2;
 	private static Comment comm;
+	private static Comment comm2;
+	private static Comment comm3;
 	private static List<Comment> comments;
 
 	@BeforeClass
@@ -40,10 +44,13 @@ public class CommentDaoTest {
 
 		comments = new ArrayList<>();
 		comm = new Comment(0, "content", testPost, us, LocalDateTime.now());
+		comm2 = new Comment(0, "content2", testPost, us, LocalDateTime.now());
+		comm3 = new Comment(0, "content3", testPost, us, LocalDateTime.now());
 		comments.add(comm);
 
 		cd = ac.getBean(CommentDao.class);
 		cd.save(comm);
+		cd.save(comm2);
 
 //		User us2 = new User(0, "postDaoTest2@email.com", "test2", "tesfname2", "testlname2", null, null, null, null);
 
@@ -56,7 +63,34 @@ public class CommentDaoTest {
 
 	@Test
 	public void findByIdTest() {
-		assertNotNull(cd.findAll());
+		assertNotNull(cd.findById(comm.getId()));
+	}
+
+	@Test
+	public void findCommentsForUserTest() {
+		assertNotNull(cd.findCommentsForUser(1));
+	}
+
+	@Test
+	public void findCommentsForPostTest() {
+		assertNotNull(cd.findCommentsForPost(1));
+	}
+
+	@Test
+	public void updateTest() {
+		Comment testComm = cd.findById(comm2.getId());
+		testComm.setContent("dootdoot");
+		cd.update(testComm);
+		assertEquals(testComm.getContent(), "dootdoot");
+	}
+
+	@Test
+	public void saveAndDeleteTest() {
+		assertNotNull(cd.save(comm3));
+		int rows = cd.findAll().size();
+		cd.delete(comm3.getId());
+		int rowsD = cd.findAll().size();
+		assertTrue(rowsD == rows - 1);
 	}
 
 }
