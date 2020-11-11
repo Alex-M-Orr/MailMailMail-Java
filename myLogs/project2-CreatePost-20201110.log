@@ -1,0 +1,1 @@
+2020-11-10 21:43:10.933 [main] CREATEPOST com.m3.aspect.PostAspect - Post Created: Post [id=2, content=WOWEE THIS IS SOME GREAT LOGGING, authorId=1, dateCreated=2020-11-10T21:43:09.130876300] 

@@ -1,0 +1,1 @@
+2020-11-10 21:47:58.712 [main] GENEXCEP com.m3.aspect.PostAspect - User com.m3.dao.UserDao.findByEmailAndPassword(String,String) threw an exception with args: pancake@gmail.com password 
