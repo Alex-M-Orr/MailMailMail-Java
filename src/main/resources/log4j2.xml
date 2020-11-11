@@ -1,13 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="INFO">
-    <Appenders>
-        <File name="FileAppender" fileName="myLogs/project2-${date:yyyyMMdd}.log" immediateFlush="false" append="true">
-            <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
-        </File>
-    </Appenders>
-    <Loggers>
-        <Root level="trace">
-            <AppenderRef ref="FileAppender" level="INFO"/>
-        </Root>
-    </Loggers>
+
+	<CustomLevels>
+		<CustomLevel name="REGISTER" intLevel="350" />
+		<CustomLevel name="LOGIN" intLevel="351" />
+		<CustomLevel name="ACCUPDATE" intLevel="352" />
+		<CustomLevel name="GENEXCEP" intLevel="353" />
+		<CustomLevel name="CREATEPOST" intLevel="354" />
+
+
+	</CustomLevels>
+
+	<Appenders>
+		<File name="RegisterAppender"
+			fileName="myLogs/project2-Register-${date:yyyyMMdd}.log"
+			immediateFlush="true" append="true">
+			<PatternLayout
+				pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+			<LevelRangeFilter minLevel="REGISTER"
+				maxLevel="REGISTER" onMatch="ACCEPT" onMismatch="DENY" />
+		</File>
+		<File name="LoginAppender"
+			fileName="myLogs/project2-Login-${date:yyyyMMdd}.log"
+			immediateFlush="true" append="true">
+			<PatternLayout
+				pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+			<LevelRangeFilter minLevel="LOGIN" maxLevel="LOGIN"
+				onMatch="ACCEPT" onMismatch="DENY" />
+		</File>
+		<File name="AccUpAppender"
+			fileName="myLogs/project2-AccountUpdate-${date:yyyyMMdd}.log"
+			immediateFlush="true" append="true">
+			<PatternLayout
+				pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+			<LevelRangeFilter minLevel="ACCUPDATE"
+				maxLevel="ACCUPDATE" onMatch="ACCEPT" onMismatch="DENY" />
+		</File>
+		<File name="CreatePostAppender"
+			fileName="myLogs/project2-CreatePost-${date:yyyyMMdd}.log"
+			immediateFlush="true" append="true">
+			<PatternLayout
+				pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+			<LevelRangeFilter minLevel="CREATEPOST"
+				maxLevel="CREATEPOST" onMatch="ACCEPT" onMismatch="DENY" />
+		</File>
+		<File name="GenExAppender"
+			fileName="myLogs/project2-Exceptions-${date:yyyyMMdd}.log"
+			immediateFlush="true" append="true">
+			<PatternLayout
+				pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+			<LevelRangeFilter minLevel="GENEXCEP"
+				maxLevel="GENEXCEP" onMatch="ACCEPT" onMismatch="DENY" />
+		</File>
+
+	</Appenders>
+	<Loggers>
+		<Root level="trace">
+			<AppenderRef ref="RegisterAppender" level="REGISTER" />
+			<AppenderRef ref="LoginAppender" level="LOGIN" />
+			<AppenderRef ref="AccUpAppender" level="ACCUPDATE" />
+			<AppenderRef ref="CreatePostAppender" level="CREATEPOST" />
+			<AppenderRef ref="GenExAppender" level="GENEXCEP" />
+		</Root>
+	</Loggers>
 </Configuration>

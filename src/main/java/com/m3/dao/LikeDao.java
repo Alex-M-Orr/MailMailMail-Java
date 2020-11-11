@@ -4,65 +4,123 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.m3.model.Like;
-import com.m3.model.User;
-import com.m3.util.HibernateUtil;
 
 @Repository
 @Transactional
-public class LikeDao /*implements DaoContract<Like, Integer>*/{
+public class LikeDao /* implements DaoContract<Like, Integer> */ {
 
 	private SessionFactory sessfact;
-	
+
 	@Autowired
 	public LikeDao(SessionFactory sessfact) {
 		this.sessfact = sessfact;
 	}
-	
-	public LikeDao() {		
+
+	public LikeDao() {
 	}
-	
-	//@Override
+
+	// @Override
 	public List<Like> findAll() {
-		List<Like> likes = sessfact.openSession().createQuery("from Like", Like.class).list();
+		Session session;
+		try {
+			session = sessfact.getCurrentSession();
+		} catch (HibernateException e) {
+			session = sessfact.openSession();
+		}
+		Transaction trans = session.beginTransaction();
+		List<Like> likes = session.createQuery("from Like", Like.class).list();
+		trans.commit();
 		return likes;
 	}
 
-	//@Override
+	// @Override
 	public Like findById(Integer i) {
-		Like l = sessfact.openSession().get(Like.class, i);
+		Session session;
+		try {
+			session = sessfact.getCurrentSession();
+		} catch (HibernateException e) {
+			session = sessfact.openSession();
+		}
+		Transaction trans = session.beginTransaction();
+		Like l = session.get(Like.class, i);
+		trans.commit();
 		return l;
 	}
 
-	public List<Like> findLikesForUser(Integer i){
-		List<Like> list = sessfact.openSession().createQuery("from Like where authorid =" + i, Like.class).list();
-		return list;
-	}
-	
-	public List<Like> findLikesForPost(Integer i){
-		List<Like> list = sessfact.openSession().createQuery("from Like where postid =" + i, Like.class).list();
-		return list;
-	}
-	
-	public List<Like> findLikesForComment(Integer i){
-		List<Like> list = sessfact.openSession().createQuery("from Like where commentid =" + i, Like.class).list();
+	public List<Like> findLikesForUser(Integer i) {
+		Session session;
+		try {
+			session = sessfact.getCurrentSession();
+		} catch (HibernateException e) {
+			session = sessfact.openSession();
+		}
+		Transaction trans = session.beginTransaction();
+		List<Like> list = session.createQuery("from Like where authorid =" + i, Like.class).list();
+		trans.commit();
 		return list;
 	}
 
-	//@Override
+	public List<Like> findLikesForPost(Integer i) {
+		Session session;
+		try {
+			session = sessfact.getCurrentSession();
+		} catch (HibernateException e) {
+			session = sessfact.openSession();
+		}
+		Transaction trans = session.beginTransaction();
+		List<Like> list = session.createQuery("from Like where postid =" + i, Like.class).list();
+		trans.commit();
+		return list;
+	}
+
+	public List<Like> findLikesForComment(Integer i) {
+		Session session;
+		try {
+			session = sessfact.getCurrentSession();
+		} catch (HibernateException e) {
+			session = sessfact.openSession();
+		}
+		Transaction trans = session.beginTransaction();
+		List<Like> list = session.createQuery("from Like where commentid =" + i, Like.class).list();
+		trans.commit();
+		return list;
+	}
+
+	// @Override
 	public Like save(Like t) {
-		sessfact.openSession().save(t);
+		Session session;
+		try {
+			session = sessfact.getCurrentSession();
+		} catch (HibernateException e) {
+			session = sessfact.openSession();
+		}
+		Transaction trans = session.beginTransaction();
+		session.save(t);
+		trans.commit();
 		return t;
 	}
 
-	//@Override
+	// @Override
 	public Like delete(Integer i) {
+
 		Like l = findById(i);
-		sessfact.getCurrentSession().delete(l);
+		Session session;
+		try {
+			session = sessfact.getCurrentSession();
+		} catch (HibernateException e) {
+			session = sessfact.openSession();
+		}
+		Transaction trans = session.beginTransaction();
+		session.delete(l);
+		trans.commit();
 		return l;
 	}
 
