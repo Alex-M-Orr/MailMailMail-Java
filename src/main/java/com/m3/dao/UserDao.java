@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -28,7 +29,12 @@ public class UserDao /* implements DaoContract<User, Integer> */ {
 
 //	@Override
 	public List<User> findAll() {
-		Session session = sessfact.getCurrentSession();
+		Session session;
+		try {
+			session = sessfact.getCurrentSession();
+		} catch (HibernateException e) {
+			session = sessfact.openSession();
+		}
 		Transaction trans = session.beginTransaction();
 		List<User> list = session.createQuery("from User", User.class).list();
 		trans.commit();
@@ -37,7 +43,12 @@ public class UserDao /* implements DaoContract<User, Integer> */ {
 
 //	@Override
 	public User findById(Integer i) {
-		Session session = sessfact.getCurrentSession();
+		Session session;
+		try {
+			session = sessfact.getCurrentSession();
+		} catch (HibernateException e) {
+			session = sessfact.openSession();
+		}
 		Transaction trans = session.beginTransaction();
 		User u = session.get(User.class, i);
 		trans.commit();
@@ -46,7 +57,12 @@ public class UserDao /* implements DaoContract<User, Integer> */ {
 
 //	@Override
 	public User update(User t) {
-		Session session = sessfact.getCurrentSession();
+		Session session;
+		try {
+			session = sessfact.getCurrentSession();
+		} catch (HibernateException e) {
+			session = sessfact.openSession();
+		}
 		Transaction trans = session.beginTransaction();
 		session.merge(t);
 		trans.commit();
@@ -55,7 +71,12 @@ public class UserDao /* implements DaoContract<User, Integer> */ {
 
 //	@Override
 	public User save(User t) {
-		Session session = sessfact.getCurrentSession();
+		Session session;
+		try {
+			session = sessfact.getCurrentSession();
+		} catch (HibernateException e) {
+			session = sessfact.openSession();
+		}
 		Transaction trans = session.beginTransaction();
 		session.save(t);
 		trans.commit();
@@ -63,7 +84,12 @@ public class UserDao /* implements DaoContract<User, Integer> */ {
 	}
 
 	public User findByEmail(String email) {
-		Session session = sessfact.getCurrentSession();
+		Session session;
+		try {
+			session = sessfact.getCurrentSession();
+		} catch (HibernateException e) {
+			session = sessfact.openSession();
+		}
 		Transaction trans = session.beginTransaction();
 		User u = session.createQuery("from User where email='" + email + "'", User.class).list().get(0);
 		trans.commit();
@@ -72,7 +98,12 @@ public class UserDao /* implements DaoContract<User, Integer> */ {
 	}
 
 	public User findByEmailAndPassword(String email, String password) {
-		Session session = sessfact.getCurrentSession();
+		Session session;
+		try {
+			session = sessfact.getCurrentSession();
+		} catch (HibernateException e) {
+			session = sessfact.openSession();
+		}
 		Transaction trans = session.beginTransaction();
 		User u = session
 				.createQuery("from User where (email, password) = ('" + email + "', '" + password + "')", User.class)
