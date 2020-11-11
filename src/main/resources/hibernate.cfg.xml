@@ -20,8 +20,6 @@
 		
 		<mapping class="com.m3.model.User"/>
 		<mapping class="com.m3.model.Comment"/>
-		<mapping class="com.m3.model.Friendship"/>
-		<mapping class="com.m3.model.FriendshipKey"/>
 		<mapping class="com.m3.model.Like"/>
 		<mapping class="com.m3.model.Post"/>
 		

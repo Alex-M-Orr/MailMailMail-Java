@@ -11,12 +11,32 @@ import org.springframework.stereotype.Component;
 
 import com.m3.dao.UserDao;
 import com.m3.model.User;
-
+/**
+ * 
+ * <h1>MailService</h1>
+ * <p>The mail service is used to email information from the front end to a user.</p>
+ * <p>This class is not managed by Spring.</p>
+ * 
+ * @authors Alex Orr, Enoch Cho, Jordan Hunnicutt, Robert Porto, Tyrone Veneracion
+ *
+ */
 public class MailService {
 	
-	private UserDao ud;
+	/**
+	 * This field is a UserDao, which is a component used to communicate directly with the repository.
+	 */
+	private UserDao ud = new UserDao();
+	
+	/**
+	 * This field is a JavaMailSender. It contains information about the mailing protocol, its properties, and the user sending the message.
+	 */
 	private JavaMailSender mailSender;
 	
+	/**
+	 * <p>The sendMessage method sends a custom email to a user based on the provided email.</p>
+	 * 
+	 * @param String email
+	 */
 	public void sendMessage(String email) {
 		mailSender = getJavaMailSender();
 		User u;
@@ -36,6 +56,11 @@ public class MailService {
 		mailSender.send(message);
 	}
 	
+	/**
+	 * <p>The getJavaMailSender method sets the host, port, user details, and protocol information for the JavaMailSender.</p>
+	 * 
+	 * @return JavaMailSender mailSender
+	 */
 	public JavaMailSender getJavaMailSender() {
 	    JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
 	    mailSender.setHost("smtp.gmail.com");
@@ -53,11 +78,21 @@ public class MailService {
 	    return mailSender;
 	}
 	
+	/**
+	 * <p>The getEmail method gets the email address of the user to send from.</p>
+	 * 
+	 * @return String UserDao.getEmail();
+	 */
 	public String getEmail() {
 		User u = ud.findById(15);
 		return u.getEmail();
 	}
 	
+	/**
+	 * <p>The getPass method gets the password of the user to send from.</p>
+	 * 
+	 * @return String UserDao.getPassword();
+	 */
 	public String getPass() {
 		User u = ud.findById(15);
 		return u.getPassword();
