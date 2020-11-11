@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -115,14 +116,22 @@ public class PostController {
 	public @ResponseBody PostBuilt save(@RequestBody Post p ) {
 		return new PostBuilt(ps.save(p));
 	}
-//	@GetMapping("/postUpdate.app")
-//	public @ResponseBody PostBuilt update(@RequestParam Post p) {
-//		Post post = ps.findById(p.getId());
-//		post.setContent(p.getContent());
-//		post.setPhoto(p.getPhoto());
-//		PostBuilt pb = new PostBuilt(ps.updatePost(p));
-//		return pb;
-//	}
+	
+	/**
+	 * <p>The update method updates a Post in the database, and returns a PostBuilt.</p>
+	 * The Post is rebuilt into a format that is more easily returned.
+	 * 
+	 * @param Post p
+	 * @return PostBuilt pb
+	 */
+	@PutMapping("/postUpdate.app")
+	public @ResponseBody PostBuilt update(@RequestBody Post p) {
+		Post post = ps.findById(p.getId());
+		post.setContent(p.getContent());
+		post.setPhoto(p.getPhoto());
+		PostBuilt pb = new PostBuilt(ps.updatePost(p));
+		return pb;
+	}
 
 //	@GetMapping
 //	public @ResponseBody List<String> getAll() {

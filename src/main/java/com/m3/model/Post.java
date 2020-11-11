@@ -61,7 +61,11 @@ public class Post {
 	}
 
 	public void setContent(String content) {
-		this.content = content;
+		try {
+			this.content = content;
+		} catch (Exception e) {
+			
+		}
 	}
 
 	public User getAuthor() {
@@ -85,7 +89,12 @@ public class Post {
 	}
 
 	public void setPhoto(String photo) {
-		this.photo = photo;
+		try {
+			this.photo = photo;
+		} catch (Exception e) {
+			
+		}
+		
 	}
 
 //	Changed from author= author-object to authorId = author.getId()
