@@ -113,8 +113,10 @@ public class PostController {
 	 * @return new PostBuilt
 	 */
 	@PostMapping("/postSave.app")
-	public @ResponseBody PostBuilt save(@RequestBody Post p ) {
-		return new PostBuilt(ps.save(p));
+	public @ResponseBody PostBuilt save(@RequestBody PostBuilt pb ) {
+		Post p = new Post(pb);
+		ps.save(p);
+		return pb;
 	}
 	
 	/**
@@ -125,12 +127,17 @@ public class PostController {
 	 * @return PostBuilt pb
 	 */
 	@PutMapping("/postUpdate.app")
-	public @ResponseBody PostBuilt update(@RequestBody Post p) {
+	public @ResponseBody PostBuilt update(@RequestBody PostBuilt p) {
 		Post post = ps.findById(p.getId());
-		post.setContent(p.getContent());
-		post.setPhoto(p.getPhoto());
-		PostBuilt pb = new PostBuilt(ps.updatePost(p));
-		return pb;
+		try {
+			post.setContent(p.getContent());
+		} catch (Exception e) {}
+		try {
+			post.setPhoto(p.getPhoto());
+		}catch (Exception e) {}
+		
+		ps.updatePost(post);
+		return p;
 	}
 
 //	@GetMapping

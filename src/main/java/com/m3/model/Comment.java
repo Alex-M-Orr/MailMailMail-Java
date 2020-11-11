@@ -10,8 +10,19 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.m3.dao.PostDao;
+import com.m3.dao.UserDao;
+
 @Entity
 public class Comment {
+	
+	@Autowired
+	private static PostDao pd;
+	
+	@Autowired
+	private static UserDao ud;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,6 +56,37 @@ public class Comment {
 		this.post = post;
 		this.author = author;
 		this.dateCreated = dateCreated;
+	}
+	public Comment(String content, Post post, User author) {
+		super();
+		this.content = content;
+		this.post = post;
+		this.author = author;
+		this.dateCreated = LocalDateTime.now();
+	}
+	public Comment(CommentBuilt cb) {
+		super();
+		this.id = cb.getId();
+		try {
+			this.content = cb.getContent();
+		} catch (Exception e) {
+			
+		}
+		try {
+			this.post = pd.findById(cb.getPostId());
+		} catch (Exception e) {
+			this.post = null;
+		}
+		try {
+			this.author = ud.findById(cb.getAuthor());
+		} catch (Exception e) {
+			this.author = null;
+		}
+		try {
+			this.dateCreated = cb.getDateCreated();
+		} catch (Exception e) {
+			this.dateCreated = LocalDateTime.now();
+		}
 	}
 	public Comment() {
 		super();

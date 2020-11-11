@@ -154,7 +154,7 @@ public class LikeController {
 	 * @param Like like
 	 */
 	@PostMapping("/deleteLike.app")
-	public void deleteLike(@RequestBody Like like) {
+	public void deleteLike(@RequestBody LikeBuilt like) {
 		Like l = ls.getLikeById(like.getId());		
 		ls.deleteLike(l);
 	}
