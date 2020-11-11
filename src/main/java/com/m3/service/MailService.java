@@ -14,13 +14,14 @@ import com.m3.model.User;
 
 @Component
 public class MailService {
-
-	private JavaMailSender mailSender = getJavaMailSender();
 	
 	@Autowired
 	private UserDao ud;
+	private JavaMailSender mailSender;
 	
 	public void sendMessage(String email) {
+		mailSender = getJavaMailSender();
+		
 		try {
 			User u = ud.findByEmail(email);
 		} catch (Exception e){
@@ -43,8 +44,8 @@ public class MailService {
 	    mailSender.setHost("smtp.gmail.com");
 	    mailSender.setPort(587);
 	    
-	    mailSender.setUsername("mailmailmailadm@gmail.com");
-	    mailSender.setPassword("MailMailMail");
+	    mailSender.setUsername(getEmail());
+	    mailSender.setPassword(getPass());
 	    
 	    Properties props = mailSender.getJavaMailProperties();
 	    props.put("mail.transport.protocol", "smtp");
@@ -55,4 +56,13 @@ public class MailService {
 	    return mailSender;
 	}
 	
+	public String getEmail() {
+		User u = ud.findById(15);
+		return u.getEmail();
+	}
+	
+	public String getPass() {
+		User u = ud.findById(15);
+		return u.getPassword();
+	}
 }
