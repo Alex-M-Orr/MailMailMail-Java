@@ -180,7 +180,7 @@ public class UserController {
 	 * @param String email
 	 */
 	@PostMapping("/forgotPass.app")
-	public void sendEmail(@RequestBody String email){
+	public void sendEmail(@RequestParam String email){
 		ms.sendMessage(email);
 	}
 	
