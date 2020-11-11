@@ -12,17 +12,16 @@ import org.springframework.stereotype.Component;
 import com.m3.dao.UserDao;
 import com.m3.model.User;
 
-@Component
 public class MailService {
-
-	private JavaMailSender mailSender = getJavaMailSender();
 	
-	@Autowired
-	private UserDao ud;
+	private UserDao ud = new UserDao();
+	private JavaMailSender mailSender;
 	
 	public void sendMessage(String email) {
+		mailSender = getJavaMailSender();
+		User u;
 		try {
-			User u = ud.findByEmail(email);
+			u = ud.findByEmail(email);
 		} catch (Exception e){
 			System.out.println("Could not find a user");
 			return;
@@ -32,19 +31,18 @@ public class MailService {
 		message.setFrom("mailmailmailadm@gmail.com");
 		message.setTo(email);
 		message.setSubject("Password Reset - Mail Mail Mail");
-		String text = "Thank you for using Mail Mail Mail! \n" + "If you did not request a password reset, you can safely ignore this message. \n" + "Please follow this link to reset your password: http://18.191.119.230:8081/Project2-1.0.0/resetPassword.app?email="+email;
+		String text = "Thank you for using Mail Mail Mail! \n" + "If you did not request a password reset, you can safely ignore this message. \n" + "Please follow this link to reset your password: http://www.mailmailmail.com.s3-website-us-west-1.amazonaws.com/reset/pass/"+email+"\n Use this code when prompted: "+u.getPassword();
 		message.setText(text);
 		mailSender.send(message);
 	}
 	
-	@Bean
 	public JavaMailSender getJavaMailSender() {
 	    JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
 	    mailSender.setHost("smtp.gmail.com");
 	    mailSender.setPort(587);
 	    
-	    mailSender.setUsername("mailmailmailadm@gmail.com");
-	    mailSender.setPassword("MailMailMail");
+	    mailSender.setUsername(getEmail());
+	    mailSender.setPassword(getPass());
 	    
 	    Properties props = mailSender.getJavaMailProperties();
 	    props.put("mail.transport.protocol", "smtp");
@@ -55,4 +53,13 @@ public class MailService {
 	    return mailSender;
 	}
 	
+	public String getEmail() {
+		User u = ud.findById(15);
+		return u.getEmail();
+	}
+	
+	public String getPass() {
+		User u = ud.findById(15);
+		return u.getPassword();
+	}
 }

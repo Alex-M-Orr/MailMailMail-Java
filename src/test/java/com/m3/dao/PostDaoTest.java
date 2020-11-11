@@ -26,8 +26,7 @@ public class PostDaoTest {
 	@BeforeClass
 	public static void setup() {
 		ApplicationContext ac = new ClassPathXmlApplicationContext("configtest.xml");
-		User us = new User(0, "test1@email.com", "test1", "tesfname1", "testlname1", null, null,
-				null, null);
+		User us = new User(0, "postDaoTest1@email.com", "test1", "tesfname1", "testlname1", null, null, null, null);
 		ud = ac.getBean(UserDao.class);
 		ud.save(us);
 
@@ -37,8 +36,7 @@ public class PostDaoTest {
 		pd = ac.getBean(PostDao.class);
 		pd.save(testPost);
 
-		User us2 = new User(0, "test2@email.com", "test2", "tesfname2", "testlname2",null, null,
-				null, null);
+		User us2 = new User(0, "postDaoTest2@email.com", "test2", "tesfname2", "testlname2", null, null, null, null);
 
 	}
 
@@ -68,12 +66,10 @@ public class PostDaoTest {
 		Post test = pd.save(testPost2);
 		assertNotNull(test);
 	}
+
 	@Test
 	public void findPostsForUserTest() {
 		assertTrue(pd.findPostsForUser(1) != null);
 	}
-	
-	
-	
 
 }

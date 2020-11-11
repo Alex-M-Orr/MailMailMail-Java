@@ -16,18 +16,18 @@ import com.m3.model.User;
 
 public class P2DriverWithORM {
 	
-	private static final Logger userLogger = LogManager.getLogger(P2DriverWithORM.class);
+//	private static final Logger userLogger = LogManager.getLogger(P2DriverWithORM.class);
 
 
 
 	public static void main(String[] args) {
 //		LocalDateTime date = LocalDateTime.now();
 		
-		ApplicationContext ac = new ClassPathXmlApplicationContext("config.xml");
-		LikeDao ld = ac.getBean(LikeDao.class);
-		CommentDao cd = ac.getBean(CommentDao.class);
-		UserDao ud = ac.getBean(UserDao.class);
-		PostDao pd = ac.getBean(PostDao.class);
+//		ApplicationContext ac = new ClassPathXmlApplicationContext("config.xml");
+//		LikeDao ld = ac.getBean(LikeDao.class);
+//		CommentDao cd = ac.getBean(CommentDao.class);
+//		UserDao ud = ac.getBean(UserDao.class);
+//		PostDao pd = ac.getBean(PostDao.class);
 //		User testUser = new User(0, "test1@email.com", "test1", "tesfname1", "testlname1", date, null, null, null,
 //				null);
 //		Post testPost = new Post(0, "testContent", "testPhoto", null, date);
@@ -56,7 +56,7 @@ public class P2DriverWithORM {
 //		ms.sendMessage("aorr917@gmail.com");
 		
 //		System.out.println(ud.findByEmailAndPassword("aorr917@gmail.com", "password"));
-		System.out.println(ud.findByEmailAndPassword("pancake@gmail.com", "password"));
+//		System.out.println(ud.findByEmailAndPassword("pancake@gmail.com", "password"));
 //		User u1 = new User(0, "aorr917@gmail.com", "test", "shouldfail", "shouldfail", "", null, null, null);
 //		User u1 = new User(0, "newuser@gmail.com", "test", "shouldntfail", "shouldntfail", "", null, null, null);
 //		ud.save(u1);
@@ -67,6 +67,7 @@ public class P2DriverWithORM {
 //		User u = ud.findByEmail("aorr917@gmail.com");
 //		Post p = new Post(0, "WOWEE THIS IS SOME GREAT LOGGING", "", u, LocalDateTime.now());
 //		pd.save(p);
+
 
 	}
 

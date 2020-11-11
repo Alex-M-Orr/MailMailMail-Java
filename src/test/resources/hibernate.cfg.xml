@@ -28,6 +28,8 @@
 
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">update</property>
+		<property name="hibernate.current_session_context_class">thread</property>
+
 
 		<mapping class="com.m3.model.User"/>
 		<mapping class="com.m3.model.Comment"/>

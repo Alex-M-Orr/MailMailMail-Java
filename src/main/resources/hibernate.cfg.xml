@@ -14,8 +14,9 @@
 		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property> <!--  hibernate should detect this automatically, but good to add -->
 		<property name="hibernate.connection.show_sql">false</property> <!-- if hibernate should print sql queries to console/log file (good for development) -->
 		<property name="hibernate.connection.format_sql">true</property> <!-- this is an option for if you want hibernate to prettify the sql -->
-		<property name="hibernate.connection.pool_size">10</property> <!-- connection pool size for hibernate -->
+		<property name="hibernate.connection.pool_size">20</property> <!-- connection pool size for hibernate -->
 		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="hibernate.current_session_context_class">thread</property>
 		
 		<mapping class="com.m3.model.User"/>
 		<mapping class="com.m3.model.Comment"/>
