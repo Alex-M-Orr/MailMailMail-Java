@@ -139,17 +139,11 @@ public class LikeController {
 	/**
 	 * <p>The insertLike method inserts a new Like into the database.</p>
 	 * 
-	 * @param Like like
+	 * @param LikeBuilt like
 	 */
 	@PostMapping("/insertLike.app")
-	public void insertLike(@RequestBody Like like) {
-		Like l = new Like();
-		
-		l.setId(like.getId());
-		l.setPost(like.getPost());
-		l.setComment(like.getComment());
-		l.setAuthor(like.getAuthor());
-		l.setDateCreated(like.getDateCreated());
+	public void insertLike(@RequestBody LikeBuilt like) {
+		Like l = new Like(like);
 		
 		ls.insertLikeService(l);
 	}
