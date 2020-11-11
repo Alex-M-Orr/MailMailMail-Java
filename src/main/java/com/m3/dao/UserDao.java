@@ -4,12 +4,13 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.m3.model.User;
-import com.m3.util.HibernateUtil;
 
 @Repository
 @Transactional
@@ -27,38 +28,57 @@ public class UserDao /* implements DaoContract<User, Integer> */ {
 
 //	@Override
 	public List<User> findAll() {
-		List<User> list = HibernateUtil.getSessionFactory().openSession().createQuery("from User", User.class).list();
+		Session session = sessfact.getCurrentSession();
+		Transaction trans = session.beginTransaction();
+		List<User> list = session.createQuery("from User", User.class).list();
+		trans.commit();
 		return list;
 	}
 
 //	@Override
 	public User findById(Integer i) {
-		User u = sessfact.openSession().get(User.class, i);
+		Session session = sessfact.getCurrentSession();
+		Transaction trans = session.beginTransaction();
+		User u = session.get(User.class, i);
+		trans.commit();
 		return u;
 	}
 
 //	@Override
 	public User update(User t) {
-		sessfact.getCurrentSession().merge(t);
+		Session session = sessfact.getCurrentSession();
+		Transaction trans = session.beginTransaction();
+		session.merge(t);
+		trans.commit();
 		return t;
 	}
 
 //	@Override
 	public User save(User t) {
-		sessfact.openSession().save(t);
+		Session session = sessfact.getCurrentSession();
+		Transaction trans = session.beginTransaction();
+		session.save(t);
+		trans.commit();
 		return t;
 	}
 
 	public User findByEmail(String email) {
-		User u = HibernateUtil.getSessionFactory().openSession()
-				.createQuery("from User where email='" + email + "'", User.class).list().get(0);
+		Session session = sessfact.getCurrentSession();
+		Transaction trans = session.beginTransaction();
+		User u = session.createQuery("from User where email='" + email + "'", User.class).list().get(0);
+		trans.commit();
 //		User ue = sessfact.openSession().get(User.class, email);
 		return u;
 	}
 
 	public User findByEmailAndPassword(String email, String password) {
-		User u = sessfact.openSession().createQuery("from User where (email, password) = ('"+email+"', '"+password+"')", User.class).list().get(0);
+		Session session = sessfact.getCurrentSession();
+		Transaction trans = session.beginTransaction();
+		User u = session
+				.createQuery("from User where (email, password) = ('" + email + "', '" + password + "')", User.class)
+				.list().get(0);
+		trans.commit();
 		return u;
 	}
-	
+
 }

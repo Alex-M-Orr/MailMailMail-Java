@@ -4,13 +4,13 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.m3.model.Post;
-import com.m3.model.User;
-import com.m3.util.HibernateUtil;
 
 @Repository
 @Transactional
@@ -26,30 +26,45 @@ public class PostDao {
 	}
 
 	public List<Post> findAll() {
-		List<Post> list = HibernateUtil.getSessionFactory().openSession().createQuery("from Post", Post.class).list();
+		Session session = sessfact.getCurrentSession();
+		Transaction trans = session.beginTransaction();
+		List<Post> list = session.createQuery("from Post", Post.class).list();
+		trans.commit();
+
 		return list;
 	}
 
 	public List<Post> findPostsForUser(Integer i) {
-		List<Post> list = HibernateUtil.getSessionFactory().openSession()
-				.createQuery("from Post where user_id =" + i, Post.class).list();
+		Session session = sessfact.getCurrentSession();
+		Transaction trans = session.beginTransaction();
+		List<Post> list = session.createQuery("from Post where user_id =" + i, Post.class).list();
+		trans.commit();
 		return list;
 
 	}
 
 	public Post findById(Integer i) {
-		Post p = sessfact.openSession().get(Post.class, i);
+		Session session = sessfact.getCurrentSession();
+		Transaction trans = session.beginTransaction();
+		Post p = session.get(Post.class, i);
+		trans.commit();
 		return p;
 	}
 
 	public Post update(Post t) {
-		sessfact.openSession().update(t);
+		Session session = sessfact.getCurrentSession();
+		Transaction trans = session.beginTransaction();
+		session.update(t);
+		trans.commit();
 		return t;
 	}
 
 //	@Override
 	public Post save(Post t) {
-		sessfact.openSession().save(t);
+		Session session = sessfact.getCurrentSession();
+		Transaction trans = session.beginTransaction();
+		session.save(t);
+		trans.commit();
 		return t;
 	}
 
