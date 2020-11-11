@@ -16,15 +16,23 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.m3.model.User;
 import com.m3.model.UserBuilt;
-import com.m3.service.MailService;
 import com.m3.service.UserService;
+
 /**
  * 
  * <h1>UserController</h1>
- * <p>The user controller is used to get information about the user from the front end based on different request mappings.</p>
- * <p>This component uses annotations to indicate that it is a controller, that it uses cross origin references, that it has request mappings, and that it has connected beans</p>
+ * <p>
+ * The user controller is used to get information about the user from the front
+ * end based on different request mappings.
+ * </p>
+ * <p>
+ * This component uses annotations to indicate that it is a controller, that it
+ * uses cross origin references, that it has request mappings, and that it has
+ * connected beans
+ * </p>
  * 
- * @authors Alex Orr, Enoch Cho, Jordan Hunnicutt, Robert Porto, Tyrone Veneracion
+ * @authors Alex Orr, Enoch Cho, Jordan Hunnicutt, Robert Porto, Tyrone
+ *          Veneracion
  *
  */
 @Controller
@@ -32,7 +40,8 @@ import com.m3.service.UserService;
 @RequestMapping
 public class UserController {
 	/**
-	 * This field is a UserService, which is a component used to communicate between this controller and the repository.
+	 * This field is a UserService, which is a component used to communicate between
+	 * this controller and the repository.
 	 */
 	private UserService us;
 	/**
@@ -41,7 +50,9 @@ public class UserController {
 	private MailService ms;
 
 	/**
-	 * <p>The getUs method retrieves the UserService field.</p>
+	 * <p>
+	 * The getUs method retrieves the UserService field.
+	 * </p>
 	 * 
 	 * @return UserService us
 	 */
@@ -51,8 +62,11 @@ public class UserController {
 
 	/**
 	 * 
-	 * <p>The setUs method sets the UserService field based on a UserService parameter.</p>
-	 * The autowired tag is used so Spring creates a bean wiring to the UserService class.
+	 * <p>
+	 * The setUs method sets the UserService field based on a UserService parameter.
+	 * </p>
+	 * The autowired tag is used so Spring creates a bean wiring to the UserService
+	 * class.
 	 * 
 	 * @param UserService us
 	 */
@@ -62,16 +76,19 @@ public class UserController {
 	}
 
 	/**
-	 * <p>The getMs method retrieves the MailService field.</p>
+	 * <p>
+	 * The getMs method retrieves the MailService field.
+	 * </p>
 	 * 
 	 * @return MailService ms
 	 */
 	public MailService getMs() {
 		return ms;
 	}
-	
+
 	/**
 	 * 
+
 	 * <p>The setMs method sets the MailService field based on a MailService parameter.</p>
 	 * 
 	 * @param MailService ms
@@ -81,8 +98,11 @@ public class UserController {
 	}
 	
 	/**
-	 * <p>The getAll method returns a list of UserBuilts.</p>
-	 * It gets a list of Users from the database and rebuilds them into a format that can be more easily returned.
+	 * <p>
+	 * The getAll method returns a list of UserBuilts.
+	 * </p>
+	 * It gets a list of Users from the database and rebuilds them into a format
+	 * that can be more easily returned.
 	 * 
 	 * @return List<UserBuilt> builtUsers
 	 */
@@ -98,8 +118,11 @@ public class UserController {
 	}
 
 	/**
-	 * <p>The getUser method returns a UserBuilt based on a user's ID.</p>
-	 * It gets a User from the database and rebuilds it into a format that can be more easily returned.
+	 * <p>
+	 * The getUser method returns a UserBuilt based on a user's ID.
+	 * </p>
+	 * It gets a User from the database and rebuilds it into a format that can be
+	 * more easily returned.
 	 * 
 	 * @param Integer id
 	 * @return UserBuilt builtUser
@@ -112,9 +135,12 @@ public class UserController {
 	}
 
 	/**
-	 * <p>The getUserByEmail method returns a UserBuilt based on a user's email.</p>
-	 *  It gets a User from the database and rebuilds it into a format that can be more easily returned.
-	 *  
+	 * <p>
+	 * The getUserByEmail method returns a UserBuilt based on a user's email.
+	 * </p>
+	 * It gets a User from the database and rebuilds it into a format that can be
+	 * more easily returned.
+	 * 
 	 * @param String email
 	 * @return UserBuilt builtUser
 	 */
@@ -127,7 +153,9 @@ public class UserController {
 
 	/**
 	 * 
-	 * <p>The createUser method saves a User to a database, then returns that user</p>
+	 * <p>
+	 * The createUser method saves a User to a database, then returns that user
+	 * </p>
 	 * 
 	 * @param User user
 	 * @return User user
@@ -140,7 +168,10 @@ public class UserController {
 
 	/**
 	 * 
-	 * <p>The updateUser method updates a User on the database, then returns the updated user.</p>
+	 * <p>
+	 * The updateUser method updates a User on the database, then returns the
+	 * updated user.
+	 * </p>
 	 * 
 	 * @param User user
 	 * @return User user
@@ -158,8 +189,12 @@ public class UserController {
 	}
 
 	/**
-	 * <p>The loginUser method selects a User from the database based on an email and a password.</p>
-	 * It gets a User from the database and rebuilds it into a format that can be more easily returned.
+	 * <p>
+	 * The loginUser method selects a User from the database based on an email and a
+	 * password.
+	 * </p>
+	 * It gets a User from the database and rebuilds it into a format that can be
+	 * more easily returned.
 	 * 
 	 * @param String email
 	 * @param String password
@@ -171,12 +206,15 @@ public class UserController {
 		UserBuilt builtUser = new UserBuilt(user);
 		return builtUser;
 	}
-	
+
 	/**
-	 * <p>The sendEmail method sends an email to the provided address</p>
+	 * <p>
+	 * The sendEmail method sends an email to the provided address
+	 * </p>
 	 * 
 	 * @param String email
 	 */
+
 	@PostMapping("/forgotPass.app")
 	public void sendEmail(@RequestParam String email){
 		ms = new MailService();
