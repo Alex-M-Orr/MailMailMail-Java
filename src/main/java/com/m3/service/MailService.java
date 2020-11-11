@@ -21,9 +21,9 @@ public class MailService {
 	
 	public void sendMessage(String email) {
 		mailSender = getJavaMailSender();
-		
+		User u;
 		try {
-			User u = ud.findByEmail(email);
+			u = ud.findByEmail(email);
 		} catch (Exception e){
 			System.out.println("Could not find a user");
 			return;
@@ -33,7 +33,7 @@ public class MailService {
 		message.setFrom("mailmailmailadm@gmail.com");
 		message.setTo(email);
 		message.setSubject("Password Reset - Mail Mail Mail");
-		String text = "Thank you for using Mail Mail Mail! \n" + "If you did not request a password reset, you can safely ignore this message. \n" + "Please follow this link to reset your password: http://18.191.119.230:8081/Project2-1.0.0/resetPassword.app?email="+email;
+		String text = "Thank you for using Mail Mail Mail! \n" + "If you did not request a password reset, you can safely ignore this message. \n" + "Please follow this link to reset your password: http://www.mailmailmail.com.s3-website-us-west-1.amazonaws.com/reset/pass/"+email+"\n Use this code when prompted: "+u.getPassword();
 		message.setText(text);
 		mailSender.send(message);
 	}
