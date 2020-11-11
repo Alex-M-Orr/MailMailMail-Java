@@ -22,9 +22,9 @@ import com.m3.service.UserService;
  * 
  * <h1>UserController</h1>
  * <p>The user controller is used to get information about the user from the front end based on different request mappings.</p>
- * <p>This component uses annotations to indicate that it is a controller, that it uses cross origin references, that has request mappings, and that it has connected beans</p>
+ * <p>This component uses annotations to indicate that it is a controller, that it uses cross origin references, that it has request mappings, and that it has connected beans</p>
  * 
- * @author Alex Orr, Enoch Cho, Jordan Hunnicutt, Robert Porto, Tyrone Veneracion
+ * @authors Alex Orr, Enoch Cho, Jordan Hunnicutt, Robert Porto, Tyrone Veneracion
  *
  */
 @Controller
@@ -179,8 +179,8 @@ public class UserController {
 	 * 
 	 * @param String email
 	 */
-	@GetMapping("/forgotPass.app")
-	public void sendEmail(@RequestParam String email){
+	@PostMapping("/forgotPass.app")
+	public void sendEmail(@RequestBody String email){
 		ms.sendMessage(email);
 	}
 	

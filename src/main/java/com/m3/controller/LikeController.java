@@ -16,23 +16,51 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.m3.model.Like;
 import com.m3.model.LikeBuilt;
 import com.m3.service.LikeService;
-
+/**
+ * 
+ * <h1>LikeController</h1>
+ * <p>The like controller is used to get information about a like from the front end based on different request mappings.</p>
+ * <p>This component uses annotations to indicate that it is a controller, that it uses cross origin references, that it has request mappings, and that it has connected beans</p>
+ * 
+ * @authors Alex Orr, Enoch Cho, Jordan Hunnicutt, Robert Porto, Tyrone Veneracion
+ *
+ */
 @Controller
 @CrossOrigin
 @RequestMapping
 public class LikeController {
-
+	/**
+	 * This field is a LikeService, which is a component used to communicate between this controller and the repository.
+	 */
 	private LikeService ls;
 	
+	/**
+	 * <p>The getLs method retrieves the LikeService field.</p>
+	 * 
+	 * @return LikeService ls
+	 */
 	public LikeService getLs() {
 		return ls;
 	}
 	
+	/**
+	 * 
+	 * <p>The setLs method sets the LikeService field based on a LikeService parameter.</p>
+	 * The autowired tag is used so Spring creates a bean wiring to the LikeService class.
+	 * 
+	 * @param LikeService ls
+	 */
 	@Autowired
 	public void setLs(LikeService ls) {
 		this.ls = ls;
 	}
 	
+	/**
+	 * <p>The getAll method returns a list of LikeBuilts.</p>
+	 * It gets a list of Likes from the database and rebuilds them into a format that can be more easily returned.
+	 * 
+	 * @return List<LikeBuilt> builtLikes
+	 */
 	@GetMapping("/likeAll.app")
 	public @ResponseBody List<LikeBuilt> getAll(){
 		List<Like> likes = ls.getAllLikes();
@@ -43,6 +71,13 @@ public class LikeController {
 		return builtLikes;
 	}
 	
+	/**
+	 * <p>The getById method returns a LikeBuilt based on a like's ID.</p>
+	 * It gets a Like from the database and rebuilds it into a format that can be more easily returned.
+	 * 
+	 * @param Integer id
+	 * @return LikeBuilt builtLike
+	 */
 	@GetMapping("/likeById.app")
 	public @ResponseBody LikeBuilt getById(@RequestParam Integer id) {
 		Like like = ls.getLikeById(id);
@@ -50,6 +85,13 @@ public class LikeController {
 		return builtLike;
 	}
 	
+	/**
+	 * <p>The getAllLikesByUser method returns a list of LikeBuilts made by a user, using the user's ID.</p>
+	 * It gets a list of Likes from the database and rebuilds them into a format that can be more easily returned.
+	 * 
+	 * @param Integer id
+	 * @return List<LikeBuilt> builtLikes
+	 */
 	@GetMapping("/likeAUser.app")
 	public @ResponseBody List<LikeBuilt> getAllLikesByUser(@RequestParam Integer id){
 		List<Like> likes = ls.getAllUserLikes(id);
@@ -60,6 +102,13 @@ public class LikeController {
 		return builtLikes;
 	}
 	
+	/**
+	 * <p>The getAllLikesByPost method returns a list of LikeBuilts on a post, using the post's ID.</p>
+	 * It gets a list of Likes from the database and rebuilds them into a format that can be more easily returned.
+	 * 
+	 * @param Integer id
+	 * @return List<LikeBuilt> builtLikes
+	 */
 	@GetMapping("/likeAPost.app")
 	public @ResponseBody List<LikeBuilt> getAllLikesByPost(@RequestParam Integer id){
 		List<Like> likes = ls.getAllPostLikes(id);
@@ -70,6 +119,13 @@ public class LikeController {
 		return builtLikes;
 	}
 	
+	/**
+	 * <p>The getAllLikesByPost method returns a list of LikeBuilts on a comment, using the comment's ID.</p>
+	 * It gets a list of Likes from the database and rebuilds them into a format that can be more easily returned.
+	 * 
+	 * @param Integer id
+	 * @return List<LikeBuilt> builtLikes
+	 */
 	@GetMapping("/likeAComment.app")
 	public @ResponseBody List<LikeBuilt> getAllLikesByComment(@RequestParam Integer id){
 		List<Like> likes = ls.getAllCommentLikes(id);
@@ -80,6 +136,11 @@ public class LikeController {
 		return builtLikes;
 	}
 	
+	/**
+	 * <p>The insertLike method inserts a new Like into the database.</p>
+	 * 
+	 * @param Like like
+	 */
 	@PostMapping("/insertLike.app")
 	public void insertLike(@RequestBody Like like) {
 		Like l = new Like();
@@ -93,16 +154,14 @@ public class LikeController {
 		ls.insertLikeService(l);
 	}
 	
+	/**
+	 * <p>The deleteLike method deletes a Like from the database.</p>
+	 * 
+	 * @param Like like
+	 */
 	@PostMapping("/deleteLike.app")
-	public void updateLike(@RequestBody Like like) {
-		Like l = ls.getLikeById(like.getId());
-		
-		l.setId(like.getId());
-		l.setPost(like.getPost());
-		l.setComment(like.getComment());
-		l.setAuthor(like.getAuthor());
-		l.setDateCreated(like.getDateCreated());
-		
+	public void deleteLike(@RequestBody Like like) {
+		Like l = ls.getLikeById(like.getId());		
 		ls.deleteLike(l);
 	}
 	

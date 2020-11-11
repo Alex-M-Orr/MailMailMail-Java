@@ -41,7 +41,7 @@ public class P2DriverWithORM {
 ////		System.out.println(pd.findPostsForUser(1));
 
 //		MailService ms = ac.getBean(MailService.class);
-//		ms.sendMessage("jordan.hunnicutt@revature.net");
+//		ms.sendMessage("tyroneveneracion@gmail.com");
 		
 	}
 
