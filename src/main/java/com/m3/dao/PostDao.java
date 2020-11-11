@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -26,7 +27,12 @@ public class PostDao {
 	}
 
 	public List<Post> findAll() {
-		Session session = sessfact.getCurrentSession();
+		Session session;
+		try {
+			session = sessfact.getCurrentSession();
+		} catch (HibernateException e) {
+			session = sessfact.openSession();
+		}
 		Transaction trans = session.beginTransaction();
 		List<Post> list = session.createQuery("from Post", Post.class).list();
 		trans.commit();
@@ -35,7 +41,12 @@ public class PostDao {
 	}
 
 	public List<Post> findPostsForUser(Integer i) {
-		Session session = sessfact.getCurrentSession();
+		Session session;
+		try {
+			session = sessfact.getCurrentSession();
+		} catch (HibernateException e) {
+			session = sessfact.openSession();
+		}
 		Transaction trans = session.beginTransaction();
 		List<Post> list = session.createQuery("from Post where user_id =" + i, Post.class).list();
 		trans.commit();
@@ -44,7 +55,12 @@ public class PostDao {
 	}
 
 	public Post findById(Integer i) {
-		Session session = sessfact.getCurrentSession();
+		Session session;
+		try {
+			session = sessfact.getCurrentSession();
+		} catch (HibernateException e) {
+			session = sessfact.openSession();
+		}
 		Transaction trans = session.beginTransaction();
 		Post p = session.get(Post.class, i);
 		trans.commit();
@@ -52,7 +68,12 @@ public class PostDao {
 	}
 
 	public Post update(Post t) {
-		Session session = sessfact.getCurrentSession();
+		Session session;
+		try {
+			session = sessfact.getCurrentSession();
+		} catch (HibernateException e) {
+			session = sessfact.openSession();
+		}
 		Transaction trans = session.beginTransaction();
 		session.update(t);
 		trans.commit();
@@ -61,17 +82,16 @@ public class PostDao {
 
 //	@Override
 	public Post save(Post t) {
-		Session session = sessfact.getCurrentSession();
+		Session session;
+		try {
+			session = sessfact.getCurrentSession();
+		} catch (HibernateException e) {
+			session = sessfact.openSession();
+		}
 		Transaction trans = session.beginTransaction();
 		session.save(t);
 		trans.commit();
 		return t;
 	}
-
-////	@Override
-//	public User delete(Integer i) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
 
 }
