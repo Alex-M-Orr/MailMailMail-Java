@@ -1,0 +1,10 @@
+2020-11-10 21:08:03.099 [main] LOGIN com.m3.aspect.UserAspect - User login: [Ljava.lang.Object;@4eac65db
+2020-11-10 21:08:27.193 [main] LOGIN com.m3.aspect.UserAspect - User login: [Ljava.lang.Object;@73be4cdd
+2020-11-10 21:09:19.808 [main] LOGIN com.m3.aspect.UserAspect - User login: [Ljava.lang.Object;@430d3021
+2020-11-10 21:09:47.106 [main] LOGIN com.m3.aspect.UserAspect - User login: [Ljava.lang.Object;@73be4cdd
+2020-11-10 21:10:26.787 [main] LOGIN com.m3.aspect.UserAspect - User login: [Ljava.lang.Object;@73be4cdd
+2020-11-10 21:10:42.399 [main] LOGIN com.m3.aspect.UserAspect - User login: [Ljava.lang.Object;@73be4cdd
+2020-11-10 21:12:29.459 [main] LOGIN com.m3.aspect.UserAspect - User login: aorr917@gmail.com
+2020-11-10 21:15:23.389 [main] LOGIN com.m3.aspect.UserAspect - Unsuccessful attempt on user:pancake@gmail.com
+2020-11-10 21:46:02.268 [main] LOGIN com.m3.aspect.UserAspect - Unsuccessful login attempt on user:pancake@gmail.com
+2020-11-10 21:47:58.709 [main] LOGIN com.m3.aspect.UserAspect - Unsuccessful login attempt on user:pancake@gmail.com

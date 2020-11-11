@@ -1,0 +1,2 @@
+2020-11-10 21:19:20.198 [main] REGISTER com.m3.aspect.UserAspect - User Registered: User [id=19, email=newuser@gmail.com, password=test, firstName=shouldntfail, lastName=shouldntfail, photo=] 
+2020-11-10 21:30:45.485 [main] REGISTER com.m3.aspect.UserAspect - User Registered: User [id=20, email=newuser@gmail.com, password=test, firstName=shouldntfail, lastName=shouldntfail, photo=] 

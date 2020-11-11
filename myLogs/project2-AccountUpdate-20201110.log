@@ -1,0 +1,1 @@
+2020-11-10 21:30:48.749 [main] ACCUPDATE com.m3.aspect.UserAspect - User Registered: User [id=20, email=newtestemail400@gmail.com, password=test, firstName=shouldntfail, lastName=shouldntfail, photo=] 
