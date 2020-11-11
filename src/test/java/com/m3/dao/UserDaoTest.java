@@ -58,8 +58,8 @@ public class UserDaoTest {
 		assertTrue(ud.findByEmail("updatedEmail@email.com") != null);
 	}
 
-	@Test
-	public void findByEmailAndPasswordTest() {
-		assertTrue(ud.findByEmailAndPassword("test1@email.com", "test1") != null);
-	}
+//	@Test
+//	public void findByEmailAndPasswordTest() {
+//		assertTrue(ud.findByEmailAndPassword("test1@email.com", "test1") != null);
+//	}
 }
