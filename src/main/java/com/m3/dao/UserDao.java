@@ -50,8 +50,7 @@ public class UserDao /* implements DaoContract<User, Integer> */ {
 	}
 
 	public User findByEmail(String email) {
-		User u = HibernateUtil.getSessionFactory().openSession()
-				.createQuery("from User where email='" + email + "'", User.class).list().get(0);
+		User u = HibernateUtil.getSessionFactory().openSession().createQuery("from User where email='" + email + "'", User.class).list().get(0);
 //		User ue = sessfact.openSession().get(User.class, email);
 		return u;
 	}
