@@ -73,11 +73,9 @@ public class UserController {
 	/**
 	 * 
 	 * <p>The setMs method sets the MailService field based on a MailService parameter.</p>
-	 * The autowired tag is used so Spring creates a bean wiring to the MailService class.
 	 * 
 	 * @param MailService ms
 	 */
-	@Autowired
 	public void setMs(MailService ms) {
 		this.ms = ms;
 	}
@@ -181,6 +179,7 @@ public class UserController {
 	 */
 	@PostMapping("/forgotPass.app")
 	public void sendEmail(@RequestParam String email){
+		ms = new MailService();
 		ms.sendMessage(email);
 	}
 	

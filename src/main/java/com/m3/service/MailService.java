@@ -12,10 +12,8 @@ import org.springframework.stereotype.Component;
 import com.m3.dao.UserDao;
 import com.m3.model.User;
 
-@Component
 public class MailService {
 	
-	@Autowired
 	private UserDao ud;
 	private JavaMailSender mailSender;
 	
@@ -38,7 +36,6 @@ public class MailService {
 		mailSender.send(message);
 	}
 	
-	@Bean
 	public JavaMailSender getJavaMailSender() {
 	    JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
 	    mailSender.setHost("smtp.gmail.com");
