@@ -71,7 +71,7 @@ public class CommentControllerTest {
 
 	@Test
 	public void insertCommentTest() {
-		cc.insertComment(testComment);
+		cc.insertComment(new CommentBuilt(testComment));
 		assertEquals(cc.getAll().size(), 0);
 
 	}
@@ -85,20 +85,10 @@ public class CommentControllerTest {
 
 	}
 
-	@GetMapping("/commentAUser.app")
-	public @ResponseBody List<CommentBuilt> getAllCommentsByUser(@RequestParam Integer id) {
-		List<Comment> comments = cs.getAllUserComments(id);
-		List<CommentBuilt> builtComments = new LinkedList<>();
-		for (Comment c : comments) {
-			builtComments.add(new CommentBuilt(c));
-		}
-		return builtComments;
-	}
-
 	@Test
 	public void updateCommentTest() {
 		Mockito.when(cs.getById(testComment.getId())).thenReturn(testComment);
-		cc.updateComment(testComment);
+		cc.updateComment(new CommentBuilt(testComment));
 		assertEquals(cc.getAll().size(), 0);
 
 	}

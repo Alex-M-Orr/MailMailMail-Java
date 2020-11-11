@@ -17,6 +17,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import com.m3.model.Comment;
 import com.m3.model.Like;
 import com.m3.model.Post;
+import com.m3.model.PostBuilt;
 import com.m3.model.User;
 import com.m3.service.PostService;
 
@@ -65,7 +66,7 @@ public class PostControllerTest {
 	@Test
 	public void saveTest() {
 		Mockito.when(ps.save(testPost)).thenReturn(testPost);
-		assertNotNull(pc.save(testPost));
+		assertNotNull(pc.save(new PostBuilt(testPost)));
 
 	}
 }

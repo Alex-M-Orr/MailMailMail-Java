@@ -17,6 +17,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import com.m3.model.Comment;
 import com.m3.model.Like;
+import com.m3.model.LikeBuilt;
 import com.m3.model.Post;
 import com.m3.model.User;
 import com.m3.service.LikeService;
@@ -89,7 +90,7 @@ public class LikeControllerTest {
 
 	@Test
 	public void insertLikeTest() {
-		lc.insertLike(testLike);
+		lc.insertLike(new LikeBuilt(testLike));
 		assertEquals(lc.getAll().size(), 0);
 	}
 
