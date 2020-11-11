@@ -106,7 +106,7 @@ public class UserDao /* implements DaoContract<User, Integer> */ {
 		}
 		Transaction trans = session.beginTransaction();
 		User u = session
-				.createQuery("from User where (email, password) = ('" + email + "', '" + password + "')", User.class)
+				.createQuery("from User where (email, password) = ('" + email + "', md5('"+email+"' ||'" + password + "'||'mailmailmail'))", User.class)
 				.list().get(0);
 		trans.commit();
 		return u;
