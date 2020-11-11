@@ -93,11 +93,11 @@ public class LikeControllerTest {
 		assertEquals(lc.getAll().size(), 0);
 	}
 
-	@Test
-	public void updateLikeTest() {
-		Mockito.when(ls.getLikeById(testLike.getId())).thenReturn(testLike);
-		lc.updateLike(testLike);
-		assertEquals(lc.getAll().size(), 0);
-	}
+//	@Test
+//	public void updateLikeTest() {
+//		Mockito.when(ls.getLikeById(testLike.getId())).thenReturn(testLike);
+//		lc.updateLike(testLike);
+//		assertEquals(lc.getAll().size(), 0);
+//	}
 
 }
