@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.m3.model.User;
 import com.m3.model.UserBuilt;
+import com.m3.service.MailService;
 import com.m3.service.UserService;
 
 /**
