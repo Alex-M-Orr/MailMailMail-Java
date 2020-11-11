@@ -10,9 +10,16 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.m3.dao.UserDao;
+
 @Entity
 public class Post {
 
+	@Autowired
+	private static UserDao ud;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -43,6 +50,40 @@ public class Post {
 		this.dateCreated = dateCreated;
 	}
 
+	public Post(int id, String content, String photo, User author) {
+        super();
+        this.id = id;
+        this.content = content;
+        this.photo = photo;
+        this.author = author;
+        this.dateCreated = LocalDateTime.now();
+    }
+	
+	public Post(PostBuilt pb) {
+		super();
+		this.id = pb.getId();
+		try {
+			this.content = pb.getContent();
+		} catch (Exception e) {
+			this.content = "";
+		}
+		try {
+			this.photo = pb.getPhoto();
+		} catch (Exception e) {
+			this.photo = "";
+		}
+		try {
+			this.author = ud.findById(pb.getAuthorId());
+		} catch (Exception e) {
+			this.author = null;
+		}
+		try {
+			this.dateCreated = pb.getDateCreated();
+		} catch (Exception e) {
+			this.dateCreated = LocalDateTime.now();
+		}
+	}
+	
 	public Post() {
 		super();
 		// TODO Auto-generated constructor stub
