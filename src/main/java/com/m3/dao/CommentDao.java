@@ -17,9 +17,8 @@ import com.m3.model.Comment;
  * 
  * <h1>CommentDao</h1>
  * <p>
- * The comment dao is how we access and model our comment objects in the
- * database. CRUD operations for comments and queries form the database are
- * performed here.
+ * The comment dao is how we access our comment objects in the database. CRUD
+ * operations for comments and queries fromm the database are performed here.
  * 
  * </p>
  * <p>
@@ -174,7 +173,7 @@ public class CommentDao /* implements DaoContract<Comment, Integer> */ {
 	/**
 	 * 
 	 * <p>
-	 * The update method updates a comment in the database, then returns the updated
+	 * The update method updates a comment in the database and returns the updated
 	 * comment.
 	 * </p>
 	 * 
@@ -198,7 +197,7 @@ public class CommentDao /* implements DaoContract<Comment, Integer> */ {
 	/**
 	 * 
 	 * <p>
-	 * The save method saves a comment in the database, then returns the saved
+	 * The save method saves a comment in the database and returns the saved
 	 * comment.
 	 * </p>
 	 * 
@@ -223,7 +222,7 @@ public class CommentDao /* implements DaoContract<Comment, Integer> */ {
 	/**
 	 * 
 	 * <p>
-	 * The delete method deletes a comment from the database, then returns the java
+	 * The delete method deletes a comment from the database and returns the java
 	 * object.
 	 * </p>
 	 * 
