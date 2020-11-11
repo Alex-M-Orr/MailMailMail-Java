@@ -76,7 +76,6 @@ public class LikeDaoTest {
 
 	@Test
 	public void findLikesForPost() {
-
 		assertTrue(ld.findLikesForPost(1) != null);
 	}
 
@@ -84,22 +83,6 @@ public class LikeDaoTest {
 	public void findLikesForCommentTest() {
 		assertTrue(ld.findLikesForComment(1) != null);
 	}
-
-//	@Test
-//	public void deleteTest() {
-//		Like l = new Like(0, pd.findById(1), null, ud.findById(1), LocalDateTime.now());
-//		ld.save(l);
-//		int rows = ld.findAll().size();
-//		ld.delete(2);
-//		int rowsD = ld.findAll().size();
-//		assertTrue(rowsD == rows - 1);
-//	}
-//
-//	@Test
-//	public void saveTest() {
-//		Like l = new Like(0, pd.findById(1), null, ud.findById(1), LocalDateTime.now());
-//		assertTrue(ld.save(l) != null);
-//	}
 
 	@Test
 	public void saveAndDeleteTest() {
@@ -110,11 +93,5 @@ public class LikeDaoTest {
 		int rowsD = ld.findAll().size();
 		assertTrue(rowsD == rows - 1);
 	}
-
-//	@Test
-//	public void saveTest() {
-//		Like l = new Like(0, pd.findById(1), null, ud.findById(us2.getId()), LocalDateTime.now());
-//
-//	}
 
 }
