@@ -29,7 +29,7 @@ import com.m3.service.PostService;
  *
  */
 @Controller
-@CrossOrigin
+@CrossOrigin(origins="*")
 @RequestMapping
 public class PostController {
 	/**
