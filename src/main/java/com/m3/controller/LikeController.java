@@ -1,5 +1,6 @@
 package com.m3.controller;
 
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -13,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.m3.dao.CommentDao;
+import com.m3.dao.PostDao;
+import com.m3.dao.UserDao;
 import com.m3.model.Like;
 import com.m3.model.LikeBuilt;
 import com.m3.service.LikeService;
@@ -33,6 +37,13 @@ public class LikeController {
 	 * This field is a LikeService, which is a component used to communicate between this controller and the repository.
 	 */
 	private LikeService ls;
+	
+	@Autowired
+	private static PostDao pd;
+	@Autowired
+	private static UserDao ud;
+	@Autowired
+	private static CommentDao cd;
 	
 	/**
 	 * <p>The getLs method retrieves the LikeService field.</p>
@@ -143,8 +154,28 @@ public class LikeController {
 	 */
 	@PostMapping("/insertLike.app")
 	public void insertLike(@RequestBody LikeBuilt like) {
-		Like l = new Like(like);
-		
+		Like l = new Like();
+		l.setId(like.getId());
+		try {
+			l.setPost(pd.findById(like.getPost()));
+		} catch(Exception e) {
+			l.setPost(null);
+		}
+		try {
+			l.setComment(cd.findById(like.getCommentId()));
+		} catch(Exception e) {
+			l.setComment(null);
+		}
+		try {
+			l.setAuthor(ud.findById(like.getAuthorId()));
+		} catch(Exception e) {
+			l.setAuthor(null);
+		}
+		try {
+			l.setDateCreated(like.getDateCreated());
+		} catch(Exception e) {
+			l.setDateCreated(LocalDateTime.now());
+		}	
 		ls.insertLikeService(l);
 	}
 	
