@@ -17,7 +17,7 @@ import com.m3.model.Like;
  * 
  * <h1>LikeDao</h1>
  * <p>
- * The comment dao is how we access our like objects in the database. CRUD
+ * The like dao is how we access our like objects in the database. CRUD
  * operations for likes and queries from the database are performed here.
  * 
  * </p>
@@ -48,7 +48,7 @@ public class LikeDao /* implements DaoContract<Like, Integer> */ {
 	 * factory.
 	 * </p>
 	 * 
-	 * @param sessfact
+	 * @param SessionFactory sessfact
 	 * 
 	 */
 	@Autowired
@@ -58,7 +58,7 @@ public class LikeDao /* implements DaoContract<Like, Integer> */ {
 
 	/**
 	 * <p>
-	 * The no-arg constructor is so we can create an instance of the CommentDao
+	 * The no-arg constructor is so we can create an instance of the LikeDao
 	 * without arguments.
 	 * <p>
 	 */
@@ -67,14 +67,12 @@ public class LikeDao /* implements DaoContract<Like, Integer> */ {
 
 	/**
 	 * <p>
-	 * The findAll method gets all the likes from the data base. The likess are
+	 * The findAll method gets all the likes from the data base. The likes are
 	 * returned in a list.
 	 * </p>
 	 * 
 	 * @return List<Like> likes
 	 */
-
-	// @Override
 	public List<Like> findAll() {
 		Session session;
 		try {
@@ -91,10 +89,10 @@ public class LikeDao /* implements DaoContract<Like, Integer> */ {
 	/**
 	 * 
 	 * <p>
-	 * The findById method gets a like in the database by it's id.
+	 * The findById method gets a like in the database by its id.
 	 * </p>
 	 * 
-	 * @param i
+	 * @param Integer i
 	 * @return Like l
 	 */
 
@@ -119,10 +117,10 @@ public class LikeDao /* implements DaoContract<Like, Integer> */ {
 	 * </p>
 	 * 
 	 * <p>
-	 * The user's id is given and a list of that user's likes is returned
+	 * The user's id is given and a list of that user's likes is returned.
 	 * </p>
 	 * 
-	 * @param i
+	 * @param Integer i
 	 * @return List<Like> list
 	 */
 
@@ -151,7 +149,7 @@ public class LikeDao /* implements DaoContract<Like, Integer> */ {
 	 * are returned
 	 * </p>
 	 * 
-	 * @param i
+	 * @param Integer i
 	 * @return List<Like> list
 	 */
 
@@ -181,7 +179,7 @@ public class LikeDao /* implements DaoContract<Like, Integer> */ {
 	 * comment are returned
 	 * </p>
 	 * 
-	 * @param i
+	 * @param Integer i
 	 * @return List<Like> list
 	 */
 
@@ -204,7 +202,7 @@ public class LikeDao /* implements DaoContract<Like, Integer> */ {
 	 * The save method saves a like in the database and returns the saved like.
 	 * </p>
 	 * 
-	 * @param t
+	 * @param Like t
 	 * @return Like t
 	 */
 
@@ -225,11 +223,11 @@ public class LikeDao /* implements DaoContract<Like, Integer> */ {
 	/**
 	 * 
 	 * <p>
-	 * The delete method deletes a comment from the database and returns the java
+	 * The delete method deletes a like from the database and returns the java
 	 * object.
 	 * </p>
 	 * 
-	 * @param i
+	 * @param Integer i
 	 * @return Like l
 	 */
 
