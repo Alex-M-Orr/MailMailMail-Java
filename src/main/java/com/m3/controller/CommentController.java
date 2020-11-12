@@ -26,7 +26,7 @@ import com.m3.service.CommentService;
  *
  */
 @Controller
-@CrossOrigin
+@CrossOrigin(origins= {"http://localhost:3000","http://www.mailmailmail.com.s3-website-us-west-1.amazonaws.com"})
 @RequestMapping
 public class CommentController {
 	/**
