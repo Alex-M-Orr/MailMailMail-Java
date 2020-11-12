@@ -37,7 +37,7 @@ import com.m3.service.UserService;
  *
  */
 @Controller
-@CrossOrigin(origins= {"http://localhost:3000","http://www.mailmailmail.com.s3-website-us-west-1.amazonaws.com"})
+@CrossOrigin
 @RequestMapping
 public class UserController {
 	/**
@@ -162,10 +162,10 @@ public class UserController {
 	 * @return User user
 	 */
 	@PostMapping("/createUser.app")
-	public @ResponseBody UserBuilt createUser(@RequestBody UserBuilt user) {
-		User u = new User(user);
-		us.save(u);
-		return user;
+	public @ResponseBody UserBuilt createUser(@RequestBody User user) {
+		UserBuilt u = new UserBuilt(user);
+		us.save(user);
+		return u;
 	}
 
 	/**
