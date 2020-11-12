@@ -37,7 +37,7 @@ import com.m3.service.UserService;
  *
  */
 @Controller
-@CrossOrigin(origins= {"http://localhost:3000","http://www.mailmailmail.com.s3-website-us-west-1.amazonaws.com"})
+@CrossOrigin
 @RequestMapping
 public class UserController {
 	/**
@@ -162,9 +162,8 @@ public class UserController {
 	 * @return User user
 	 */
 	@PostMapping("/createUser.app")
-	public @ResponseBody UserBuilt createUser(@RequestBody UserBuilt user) {
-		User u = new User(user);
-		us.save(u);
+	public @ResponseBody User createUser(@RequestBody User user) {
+		us.save(user);
 		return user;
 	}
 
@@ -181,23 +180,13 @@ public class UserController {
 	@PutMapping("/updateUser.app")
 	public @ResponseBody User updateUser(@RequestBody User user) {
 		User u = us.findById(user.getId());
-		try {
-			u.setEmail(user.getEmail());
-		} catch (Exception e) {}
-		try {
-			u.setPassword(user.getPassword());
-		} catch (Exception e) {}
-		try {
-			u.setFirstName(user.getFirstName());
-		} catch (Exception e) {}
-		try {
-			u.setLastName(user.getLastName());
-		} catch (Exception e) {}
-		try {
-			u.setPhoto(user.getPhoto());
-		} catch (Exception e) {}
+		u.setEmail(user.getEmail());
+		u.setPassword(user.getPassword());
+		u.setFirstName(user.getFirstName());
+		u.setLastName(user.getLastName());
+		u.setPhoto(user.getPhoto());
 		us.update(u);
-		return u;
+		return user;
 	}
 
 	/**
