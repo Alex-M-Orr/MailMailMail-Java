@@ -1,5 +1,7 @@
 package com.m3.controller;
 
+import static org.springframework.test.web.client.match.MockRestRequestMatchers.anything;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -27,7 +29,7 @@ import com.m3.service.PostService;
  *
  */
 @Controller
-@CrossOrigin
+@CrossOrigin(origins="*")
 @RequestMapping
 public class PostController {
 	/**
