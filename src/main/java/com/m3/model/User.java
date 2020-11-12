@@ -68,6 +68,39 @@ public class User {
 		this.likes = likes;
 	}
 
+	public User(UserBuilt ub) {
+		super();
+		this.id = ub.getId();
+		try {
+			this.email = ub.getEmail();
+		}catch (Exception e) {
+			this.email = "";
+		}
+		try {
+			this.password = ub.getPassword();
+		} catch (Exception e) {
+			this.password = "";
+		}
+		try {
+			this.firstName = ub.getFirstName();
+		} catch (Exception e) {
+			this.firstName = "";
+		}
+		try {
+			this.lastName = ub.getLastName();
+		} catch (Exception e) {
+			this.lastName = "";
+		}
+		try {
+			this.photo = ub.getPhoto();
+		} catch (Exception e) {
+			this.photo = "";
+		}
+		this.posts = null;
+		this.comments = null;
+		this.likes = null;
+	}
+	
 	public int getId() {
 		return id;
 	}

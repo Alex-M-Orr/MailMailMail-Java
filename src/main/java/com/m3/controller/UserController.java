@@ -162,8 +162,9 @@ public class UserController {
 	 * @return User user
 	 */
 	@PostMapping("/createUser.app")
-	public @ResponseBody User createUser(@RequestBody User user) {
-		us.save(user);
+	public @ResponseBody UserBuilt createUser(@RequestBody UserBuilt user) {
+		User u = new User(user);
+		us.save(u);
 		return user;
 	}
 
@@ -178,13 +179,23 @@ public class UserController {
 	 * @return User user
 	 */
 	@PutMapping("/updateUser.app")
-	public @ResponseBody User updateUser(@RequestBody User user) {
+	public @ResponseBody UserBuilt updateUser(@RequestBody UserBuilt user) {
 		User u = us.findById(user.getId());
-		u.setEmail(user.getEmail());
-		u.setPassword(user.getPassword());
-		u.setFirstName(user.getFirstName());
-		u.setLastName(user.getLastName());
-		u.setPhoto(user.getPhoto());
+		try {
+			u.setEmail(user.getEmail());
+		} catch (Exception e) {}
+		try {
+			u.setPassword(user.getPassword());
+		} catch (Exception e) {}
+		try {
+			u.setFirstName(user.getFirstName());
+		} catch (Exception e) {}
+		try {
+			u.setLastName(user.getLastName());
+		} catch (Exception e) {}
+		try {
+			u.setPhoto(user.getPhoto());
+		} catch (Exception e) {}
 		us.update(u);
 		return user;
 	}

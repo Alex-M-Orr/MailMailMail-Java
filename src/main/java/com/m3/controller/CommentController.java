@@ -125,15 +125,8 @@ public class CommentController {
 	 * @param Comment comment
 	 */
 	@PostMapping("/insertComment.app")
-	public void insertComment(@RequestBody Comment comment) {
-		Comment c = new Comment();
-		
-		c.setId(comment.getId());
-		c.setContent(comment.getContent());
-		c.setPost(comment.getPost());
-		c.setAuthor(comment.getAuthor());
-		c.setDateCreated(comment.getDateCreated());
-		
+	public void insertComment(@RequestBody CommentBuilt comment) {
+		Comment c = new Comment(comment);		
 		cs.insertCommentService(c);
 	}
 	/**
@@ -142,14 +135,12 @@ public class CommentController {
 	 * @param Comment comment
 	 */
 	@PostMapping("/updateComment.app")
-	public void updateComment(@RequestBody Comment comment) {
+	public void updateComment(@RequestBody CommentBuilt comment) {
 		Comment c = cs.getById(comment.getId());
-		
-		c.setId(comment.getId());
-		c.setContent(comment.getContent());
-		c.setPost(comment.getPost());
-		c.setAuthor(comment.getAuthor());
-		c.setDateCreated(comment.getDateCreated());
+	
+		try {
+			c.setContent(comment.getContent());
+		}catch (Exception e) {}		
 		
 		cs.updateCommentService(c);
 	}

@@ -17,6 +17,7 @@ import com.m3.model.Comment;
 import com.m3.model.Like;
 import com.m3.model.Post;
 import com.m3.model.User;
+import com.m3.model.UserBuilt;
 import com.m3.service.UserService;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -59,7 +60,7 @@ public class UserControllerTest {
 
 	@Test
 	public void createUserTest() {
-		uc.createUser(testUser);
+		uc.createUser(new UserBuilt(testUser));
 		assertEquals(uc.getAll().size(), 0);
 
 	}
@@ -67,7 +68,7 @@ public class UserControllerTest {
 	@Test
 	public void updateUserTest() {
 		Mockito.when(us.findById(testUser.getId())).thenReturn(testUser);
-		uc.updateUser(testUser);
+		uc.updateUser(new UserBuilt(testUser));
 		assertEquals(uc.getAll().size(), 0);
 	}
 

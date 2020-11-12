@@ -11,9 +11,22 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.m3.dao.CommentDao;
+import com.m3.dao.PostDao;
+import com.m3.dao.UserDao;
+
 @Entity
 @Table(name="Likes")
 public class Like {
+	
+	@Autowired
+	private static PostDao pd;
+	@Autowired
+	private static UserDao ud;
+	@Autowired
+	private static CommentDao cd;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,6 +62,31 @@ public class Like {
 		this.comment = comment;
 		this.author = author;
 		this.dateCreated = dateCreated;
+	}
+	
+	public Like(LikeBuilt lb) {
+		super();
+		this.id = lb.getId();
+		try {
+			this.post = pd.findById(lb.getPost());
+		} catch(Exception e){
+			this.post = null;
+		}
+		try {
+			this.comment = cd.findById(lb.getCommentId());
+		} catch(Exception e){
+			this.comment = null;
+		}
+		try {
+			this.author = ud.findById(lb.getAuthorId());
+		} catch(Exception e){
+			this.author = null;
+		}
+		try {
+			this.dateCreated = lb.getDateCreated();
+		} catch (Exception e) {
+			this.dateCreated = LocalDateTime.now();
+		}		
 	}
 	
 	public Like() {
