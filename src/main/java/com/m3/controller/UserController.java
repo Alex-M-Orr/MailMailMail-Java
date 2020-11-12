@@ -197,7 +197,7 @@ public class UserController {
 			u.setPhoto(user.getPhoto());
 		} catch (Exception e) {}
 		us.update(u);
-		return user;
+		return u;
 	}
 
 	/**
