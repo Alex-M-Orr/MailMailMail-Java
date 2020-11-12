@@ -138,11 +138,7 @@ public class PostController {
 		} catch(Exception e) {
 			p.setAuthor(null);
 		}
-		try {
-			p.setDateCreated(pb.getDateCreated());
-		} catch(Exception e) {
-			p.setDateCreated(LocalDateTime.now());
-		}		
+		p.setDateCreated(LocalDateTime.now());
 		ps.save(p);
 		return pb;
 	}

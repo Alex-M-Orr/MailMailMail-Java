@@ -172,11 +172,7 @@ public class LikeController {
 		} catch(Exception e) {
 			l.setAuthor(null);
 		}
-		try {
-			l.setDateCreated(like.getDateCreated());
-		} catch(Exception e) {
-			l.setDateCreated(LocalDateTime.now());
-		}	
+		l.setDateCreated(LocalDateTime.now());
 		ls.insertLikeService(l);
 		
 		return "inserted";
