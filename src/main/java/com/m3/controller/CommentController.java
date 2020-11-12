@@ -1,18 +1,24 @@
 package com.m3.controller;
 
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.m3.dao.PostDao;
+import com.m3.dao.UserDao;
 import com.m3.model.Comment;
 import com.m3.model.CommentBuilt;
 import com.m3.service.CommentService;
@@ -33,6 +39,12 @@ public class CommentController {
 	 * This field is a CommentService, which is a component used to communicate between this controller and the repository.
 	 */
 	private CommentService cs;
+	
+	private static ApplicationContext ac = new ClassPathXmlApplicationContext("config.xml");
+	
+	private static PostDao pd = ac.getBean(PostDao.class);
+	private static UserDao ud = ac.getBean(UserDao.class);
+	
 	
 	/**
 	 * <p>The getCs method retrieves the CommentService field.</p>
@@ -126,7 +138,28 @@ public class CommentController {
 	 */
 	@PostMapping("/insertComment.app")
 	public void insertComment(@RequestBody CommentBuilt comment) {
-		Comment c = new Comment(comment);		
+		Comment c = new Comment();
+		c.setId(comment.getId());
+		try {
+			c.setContent(comment.getContent());
+		} catch (Exception e) {
+			c.setContent("");
+		}
+		try {
+			c.setAuthor(ud.findById(comment.getAuthor()));
+		} catch (Exception e) {
+			c.setAuthor(null);
+		}
+		try {
+			c.setPost(pd.findById(comment.getPostId()));
+		} catch (Exception e) {
+			c.setPost(null);
+		}
+		try {
+			c.setDateCreated(comment.getDateCreated());
+		} catch (Exception e) {
+			c.setDateCreated(LocalDateTime.now());
+		}
 		cs.insertCommentService(c);
 	}
 	/**
@@ -134,7 +167,7 @@ public class CommentController {
 	 * 
 	 * @param Comment comment
 	 */
-	@PostMapping("/updateComment.app")
+	@PutMapping("/updateComment.app")
 	public void updateComment(@RequestBody CommentBuilt comment) {
 		Comment c = cs.getById(comment.getId());
 	
