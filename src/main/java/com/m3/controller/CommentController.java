@@ -155,11 +155,7 @@ public class CommentController {
 		} catch (Exception e) {
 			c.setPost(null);
 		}
-		try {
-			c.setDateCreated(comment.getDateCreated());
-		} catch (Exception e) {
-			c.setDateCreated(LocalDateTime.now());
-		}
+		c.setDateCreated(LocalDateTime.now());
 		cs.insertCommentService(c);
 	}
 	/**
