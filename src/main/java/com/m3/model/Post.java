@@ -40,19 +40,53 @@ public class Post {
 	@Autowired
 	private static UserDao ud;
 	
+	/**
+	 * <p>
+	 * Id is a serially implemented value in the database. It is used to refer
+	 * to a specific Post entry.
+	 * </p>
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	/**
+	 * <p>Content is a string holding the text inside of a post.</p>
+	 * <p>It is a column in the database.</p>
+	 */
 	@Column
 	private String content;
+	
+	/**
+	 * <p>Photo is a string holding the name of a post's picture.</p>
+	 * <p>It is a column in the database.</p>
+	 */
 	@Column
 	private String photo;
+	
+	/**
+	 * <p>Author holds a reference to the user who made the post</p>
+	 * <p>There can be many posts held by one user.</p>
+	 * 
+	 */
 	@ManyToOne
 	@JoinColumn(name = "user_id", referencedColumnName = "id")
 	private User author;
+	
+	/**
+	 * <p>DateCreated is a LocalDateTime holding the date the post entered the database.</p>
+	 */
 	@Column(nullable = false)
 	private LocalDateTime dateCreated;
 
+	/**
+	 * <p>This constructor contains all of the post's fields as inputs, excluding the id.</p>
+	 * 
+	 * @param content
+	 * @param photo
+	 * @param author
+	 * @param dateCreated
+	 */
 	public Post(String content, String photo, User author, LocalDateTime dateCreated) {
 		super();
 		this.content = content;
@@ -61,6 +95,15 @@ public class Post {
 		this.dateCreated = dateCreated;
 	}
 
+	/**
+	 * <p>This constructor contains all of the post's fields as inputs.</p>
+	 * 
+	 * @param id
+	 * @param content
+	 * @param photo
+	 * @param author
+	 * @param dateCreated
+	 */
 	public Post(int id, String content, String photo, User author, LocalDateTime dateCreated) {
 		super();
 		this.id = id;
@@ -70,6 +113,14 @@ public class Post {
 		this.dateCreated = dateCreated;
 	}
 
+	/**
+	 * <p>This constructor contains all of the post's fields as inputs, excluding the date created.</p>
+	 * 
+	 * @param id
+	 * @param content
+	 * @param photo
+	 * @param author
+	 */
 	public Post(int id, String content, String photo, User author) {
         super();
         this.id = id;
@@ -79,6 +130,13 @@ public class Post {
         this.dateCreated = LocalDateTime.now();
     }
 	
+	/**
+	 * <p>This constructor takes in a PostBuilt object.</p>
+	 * <p>Post objects are stored in the database, but PostBuilt objects
+	 * are passed to the front end, so this constructor does a conversion.</p>
+	 * 
+	 * @param PostBuilt pb
+	 */
 	public Post(PostBuilt pb) {
 		super();
 		this.id = pb.getId();
@@ -104,6 +162,9 @@ public class Post {
 		}
 	}
 	
+	/**
+	 * <p>The post can be instantiated with a no-argument constructor.</p>
+	 */
 	public Post() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -158,7 +219,12 @@ public class Post {
 		
 	}
 
-//	Changed from author= author-object to authorId = author.getId()
+	/**
+	 * <p>The toString method is an override that returns the values of different
+	 * fields in the post object.</p>
+	 * 
+	 * return String
+	 */
 	@Override
 	public String toString() {
 		return "Post [id=" + id + ", content=" + content + ", authorId=" + author.getId() + ", dateCreated="

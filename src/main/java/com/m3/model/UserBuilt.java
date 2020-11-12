@@ -50,7 +50,7 @@ public class UserBuilt {
 	private String lastName;
 	
 	/**
-	 * <p>DateJoined is a LocalDateTime holding the date the user enter the database.</p>
+	 * <p>DateJoined is a LocalDateTime holding the date the user entered the database.</p>
 	 */
 	private LocalDateTime dateJoined;
 	

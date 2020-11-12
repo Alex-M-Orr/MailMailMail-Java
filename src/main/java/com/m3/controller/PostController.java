@@ -29,7 +29,7 @@ import com.m3.service.PostService;
  *
  */
 @Controller
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 @RequestMapping
 public class PostController {
 	/**
