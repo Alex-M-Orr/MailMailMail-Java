@@ -68,7 +68,7 @@ public class UserControllerTest {
 	@Test
 	public void updateUserTest() {
 		Mockito.when(us.findById(testUser.getId())).thenReturn(testUser);
-		uc.updateUser(new UserBuilt(testUser));
+		uc.updateUser(testUser);
 		assertEquals(uc.getAll().size(), 0);
 	}
 

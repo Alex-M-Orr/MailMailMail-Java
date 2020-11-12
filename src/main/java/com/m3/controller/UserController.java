@@ -179,7 +179,7 @@ public class UserController {
 	 * @return User user
 	 */
 	@PutMapping("/updateUser.app")
-	public @ResponseBody UserBuilt updateUser(@RequestBody UserBuilt user) {
+	public @ResponseBody User updateUser(@RequestBody User user) {
 		User u = us.findById(user.getId());
 		try {
 			u.setEmail(user.getEmail());
@@ -197,7 +197,7 @@ public class UserController {
 			u.setPhoto(user.getPhoto());
 		} catch (Exception e) {}
 		us.update(u);
-		return user;
+		return u;
 	}
 
 	/**
