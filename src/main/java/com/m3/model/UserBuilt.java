@@ -3,12 +3,13 @@ package com.m3.model;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
+
 /**
  * 
  * <h1>UserBuilt</h1>
  * <p>
- * The UserBuilt class is a model representation of all of the information about a user
- * in the database, using id values to refer to other objects.
+ * The UserBuilt class is a model representation of all of the information about
+ * a user in the database, using id values to refer to other objects.
  * </p>
  * <p>
  * The purpose of this component is to return values to a front-end application
@@ -23,61 +24,84 @@ public class UserBuilt {
 
 	/**
 	 * <p>
-	 * Id is a serially implemented value in the database. It is used to refer
-	 * to a specific User entry.
+	 * Id is a serially implemented value in the database. It is used to refer to a
+	 * specific User entry.
 	 * </p>
 	 */
 	private int id;
 
 	/**
-	 * <p>Email is a string holding a user's email address.</p>
+	 * <p>
+	 * Email is a string holding a user's email address.
+	 * </p>
 	 */
 	private String email;
-	
+
 	/**
-	 * <p>Password is a string holding a user's password.</p>
+	 * <p>
+	 * Password is a string holding a user's password.
+	 * </p>
 	 */
 	private String password;
-	
+
 	/**
-	 * <p>FirstName is a string holding a user's first name.</p>
+	 * <p>
+	 * FirstName is a string holding a user's first name.
+	 * </p>
 	 */
 	private String firstName;
-	
+
 	/**
-	 * <p>LastName is a string holding a user's last name.</p>
+	 * <p>
+	 * LastName is a string holding a user's last name.
+	 * </p>
 	 */
 	private String lastName;
-	
+
 	/**
-	 * <p>DateJoined is a LocalDateTime holding the date the user entered the database.</p>
+	 * <p>
+	 * DateJoined is a LocalDateTime object representing the date that the user was
+	 * entered in the database.
+	 * </p>
 	 */
 	private LocalDateTime dateJoined;
-	
+
 	/**
-	 * <p>Photo is a string holding the name of a user's profile picture.</p>
+	 * <p>
+	 * Photo is a string holding the name of a user's profile picture.
+	 * </p>
 	 */
 	private String photo;
 
 	/**
-	 * <p>PostIds holds a set of post ids that the user has made.</p>
+	 * <p>
+	 * PostIds holds a set of post ids that the user has made.
+	 * </p>
 	 */
 	private Set<Integer> postIds;
 
 	/**
-	 * <p>CommentIds holds a set of comment ids that the user has made.</p>
+	 * <p>
+	 * CommentIds holds a set of comment ids that the user has made.
+	 * </p>
 	 */
 	private Set<Integer> commentIds;
 
 	/**
-	 * <p>LikeIds holds a set of like ids that the user has made.</p>
+	 * <p>
+	 * LikeIds holds a set of like ids that the user has made.
+	 * </p>
 	 */
 	private Set<Integer> likeIds;
 
 	/**
-	 * <p>This constructor takes in a User object.</p>
-	 * <p>User objects are stored in the database, but UserBuilt objects
-	 * are passed to the front end, so this constructor does a conversion.</p>
+	 * <p>
+	 * This constructor takes in a User object.
+	 * </p>
+	 * <p>
+	 * User objects are stored in the database, but UserBuilt objects are passed to
+	 * the front end, so this constructor does a conversion.
+	 * </p>
 	 * 
 	 * @param User user
 	 */
@@ -121,14 +145,16 @@ public class UserBuilt {
 	}
 
 	/**
-	 * <p>This constructor contains all of the user's fields as inputs.</p>
+	 * <p>
+	 * This constructor contains all of the user's fields as inputs.
+	 * </p>
 	 * 
-	 * @param int id
-	 * @param String email
-	 * @param String password
-	 * @param String firstName
-	 * @param String lastName
-	 * @param String photo
+	 * @param int          id
+	 * @param String       email
+	 * @param String       password
+	 * @param String       firstName
+	 * @param String       lastName
+	 * @param String       photo
 	 * @param Set<Integer> postIds
 	 * @param Set<Integer> commentIds
 	 * @param Set<Integer> likeIds

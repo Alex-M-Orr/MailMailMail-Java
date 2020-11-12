@@ -13,11 +13,11 @@ import javax.persistence.OneToMany;
  * 
  * <h1>User</h1>
  * <p>
- * The User class is a model representation of all of the information about a user
- * in the database.
+ * The User class is a model representation of all of the information about a
+ * user in the database.
  * </p>
  * <p>
- * This component uses annotations to indicate that it is an entity, and to
+ * This component uses annotations to indicate that it is an entity and to
  * indicate the meaning of its fields.
  * </p>
  * 
@@ -30,8 +30,8 @@ public class User {
 
 	/**
 	 * <p>
-	 * Id is a serially implemented value in the database. It is used to refer
-	 * to a specific User entry.
+	 * Id is a serially implemented value in the database. It is used to refer to a
+	 * specific User entry.
 	 * </p>
 	 */
 	@Id
@@ -39,63 +39,97 @@ public class User {
 	private int id;
 
 	/**
-	 * <p>Email is a string holding a user's email address.</p>
-	 * <p>It is a column, it can't be null, and it must be unique across users.</p>
+	 * <p>
+	 * Email is a string holding a user's email address.
+	 * </p>
+	 * <p>
+	 * It is a column, it can't be null, and it must be unique across users.
+	 * </p>
 	 */
 	@Column(nullable = false, unique = true)
 	private String email;
-	
+
 	/**
-	 * <p>Password is a string holding a user's password.</p>
-	 * <p>It is a column, and it can't be null.</p>
+	 * <p>
+	 * Password is a string holding a user's password.
+	 * </p>
+	 * <p>
+	 * It is a column, and it can't be null.
+	 * </p>
 	 */
 	@Column(nullable = false)
 	private String password;
-	
+
 	/**
-	 * <p>FirstName is a string holding a user's first name.</p>
-	 * <p>It is a column, and it can't be null.</p>
+	 * <p>
+	 * FirstName is a string holding a user's first name.
+	 * </p>
+	 * <p>
+	 * It is a column, and it can't be null.
+	 * </p>
 	 */
 	@Column(nullable = false)
 	private String firstName;
-	
+
 	/**
-	 * <p>LastName is a string holding a user's last name.</p>
-	 * <p>It is a column, and it can't be null.</p>
+	 * <p>
+	 * LastName is a string holding a user's last name.
+	 * </p>
+	 * <p>
+	 * It is a column, and it can't be null.
+	 * </p>
 	 */
 	@Column(nullable = false)
 	private String lastName;
-	
+
 	/**
-	 * <p>Photo is a string holding the name of a user's profile picture.</p>
-	 * <p>It is a column in the database.</p>
+	 * <p>
+	 * Photo is a string holding the name of a user's profile picture.
+	 * </p>
+	 * <p>
+	 * It is a column in the database.
+	 * </p>
 	 */
 	@Column
 	private String photo;
 
 	/**
-	 * <p>Posts holds a set of post objects that the user has made.</p>
-	 * <p>One user can have many posts.</p>
+	 * <p>
+	 * Posts holds a set of post objects that the user has made.
+	 * </p>
+	 * <p>
+	 * One user can have many posts.
+	 * </p>
 	 */
 	@OneToMany(mappedBy = "author")
 	private Set<Post> posts;
 
 	/**
-	 * <p>Comments holds a set of comment objects that the user has made.</p>
-	 * <p>One user can have many comments.</p>
+	 * <p>
+	 * Comments holds a set of comment objects that the user has made.
+	 * </p>
+	 * <p>
+	 * One user can have many comments.
+	 * </p>
 	 */
 	@OneToMany(mappedBy = "author")
 	private Set<Comment> comments;
 
 	/**
-	 * <p>Likes holds a set of like objects that the user has made.</p>
-	 * <p>One user can have many likes.</p>
+	 * <p>
+	 * Likes holds a set of like objects that the user has made.
+	 * </p>
+	 * <p>
+	 * One user can have many likes.
+	 * </p>
 	 */
 	@OneToMany(mappedBy = "author")
 	private Set<Like> likes;
 
 	/**
-	 * <p>The user can be instantiated with a no-argument constructor.</p>
+	 * <p>
+	 * The user can be instantiated with a no-argument constructor.
+	 * </p>
 	 */
 	public User() {
 		super();
@@ -103,20 +137,22 @@ public class User {
 	}
 
 	/**
-	 * <p>This constructor contains all of the user's fields as inputs.</p>
+	 * <p>
+	 * This constructor contains all of the user's fields as inputs.
+	 * </p>
 	 * 
-	 * @param int id
-	 * @param String email
-	 * @param String password
-	 * @param String firstName
-	 * @param String lastName
-	 * @param String photo
-	 * @param Set<Post> posts
+	 * @param int          id
+	 * @param String       email
+	 * @param String       password
+	 * @param String       firstName
+	 * @param String       lastName
+	 * @param String       photo
+	 * @param Set<Post>    posts
 	 * @param Set<Comment> comments
-	 * @param Set<Like> likes
+	 * @param Set<Like>    likes
 	 */
-	public User(int id, String email, String password, String firstName, String lastName,
-			String photo, Set<Post> posts, Set<Comment> comments, Set<Like> likes) {
+	public User(int id, String email, String password, String firstName, String lastName, String photo, Set<Post> posts,
+			Set<Comment> comments, Set<Like> likes) {
 		super();
 		this.id = id;
 		this.email = email;
@@ -130,19 +166,22 @@ public class User {
 	}
 
 	/**
-	 * <p>This constructor contains all of the user's fields as inputs, excluding the id.</p>
+	 * <p>
+	 * This constructor contains all of the user's fields as inputs, excluding the
+	 * id.
+	 * </p>
 	 * 
-	 * @param String email
-	 * @param String password
-	 * @param String firstName
-	 * @param String lastName
-	 * @param String photo
-	 * @param Set<Post> posts
+	 * @param String       email
+	 * @param String       password
+	 * @param String       firstName
+	 * @param String       lastName
+	 * @param String       photo
+	 * @param Set<Post>    posts
 	 * @param Set<Comment> comments
-	 * @param Set<Like> likes
+	 * @param Set<Like>    likes
 	 */
-	public User(String email, String password, String firstName, String lastName,
-			String photo, Set<Post> posts, Set<Comment> comments, Set<Like> likes) {
+	public User(String email, String password, String firstName, String lastName, String photo, Set<Post> posts,
+			Set<Comment> comments, Set<Like> likes) {
 		super();
 		this.email = email;
 		this.password = password;
@@ -155,9 +194,13 @@ public class User {
 	}
 
 	/**
-	 * <p>This constructor takes in a UserBuilt object.</p>
-	 * <p>User objects are stored in the database, but UserBuilt objects
-	 * are passed to the front end, so this constructor does a conversion.</p>
+	 * <p>
+	 * This constructor takes in a UserBuilt object.
+	 * </p>
+	 * <p>
+	 * User objects are stored in the database, but UserBuilt objects are passed to
+	 * the front end, so this constructor does a conversion.
+	 * </p>
 	 * 
 	 * @param UserBuilt ub
 	 */
@@ -166,7 +209,7 @@ public class User {
 		this.id = ub.getId();
 		try {
 			this.email = ub.getEmail();
-		}catch (Exception e) {
+		} catch (Exception e) {
 			this.email = "";
 		}
 		try {
@@ -193,7 +236,7 @@ public class User {
 		this.comments = null;
 		this.likes = null;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -287,15 +330,17 @@ public class User {
 	}
 
 	/**
-	 * <p>The toString method is an override that returns the values of different
-	 * fields in the user object.</p>
+	 * <p>
+	 * The toString method is an override that returns the values of different
+	 * fields in the user object.
+	 * </p>
 	 * 
 	 * return String
 	 */
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", email=" + email + ", password=" + password + ", firstName=" + firstName
-				+ ", lastName=" + lastName  + ", photo=" + photo + "]";
+				+ ", lastName=" + lastName + ", photo=" + photo + "]";
 	}
 
 //	private int id;
