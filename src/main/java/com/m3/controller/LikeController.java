@@ -5,6 +5,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,12 +40,11 @@ public class LikeController {
 	 */
 	private LikeService ls;
 	
-	@Autowired
-	private static PostDao pd;
-	@Autowired
-	private static UserDao ud;
-	@Autowired
-	private static CommentDao cd;
+	private static ApplicationContext ac = new ClassPathXmlApplicationContext("config.xml");
+	
+	private static PostDao pd = ac.getBean(PostDao.class);
+	private static UserDao ud = ac.getBean(UserDao.class);
+	private static CommentDao cd = ac.getBean(CommentDao.class);
 	
 	/**
 	 * <p>The getLs method retrieves the LikeService field.</p>
@@ -153,7 +154,7 @@ public class LikeController {
 	 * @param LikeBuilt like
 	 */
 	@PostMapping("/insertLike.app")
-	public void insertLike(@RequestBody LikeBuilt like) {
+	public @ResponseBody String insertLike(@RequestBody LikeBuilt like) {
 		Like l = new Like();
 		l.setId(like.getId());
 		try {
@@ -177,6 +178,8 @@ public class LikeController {
 			l.setDateCreated(LocalDateTime.now());
 		}	
 		ls.insertLikeService(l);
+		
+		return "inserted";
 	}
 	
 	/**
