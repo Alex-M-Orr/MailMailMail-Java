@@ -14,9 +14,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.m3.dao.UserDao;
 
+/**
+ * 
+ * <h1>Post</h1>
+ * <p>
+ * The Post class is a model representation of all of the information about a post
+ * in the database.
+ * </p>
+ * <p>
+ * This component uses annotations to indicate that it is an entity, and to
+ * indicate the meaning of its fields.
+ * </p>
+ * 
+ * @authors Alex Orr, Enoch Cho, Jordan Hunnicutt, Robert Porto, Tyrone
+ *          Veneracion
+ *
+ */
 @Entity
 public class Post {
 
+	/**
+	 * <p>The UserDao retrieves information about a User from the database.</p>
+	 * <p>We include it here for conversion between a Post and a PostBuilt.</p>
+	 */
 	@Autowired
 	private static UserDao ud;
 	

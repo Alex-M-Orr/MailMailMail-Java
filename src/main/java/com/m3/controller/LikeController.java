@@ -26,7 +26,7 @@ import com.m3.service.LikeService;
  *
  */
 @Controller
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping
 public class LikeController {
 	/**

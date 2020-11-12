@@ -37,7 +37,7 @@ import com.m3.service.UserService;
  *
  */
 @Controller
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping
 public class UserController {
 	/**
