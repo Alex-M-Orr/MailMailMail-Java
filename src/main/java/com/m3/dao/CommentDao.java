@@ -18,7 +18,7 @@ import com.m3.model.Comment;
  * <h1>CommentDao</h1>
  * <p>
  * The comment dao is how we access our comment objects in the database. CRUD
- * operations for comments and queries fromm the database are performed here.
+ * operations for comments and queries from the database are performed here.
  * 
  * </p>
  * <p>
@@ -94,7 +94,7 @@ public class CommentDao /* implements DaoContract<Comment, Integer> */ {
 	 * The findById method gets a comment in the database by it's id.
 	 * </p>
 	 * 
-	 * @param i
+	 * @param Integer i
 	 * @return Comment c
 	 */
 
@@ -123,7 +123,7 @@ public class CommentDao /* implements DaoContract<Comment, Integer> */ {
 	 * The user's id is given and a list of that user's comments is returned
 	 * </p>
 	 * 
-	 * @param i
+	 * @param Integer i
 	 * @return List<Comment> list
 	 */
 
@@ -153,7 +153,7 @@ public class CommentDao /* implements DaoContract<Comment, Integer> */ {
 	 * post are returned
 	 * </p>
 	 * 
-	 * @param i
+	 * @param Integer i
 	 * @return List<Comment> list
 	 */
 
@@ -177,7 +177,7 @@ public class CommentDao /* implements DaoContract<Comment, Integer> */ {
 	 * comment.
 	 * </p>
 	 * 
-	 * @param t
+	 * @param Comment t
 	 * @return Comment t
 	 */
 	// @Override
@@ -201,7 +201,7 @@ public class CommentDao /* implements DaoContract<Comment, Integer> */ {
 	 * comment.
 	 * </p>
 	 * 
-	 * @param t
+	 * @param Comment t
 	 * @return Comment t
 	 */
 
@@ -226,7 +226,7 @@ public class CommentDao /* implements DaoContract<Comment, Integer> */ {
 	 * object.
 	 * </p>
 	 * 
-	 * @param i
+	 * @param Integer i
 	 * @return Comment c
 	 */
 	// @Override
