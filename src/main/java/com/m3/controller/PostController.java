@@ -1,11 +1,12 @@
 package com.m3.controller;
 
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.anything;
-
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.m3.dao.UserDao;
 import com.m3.model.Post;
 import com.m3.model.PostBuilt;
 import com.m3.service.PostService;
@@ -37,6 +39,9 @@ public class PostController {
 	 */
 	private PostService ps;
 
+	private static ApplicationContext ac = new ClassPathXmlApplicationContext("config.xml");
+	private static UserDao ud = ac.getBean(UserDao.class);
+	
 	/**
 	 * <p>The getPs method retrieves the PostService field.</p>
 	 * 
@@ -116,7 +121,28 @@ public class PostController {
 	 */
 	@PostMapping("/postSave.app")
 	public @ResponseBody PostBuilt save(@RequestBody PostBuilt pb ) {
-		Post p = new Post(pb);
+		Post p = new Post();
+		p.setId(pb.getId());
+		try {
+			p.setContent(pb.getContent());
+		} catch (Exception e) {
+			p.setContent("");
+		}
+		try {
+			p.setPhoto(pb.getPhoto());
+		} catch(Exception e) {
+			p.setPhoto("");
+		}
+		try {
+			p.setAuthor(ud.findById(pb.getAuthorId()));
+		} catch(Exception e) {
+			p.setAuthor(null);
+		}
+		try {
+			p.setDateCreated(pb.getDateCreated());
+		} catch(Exception e) {
+			p.setDateCreated(LocalDateTime.now());
+		}		
 		ps.save(p);
 		return pb;
 	}
