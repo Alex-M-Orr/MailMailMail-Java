@@ -34,7 +34,7 @@ public class GeneralAspect {
 	 * to the log files.
 	 */
 	
-	private static Logger generalLogger = LogManager.getLogger(PostAspect.class);
+	private static Logger generalLogger = LogManager.getLogger(GeneralAspect.class);
 
 	/**
 	 * <p>
