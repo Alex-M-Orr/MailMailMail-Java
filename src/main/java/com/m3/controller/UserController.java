@@ -229,9 +229,10 @@ public class UserController {
 	 */
 
 	@PostMapping("/forgotPass.app")
-	public void sendEmail(@RequestParam String email){
+	public @ResponseBody String sendEmail(@RequestParam String email){
 		ms = new MailService();
 		ms.sendMessage(email);
+		return "sent";
 	}
 	
 }
