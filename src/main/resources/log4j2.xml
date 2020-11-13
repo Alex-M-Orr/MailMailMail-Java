@@ -55,7 +55,7 @@
 
 	</Appenders>
 	<Loggers>
-		<Root level="trace">
+		<Root level="all">
 			<AppenderRef ref="RegisterAppender" level="REGISTER" />
 			<AppenderRef ref="LoginAppender" level="LOGIN" />
 			<AppenderRef ref="AccUpAppender" level="ACCUPDATE" />
