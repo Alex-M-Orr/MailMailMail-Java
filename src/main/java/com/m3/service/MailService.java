@@ -2,12 +2,11 @@ package com.m3.service;
 
 import java.util.Properties;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
-import org.springframework.stereotype.Component;
 
 import com.m3.dao.UserDao;
 import com.m3.model.User;
@@ -25,7 +24,8 @@ public class MailService {
 	/**
 	 * This field is a UserDao, which is a component used to communicate directly with the repository.
 	 */
-	private UserDao ud = new UserDao();
+	ApplicationContext ac = new ClassPathXmlApplicationContext("config.xml");
+	private UserDao ud = ac.getBean(UserDao.class);
 	
 	/**
 	 * This field is a JavaMailSender. It contains information about the mailing protocol, its properties, and the user sending the message.
