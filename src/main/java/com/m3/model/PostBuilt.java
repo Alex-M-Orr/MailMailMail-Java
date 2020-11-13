@@ -115,10 +115,26 @@ public class PostBuilt {
 	public PostBuilt(Post post) {
 		super();
 		this.id = post.getId();
-		this.content = post.getContent();
-		this.photo = post.getPhoto();
-		this.authorId = post.getAuthor().getId();
-		this.dateCreated = post.getDateCreated();
+		try {
+			this.content = post.getContent();
+		} catch (Exception e) {
+			this.content = "";
+		}
+		try {
+			this.photo = post.getPhoto();
+		} catch (Exception e) {
+			this.photo = "";
+		}
+		try {
+			this.authorId = post.getAuthor().getId();
+		} catch (Exception e) {
+			this.authorId = 1;
+		}
+		try {
+			this.dateCreated = post.getDateCreated();
+		} catch (Exception e) {
+			this.dateCreated = LocalDateTime.now();
+		}
 	}
 
 	public PostBuilt() {
