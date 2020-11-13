@@ -178,8 +178,7 @@ public class UserController {
 	 * @return User user
 	 */
 	@PutMapping("/updateUser.app")
-	public @ResponseBody UserBuilt updateUser(@RequestBody User user) {
-		System.out.println(user.toString());
+	public @ResponseBody User updateUser(@RequestBody User user) {
 		User u = us.findById(user.getId());
 		u.setEmail(user.getEmail());
 		u.setPassword(user.getPassword());
@@ -187,8 +186,7 @@ public class UserController {
 		u.setLastName(user.getLastName());
 		u.setPhoto(user.getPhoto());
 		us.update(u);
-		UserBuilt ub = new UserBuilt(u);
-		return ub;
+		return user;
 	}
 
 	/**

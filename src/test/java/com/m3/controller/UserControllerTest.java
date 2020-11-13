@@ -60,7 +60,7 @@ public class UserControllerTest {
 
 	@Test
 	public void createUserTest() {
-		uc.createUser(new UserBuilt(testUser));
+		uc.createUser(testUser);
 		assertEquals(uc.getAll().size(), 0);
 
 	}
