@@ -13,3 +13,12 @@ In Revature's Social Network everyone is friends with everyone else. Users can r
 * Redux
 * Agile-Scrum
 * Enzyme/Jest
+
+## Features
+
+
+## Getting Started
+
+## Usage
+
+## Contributors
