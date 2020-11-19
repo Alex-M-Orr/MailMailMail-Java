@@ -28,5 +28,5 @@ In Revature's Social Network everyone is friends with everyone else. Users can r
 * Jordan Hunnicutt
 * Alex Orr
 * Enoch Cho
-* Robert Porto
 * Tyrone Veneracion
+* Robert Porto
