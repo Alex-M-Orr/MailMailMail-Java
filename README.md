@@ -21,6 +21,9 @@ In Revature's Social Network everyone is friends with everyone else. Users can r
 
 
 ## Getting Started
+1. Open up your terminal and navigate to desired folder to copy the project using cd /(location).
+2. run git clone https://github.com/MochiCircle/social-media-app-backend.git.
+
 
 ## Usage
 
