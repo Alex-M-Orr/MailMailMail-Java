@@ -34,7 +34,7 @@ In Revature's Social Network everyone is friends with everyone else. Users can r
 4. Use Maven commands to build your project into a .war file. For more information on Maven, refer to documentation [here.](https://maven.apache.org/guides/index.html)
 5. Deploy your application using a Server Runtime. This project originally ran on an Apache Tomcat server. You can find information on Apache Tomcat [here.](http://tomcat.apache.org/)
 ## Usage
-<img src="https://github.com/TyroneV/MailMailMail-React/blob/master/public/images/M3Login.png">
+<img src="https://github.com/TyroneV/MailMailMail-React/blob/master/public/images/M3Login.png" />
 ## Contributors
 * Jordan Hunnicutt
 * Alex Orr
