@@ -18,7 +18,13 @@ In Revature's Social Network everyone is friends with everyone else. Users can r
 * Enzyme/Jest
 
 ## Features
-
+* As a user
+  * I can login.
+  * I can write a post.
+  * I can like a post.
+  * I can search other users and view their profile.
+  * I can edit my profile. change my name, password and profile picture.
+  * I can ask for a password reset and the application will send me an email on how to reset my password.
 
 ## Getting Started
 1. Open up your terminal and navigate to desired folder to copy the project using cd /(location).
