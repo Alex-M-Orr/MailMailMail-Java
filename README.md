@@ -50,7 +50,7 @@ In Revature's Social Network everyone is friends with everyone else. Users can r
 5. Edit Profile:
 <img src="https://github.com/TyroneV/MailMailMail-React/blob/master/public/images/M3EditProfile.png">
 
-5. Search Function:
+6. Search Function:
 <img src="https://github.com/TyroneV/MailMailMail-React/blob/master/public/images/M3Search.png" />
 
 ## Contributors
