@@ -20,6 +20,7 @@ In Revature's Social Network everyone is friends with everyone else. Users can r
 ## Features
 * As a user
   * I can login.
+  * I can Register
   * I can write a post.
   * I can like a post.
   * I can search other users and view their profile.
