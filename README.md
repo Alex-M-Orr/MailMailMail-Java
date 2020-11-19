@@ -33,8 +33,26 @@ In Revature's Social Network everyone is friends with everyone else. Users can r
      a. Change the url, username, and password variables in your ApplicationConfig file, and hibernate config files, in src/main/resources.
 4. Use Maven commands to build your project into a .war file. For more information on Maven, refer to documentation [here.](https://maven.apache.org/guides/index.html)
 5. Deploy your application using a Server Runtime. This project originally ran on an Apache Tomcat server. You can find information on Apache Tomcat [here.](http://tomcat.apache.org/)
+
 ## Usage
+1. Login Page:
 <img src="https://github.com/TyroneV/MailMailMail-React/blob/master/public/images/M3Login.png" />
+
+2. Feed:
+<img src="https://github.com/TyroneV/MailMailMail-React/blob/master/public/images/M3Home.png" />
+
+3. Post Example:
+<img src="https://github.com/TyroneV/MailMailMail-React/blob/master/public/images/M3Post.png" />
+
+4. Profile Page:
+<img src="https://github.com/TyroneV/MailMailMail-React/blob/master/public/images/M3Profile.png" />
+
+5. Edit Profile:
+<img src="https://github.com/TyroneV/MailMailMail-React/blob/master/public/images/M3EditProfile.png">
+
+5. Search Function:
+<img src="https://github.com/TyroneV/MailMailMail-React/blob/master/public/images/M3Search.png" />
+
 ## Contributors
 * Jordan Hunnicutt
 * Alex Orr
