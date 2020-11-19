@@ -18,28 +18,20 @@ In Revature's Social Network everyone is friends with everyone else. Users can r
 * Enzyme/Jest
 
 ## Features
-* As a user
-  * I can login.
-  * I can write a post.
-  * I can like a post.
-  * I can search other users and view their profile.
-  * I can edit my profile. change my name, password and profile picture.
-  * I can ask for a password reset and the application will send me an email on how to reset my password.
+
 
 ## Getting Started
-1. Open up your terminal and navigate to desired folder to copy the project using cd /(location).
-2. Run git clone https://github.com/JordanHunnicutt/MailMailMail-Java.
-3. Open up project in your desired Java IDE.
-4. Edit your credentials in applicationContext.xml
-5. Set up your AWS S3 bucket.
-6. Install Apache Tomcat (or equivalent) and run the project through localhost. See Apache documentation for more info.
-
-
+1. Navigate to your desired directory in your terminal, and run this command: `git clone https://github.com/JordanHunnicutt/MailMailMail-Java.git`
+2. Import the project into your desired IDE as a Maven project. This is confirmed to work in Eclipse.
+3. Get access to an SQL database. This project was created using PostgreSQL on an Amazon AWS RDS.
+     a. Change the url, username, and password variables in your ApplicationConfig file, and hibernate config files, in src/main/resources.
+4. Use Maven commands to build your project into a .war file. For more information on Maven, refer to documentation [here.](https://maven.apache.org/guides/index.html)
+5. Deploy your application using a Server Runtime. This project originally ran on an Apache Tomcat server. You can find information on Apache Tomcat [here.](http://tomcat.apache.org/)
 ## Usage
 
 ## Contributors
 * Jordan Hunnicutt
 * Alex Orr
 * Enoch Cho
-* Tyrone Veneracion
 * Robert Porto
+* Tyrone Veneracion
